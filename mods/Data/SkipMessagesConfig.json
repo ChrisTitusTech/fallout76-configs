@@ -1,0 +1,31 @@
+{
+	"debug": true,
+	"testRun": false,
+	"SkipDelay": 25,
+	
+	"SkipScrapComponentsView": {
+		"Enabled": false,
+		"Legendary": true,
+		"NonLegendary": true
+	},
+	
+	"AutoUseRepairKit": true,
+	"ScrapLegendary": true,
+	"ScrapPremium": true,
+	
+	"SkipCustom": {
+		
+		// Few examples:
+		"By performing this action, you will leave your current team. Leave your team?": 0,
+		"$Loaded_Into_Nuke_Zone": 0,
+		"Exit Station?": 1,
+		"Choose a travel point for The Whitesprings North Entrance": 1,
+		".....":0
+	},
+	"SkipCustomRegex": {
+		
+		// Few examples:
+		// "Pay [0-9]{1,2} Caps to travel": 0
+		// "Choose a travel point for": 1
+	}
+}

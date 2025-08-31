@@ -1,0 +1,195 @@
+{
+  //Yes yes, I know that adding comments to JSON is a crime against the specification.
+  // Forgive me, Todd
+  "features": [
+    {
+      // Should we automatically realign elements under the HP bar? [Available values: true/false]
+      // Original positions - Weight:  -30,15 Caps: 60,15 Cores: 215,15 Clock: 250,15 
+      // DISABLE THIS IF YOU WANT TO SET A CUSTOM POSITIONS FOT LEFT SIDE WIDGETS (Currencies/Cores/Weight/Clock)
+      "autoAlignLeftGroup": true,
+      // At which percentage the thirst bars should be hidden. Must be a ranged number between 0 and 1, but setting it to 100 makes it stay forever.  [Default game value: 0.2 Maximum value: 100]
+      "thirstBarsPercentIndefiniteShow": 0.2,
+      // Whether to hide survival icons or not [Available values: true/false]
+      "showHungerThirstIcons": true,
+      //This subsection defines specific widget settings, as well as the on-screen coordinates for the HUD elements. All positions are relative to the parent containers. Change it only if you have to.
+      // You can set the scale of each widget elements, if you do not like their default sizes. 
+      "widgets": [
+        {
+          "weight": {
+            // Whether to display the player's current carry weight. [Available values: true/false]
+            "enabled": true,
+            "x": -30,
+            "y": 15,
+            "scale": 1
+          },
+          "currencies": {
+            //Whether to show the number of bottle caps and optionally other currencies specified in 'showonly' setting. [Available values: true/false]
+            "enabled": true,
+            // Which currencies to show, separated by ';' [Available values "caps", "scrips", "bullion", "stamps"]
+            "showonly": "caps;bullion;stamps;scrips",
+            "x": 60,
+            "y": 15,
+            "scale": 1
+          },
+          "cores": {
+            // Whether to display the number of fusion cores. [Available values: true/false]
+            "enabled": true,
+            "x": 215,
+            "y": 15
+          },
+          "clock": {
+            // Displays a clock.
+            // If you see the "not synced" message — open your Pip-Boy radio to sync the time.
+            // If you're still seeing this message after opening pipboy's radio a few times - it means another mod is conflicting with this feature.
+            // It will desync if you minimize the game.
+            "enabled": true,
+            // Which clock to show, separated by ';'.  [Available values "server" - server time, "local" - local time. Default is Server]
+            "mode": "server;local",
+            // Whether to show your local time next to the server time.
+            "use24hFormat": true,
+            "x": 250,
+            "y": 15,
+            "scale": 1
+          },
+          "weaponcond": {
+            //Whether to show the condition of the currently equipped weapon. [Available values: true/false]
+            "enabled": true,
+            // You can enable weapon name display. If you disable this setting, you'll only see a percentage indicator, e.g., (12.5%). 
+            "showNames": true,
+            // By default, with weapon name display enabled, the widget shows the full name. You can use shortened names to display only the weapon name itself, without legendaries.
+            // It works only in some languages for now. Not in english.
+            "shortenNames": false,
+            // Toggles visibility of the weapon icon
+            "showWeaponIcon": true,
+            "x": -60,
+            "y": -95,
+            "scale": 1
+          },
+          "stats": {
+            //Whether to show the simple SPECIAL widget. [Available values: true/false]
+            "enabled": true,
+            "x": -100,
+            "y": -110,
+            "scale": 1
+          },
+          // Monitor up to 5 items. TEST ONLY
+          // Pattern accepts a valid regex pattern.
+          // Label is a text displayed on the screen
+          // valuecolor, labelcolor are optional. they sets a color on counter and label fields
+          // =============================================================================================================================================================================================================== //
+          // You need to create an appropriate regex rule for each item. I assume you know how to write regular expressions. Visit https://regex101.com/ if you’re looking for a testing tool. 
+          // If you’re not familiar with this, unfortunately I don’t have time to teach you. You can also use AI tools like chatGPT to generate AS3 regex patterns with the parameters you want, and test it on the site above.
+          // regex flags are always placed after the '/' sign. Eg "/Simpak: Super/i" will match and count all Superstimpaks from your inventory. You can even create a regex that will
+          // count only standard Stimpakss and Super, and exclude Diluted. 
+          // =============================================================================================================================================================================================================== //
+          "itemmonitor": {
+            "enabled": true,
+            "inline": true,
+            "x": -100,
+            "y": 35,
+            "scale": 1,
+            "valueprefix": "",
+            "items": [
+              // This example matches Superstimpaks
+              {
+                "enabled": true,
+                "pattern": "/Stimpak: Super/",
+                "label": "Superstimpaks",
+                "valuecolor": "#66ACB7",
+                "labelcolor": "#FFFFCA"
+              },
+              // This example counts treasury notes
+              {
+                "enabled": true,
+                "pattern": "/Treasury Note/",
+                "label": "Treasury notes",
+                "valuecolor": "#66ACB7",
+                "labelcolor": "#FFFFCA"
+              },
+              // Etc...
+              {
+                "enabled": false,
+                "pattern": "",
+                "label": "Everything",
+                "valuecolor": "#66ACB7",
+                "labelcolor": "#FFFFCA"
+              },
+              {
+                "enabled": false,
+                "pattern": "",
+                "label": "Everything",
+                "valuecolor": "#66ACB7",
+                "labelcolor": "#FFFFCA"
+              },
+              {
+                "enabled": false,
+                "pattern": "",
+                "label": "Everything",
+                "valuecolor": "#66ACB7",
+                "labelcolor": "#FFFFCA"
+              }
+            ]
+          }
+        }
+      ],
+      "colors": [
+        {
+          "global": {
+            "weight": "#FFFFAA",
+            "currencies": "#FFFFAA",
+            "cores": "#FFFFAA",
+            "clock": "#FFFFAA",
+            "weaponcond": "#FFFFCA",
+            "special": {
+              "S": "#779878",
+              "P": "#786D4F",
+              "E": "#66ACB7",
+              "C": "#C58B4C",
+              "I": "#9A9A80",
+              "A": "#BD9079",
+              "L": "#A19AAC"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  //Controls the visibility and display style of bar segments
+  "segments": [
+    {
+      //Enables segmentated health bar. [Available values: true/false]
+      "health": true,
+      //Enables segmentated hunger bar. [Available values: true/false]
+      "hunger": true,
+      //Enables segmentated thirst bar. [Available values: true/false]
+      "thirst": true,
+      //Determines the visual style for each segment widget. Available values are "single" (one segment at 20%) and "full" (four segments every 20%).  
+      "style": [
+        {
+          "health": "single",
+          "hunger": "full",
+          "thirst": "full"
+        }
+      ]
+    }
+  ],
+  //Configures whether specific percentages are displayed, and what suffix to use
+  "percentages": [
+    {
+      //Whether to show percentage  near health bar. [Available values: true/false]
+      "health": true,
+      //Whether to show the original bethesdas percentage near health bar. [Available values: true/false. Setting this to true disables mods's health percentage info. if the percentage disappears completely, you have old HUDMenu (chatmod?)]
+      "bethhealth": false,
+      //Whether to show percentage  near hunger bar. [Available values: true/false]
+      "hunger": true,
+      //Whether to show percentage  near thirst bar. [Available values: true/false]
+      "thirst": true,
+      //Whether to show percentage  near feral bar. [Available values: true/false]
+      "feral": true,
+      //Whether to show percentage  near glow bar. [Available values: true/false]
+      "glow": true,
+      //Percentage postfix. Set it to "" to get rid of it
+      "postfix": "%"
+    }
+  ]
+}

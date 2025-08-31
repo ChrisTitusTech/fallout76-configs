@@ -1,0 +1,80 @@
+{
+	"debug": 1,
+	"disabled": false,
+	
+	"lockPriorityTarget": false,
+	"lockPriorityTargetExcluded": ["SENTRY BOT", "ULTRACITE TERROR", "STORM GOLIATH", "CARGOBOT", "ASSAULTRON", "EN06 GUARDIAN", "DEATHCLAW", "SCORCHBEAST", "GRIMM BOT", "SHERIFF BOT"],
+	
+	"useTargetSoundIndicator": false,
+	"targetSoundIndicator": {
+		"¬": "UILegendaryCreature",
+		"LEGENDARY": "UILegendaryCreature",
+		"ANOTHER EXAMPLE TARGET": "UITargetingComputerMapTargetConfirm"
+	},
+	
+	"useTargetNames": true, // Requires HUDModLoader + HUDTools
+	
+	"defaultPriority": ["HEAD"],
+	"priorities": {
+		"SENTRY BOT": [
+			{"partName": "FUSION CORE", "minHitChance": 1},
+			"ARM"
+		],
+		"GRIMM BOT": [
+			{"partName": "FUSION CORE", "minHitChance": 1},
+			"ARM"
+		],
+		"SHERIFF BOT": [
+			{"partName": "FUSION CORE", "minHitChance": 1},
+			"ARM"
+		],
+		"TURRET": "BARREL",
+		"GUTSY": "THRUSTER",
+		"NANNY": "THRUSTER",
+		"HANDY": "THRUSTER",
+		"ULTRACITE TERROR": [
+			{"partName": "RIGHTEYE", "minHitChance": 1}
+		],
+		"FLOATER": "EYES",
+		"POLLINATOR": "EYES",
+		"STORM GOLIATH": [
+			{"partName": "GLASS", "notCrippled": true},
+			{"partName": "BACK PANEL", "notCrippled": true, "minHitChance": 1},
+			{"partName": "LEFT", "notCrippled": true},
+			{"partName": "RIGHT", "notCrippled": true},
+			{"partName": "TORSO", "notCrippled": true},
+			"GLASS"
+		],
+		"EYEBOT": [
+			{"partName": "BACK PANEL", "minHitChance": 25},
+			"ANTENNA"
+		],
+		"REPAIR BOT": [
+			{"partName": "BACK PANEL", "minHitChance": 25},
+			"ANTENNA"
+		],
+		"CARGOBOT": [
+			{"partName": "BOOSTER", "notCrippled": true}
+		],
+		"ASSAULTRON": [
+			{"partName": "RIGHT LEG", "notCrippled": true},
+			{"partName": "LEFT LEG"}
+		],
+		"VERTIBIRD": "CABIN",
+		"EN06 GUARDIAN": [
+			{"partName": "ULTRAGENETIC SHIELD", "notCrippled": true, "minHitChance": 1},
+			"TORSO"
+		],
+		"GRAFTON MONSTER": "BLOWHOLE",
+		"RADSCORPION": "FACE",
+		"DEATHCLAW": [
+			{"partName": "RIGHT LEG", "notCrippled": true, "minHitChance": 1},
+			{"partName": "LEFT LEG", "notCrippled": true, "minHitChance": 1},
+			"BELLY"
+		],
+		"SCORCHBEAST": [
+			{"partName": "WING", "notCrippled": true}
+		],
+		"MIRELURK QUEEN":"SPOUTS"
+	}
+}

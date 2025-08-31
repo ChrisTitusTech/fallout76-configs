@@ -1,0 +1,380 @@
+{
+	// WIDGET SETTINGS
+	"x": 1510,
+	"y": 800,
+	"anchor": "bottom", /* top, bottom */
+	"ySpacing": -5,
+	"width": 400,
+	"textSize": 18,
+	/* Some of the working fonts:
+	"$76HandwrittenNeat_Font", "$76HandwrittenIlliterate", "$BerlinDemi", "$BRODY",
+	"$Brush_Script_Std", "$ChowderHead", "$ConsoleFont", "$DebugTextFont", "$DotMatrix_Font",
+	"$evaScript_Font", "$Futura_Bold", "$HandwrittenFont", "$KiddieCocktails", "$Leiascript_Font",
+	"$MAIN_Font", "$MAIN_Font_Bold", "$MAIN_Font_Light", "$NixieTube_Font", "$Portico_Font_Regular",
+	"$Slate_Mobile", "$Terminal_Font", "$Typewriter_Font" */
+	"textFont": "$MAIN_Font",
+	"textAlign": "right", /* left, center, right */
+	"textColor": "0xffffff",
+	"textShadow": true,
+	"background": false,
+	"backgroundColor": "0x222222",
+	/* alpha / backgroundAlpha:
+		0 = loads default value
+		0.0001 = transparent
+		0.0 < value < 1.0 = semi-transparent
+		1.0 = opaque */
+	/* HUD Opacity in settings can be changed so value of "alpha" can go over 1.0 (does not apply to "backgroundAlpha") */
+	"alpha": 1.0,
+	"backgroundAlpha": 0.25,
+	/* Blend modes:
+	add, alpha, darken, difference, erase, hardlight, invert, layer,
+	lighten, multiply, normal, overlay, screen, shader, subtract
+	https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/BlendMode.html */
+	"blendMode": "normal",
+	"textBlendMode": "normal",
+	
+	"disableRealTimeEdit": false,
+	
+	
+	
+	// OVERLAY MOD LOADER ONLY SETTINGS - Improved Social Menu 1.0.4+
+	"debugKeys": false,
+	"toggleVisibilityHotkey": 107,
+	"forceHideHotkey": 109, // Update 1.1.7
+	
+	
+	
+	// CHALLENGES & EVENTS DISPLAY SETTINGS
+	"refresh": 1000,
+	
+	/* Formats accept:
+	Challenges: daily, weekly, events, seasonal, character, survival, combat, social, world, fishing
+	Events: mutatedEvent, publicEvent, worldEvent, caravan
+	
+	Challenges accept: {text}, {currentValue}, {thresholdValue}
+		default: "{text} {currentValue}/{thresholdValue}"
+		e.g. "daily": "{text} {currentValue}/{thresholdValue}",
+	
+	Events accept: {text}, {time}
+	mutatedEvent also accepts {mutation}
+		default: "{text} {time}"
+		mutatedEvent default: "{text} [{mutation}] {time}"
+		e.g. "caravan": "[C] {text} {time}"
+
+	Update 1.1.1:
+	mutatedEvent and publicEvent also accepts {participants}
+	
+	Update 1.1.3:
+	showSeasonEndTime, accepts {time}
+	*/
+	"formats": {
+		"daily": "{text} {currentValue}/{thresholdValue}",
+		"weekly": "{text} {currentValue}/{thresholdValue}",
+		"monthly": "{text} {currentValue}/{thresholdValue}", // Update 1.1.1
+		"events": "{text} {currentValue}/{thresholdValue}",
+		"seasonal": "{text} {currentValue}/{thresholdValue}",
+		"character": "{text} {currentValue}/{thresholdValue}",
+		"survival": "{text} {currentValue}/{thresholdValue}",
+		"combat": "{text} {currentValue}/{thresholdValue}",
+		"social": "{text} {currentValue}/{thresholdValue}",
+		"world": "{text} {currentValue}/{thresholdValue}",
+		"fishing": "{text} {currentValue}/{thresholdValue}", // 1.1.3
+		
+		"mutatedEvent": "[M][{participants}] {text} [{mutation}] {time}",
+		"publicEvent": "[P][{participants}] {text} {time}",
+		"worldEvent": "[W] {text} {time}",
+		"caravan": "[C] {text} {time}",
+		
+		"showSeasonEndTime": "Season end: {time}" // 1.1.3
+	},
+	
+	"xpBar": { // Update 1.0.3
+		"enabled": true,
+		//text accepts: {text}, {currentLevel} {progress}, {lastChangeValue},
+		// {currentValue}, {thresholdValue} (Update 1.0.4)
+		"text": "{text} [{currentLevel}] {progress}% ({lastChangeValue})",
+		"alignVertical": "center", /* top, center, bottom */
+		"alignHorizontal": "right", /* left, center, right */
+		"height": 20
+	},
+	
+	"scoreBar": { // Update 1.0.3
+		"enabled": true,
+		"text": "SCORE [{currentRank}] {currentValue}/{thresholdValue} ({progress}%) +{currentBoost}% boost",
+		//{progress}, {currentValue}, {thresholdValue}, {currentRank}, {currentBoost}
+		"alignVertical": "center", /* top, center, bottom */
+		"alignHorizontal": "right", /* left, center, right */
+		"height": 20
+	},
+	
+	"offsetUTC": 0, // Update 1.0.3
+	
+	"minerva": { // Update 1.0.4
+		"offsetHours": 0,
+		"availableText": "Minerva is at {location} for {time}",
+		"notAvailableText": "Minerva will be at {location} in {time}",
+		"locations": ["Foundation","Crater","Fort Atlas","Whitesprings"]
+	},
+	
+	"nuclearCodes": { // Update 1.0.6
+		"offsetHours": 0,
+		//text accepts: {codeAlpha}, {codeBravo}, {codeCharlie}, {time}
+		"text": "A:{codeAlpha}  B:{codeBravo}  C:{codeCharlie} ({time})"
+	},
+	
+	"eventTimer": { // Update 1.0.6
+		"showWithDurationBelowMinutes": 5,
+		"eventTimestamps": [20, 40, 60],
+		//text accepts: {time}
+		"text": "Next public event in: {time}"
+	},
+	
+	"miniSeason": { // Update 1.1.3
+		"hideIfInactive": false,
+		"hideIfRewardsClaimed": false,
+		"activeText": "MiniSeason end: {time} [{currentValue}/{thresholdValue}]",
+		"inactiveText": "MiniSeason start: {time}"
+	},
+	
+	"verdantSeason": { // Update 1.1.4
+		"hideEndedSeasonAfter": 30,
+		"activeText": "Verdant season active in {region} ({time} ago)",
+		"endedText": "Verdant season ended in {region} ({time} ago)"
+	},
+	
+	"showOnlyTrackedChallenges": { // Update 1.0.4
+		"daily": false,
+		"weekly": false,
+		"monthly": false, // Update 1.1.1
+		"events": false,
+		"seasonal": false,
+		"character": false,
+		"survival": false,
+		"combat": false,
+		"social": false,
+		"world": false,
+		"fishing": false // Update 1.1.3
+	},
+	
+	"countdownTimerForEvents": {
+		"enabled": false,
+		"events": {
+			"Event: Lode Baring": 420,
+			"Event: Feed the People": 300,
+			"Event: Eviction Notice": 480,
+			"Event: Moonshine Jamboree": 540
+		}
+	},
+	
+	/* Display data options:
+	"showVersion" - mod version
+	"showHUDMode" - current HUD Mode, turn it on if you want to hide widget on some screen, use displayed name in "HUDModes" below
+	"showRenderTime" - time in milliseconds it took to redraw widget
+	"showElapsedTime" - elapsed time on server
+	"showLastConfigUpdate" - last time when config was reloaded (either on server join or config file changed)
+	"showLastEventsUpdate" - time in milliseconds it took to process events data change
+	"showLastChallengesUpdate" - time in milliseconds it took to process challenges data change
+	
+	Update 1.0.3:
+	"showXPBar" - show xp bar showing progress to next level, customize in xpBar field
+	"showScoreBar" - show SCORE bar showing progress to next rank, customize in scoreBar field
+	"showTime12" - current PC time in 12-hour format, e.g. 5:05 PM
+	"showTime24" - current PC time in 24-hour format, e.g. 17:05
+	"showUTCTime" - current UTC time in format hh:mm:ss, adjust hour offset timezone in "offsetUTC" field
+	"showSeasonEndTime" - time until end of current season, in format dd:hh:mm:ss
+	
+	Update 1.0.4:
+	"showMinerva" - show Minerva's availability, location and time to arrival/departure, customize in minerva field
+	
+	Update 1.0.6:
+	"showNuclearCodes" - show this week's nuclear silo codes and expire time, customize in "nuclearCodes" field
+	Note: one week in a year codes take longer to reset so it will show as "WARNING: Rollover week" when that happens
+		and it will show previous week's codes - one of those 2 sets will work
+	"showEventTimer" - show timer until next public event, currently every 20 minutes, customize in "eventTimer" field
+	
+	"emptyspace:height"
+		examples: "emptyspace:5", "emptyspace:-5"
+	"separator:height:color" - line separator, color can also be specified as any customColors value
+		examples: "separator:1:0xffffff", "separator:3:orange"
+	"text:color:text to display" - color can also be specified as any customColors value
+		text accepts {dailyExpireTime}, {weeklyExpireTime}, {dailyProgress}, {weeklyProgress}
+			{monthlyExpireTime}, {monthlyProgress} - Update 1.1.1
+		examples: "text:0xffffff:My custom text", "text:Daily:DAILY {dailyProgress}"
+	"challenges:group"
+		options: daily, weekly, events, seasonal, character, survival, combat, social, world
+		examples: "challenges:daily", "challenges:weekly"
+	"events:group"
+		options: mutatedEvent, publicEvent, worldEvent, caravan
+		examples: "events:mutatedEvent", "events:publicEvent"
+	
+	Update 1.1.1:
+	"positionX:number" and "positionY:number" - dynamic position change for following displayData records
+		if "anchor" is "bottom", position changes will be applied to records above these ones
+	
+	Update 1.1.3:
+	"showMiniSeasonTime" - time until end of current, or beginning of next mini season, customize in "miniSeason" field
+	
+	Update 1.1.4:
+	"showVerdantSeasons" - currently active verdant seasons, does not work in overlay mode
+	
+	Update 1.1.8:
+	"textAlign:alignment" - dynamic text alignment for following displayData records
+		options: "left", "right", or "center", e.g. "textAlign:center"
+	"textSize:number" - dynamic text size for following displayData records
+	"ySpacing:number" - dynamic position change for following displayData records
+		
+	textAlign/textSize/ySpacing applies same logic as positionX/positionY - if "anchor" is "bottom", position changes will be applied to records above these ones
+		
+	Data will show in order in which it is listed here: */
+	"displayData": [
+		"showVersion",
+		"showHUDMode",
+		//"showRenderTime",
+		//"showElapsedTime",
+		//"showLastConfigUpdate",
+		//"showLastEventsUpdate",
+		//"showLastChallengesUpdate",
+		//"showTime12",
+		//"showTime24",
+		//"showUTCTime",
+		"showSeasonEndTime",
+		"showMiniSeasonTime",
+		"showVerdantSeasons",
+		"emptyspace:10",
+		
+		"showMinerva",
+		"showNuclearCodes",
+		
+		//"showXPBar",
+		//"showScoreBar",
+		"emptyspace:10",
+		
+		"text:orange:DAILY ({dailyProgress}) ({dailyExpireTime})",
+		"challenges:daily",
+		"emptyspace:10",
+		
+		"text:orange:WEEKLY ({weeklyProgress}) ({weeklyExpireTime})",
+		"challenges:weekly",
+		"emptyspace:10",
+		
+		//"text:pink:MONTHLY ({monthlyProgress}) ({monthlyExpireTime})",
+		//"challenges:monthly",
+		//"emptyspace:10",
+		
+		"text:orange:EVENT ({eventsProgress}) ({eventsExpireTime})",
+		"challenges:events",
+		"emptyspace:10",
+		
+		"challenges:seasonal",
+		
+		"text:orange:EVENTS",
+		"showEventTimer",
+		"events:mutatedEvent",
+		"events:publicEvent",
+		"events:worldEvent",
+		"events:caravan"
+	],
+	
+	/* Custom color options:
+	All displayData options: "showVersion", "showHUDMode", "showRenderTime"...
+	All challange options: daily, weekly, events, seasonal, character, survival, combat, social, world
+	All events options: mutatedEvent, publicEvent, worldEvent, caravan
+	Any other string that can be used in "text:..." or "separator:..." displayData options
+	
+	"minervaAvailable" and "minervaNotAvailable" (Update 1.0.4)
+	
+	"miniSeasonActive" and "miniSeasonInactive" (Update 1.1.3)
+	
+	"verdantSeasonActive" and "verdantSeasonEnded" (Update 1.1.4)
+	*/
+	"customColors":	{
+		"pink": "0xf7a0b5",
+		"white": "0xffffff",
+		"orange": "0xffb300",
+		"purple": "0xaaaaff",
+		"lightGreen": "0x99ff99",
+		"teal": "0x77eeff",
+		"yellow": "0xffff00",
+		"lightYellow": "0xffffcb",
+		
+		"showVersion": "0xff2222",
+		"showHUDMode": "0xffffff",
+		"showRenderTime": "0x55ff55",
+		"showElapsedTime": "0xffaacc",
+		"showLastConfigUpdate": "0x77eeff",
+		"showLastEventsUpdate": "0xaaaaff",
+		"showLastChallengesUpdate": "0xaaaaff",
+		"showTime12": "0x99ff99",
+		"showTime24": "0x99ff99",
+		"showUTCTime": "0xf7a0b5",
+		"showSeasonEndTime": "0x77eeff",
+		"showNuclearCodes": "0xff3333",
+		"showEventTimer": "0xffff55",
+		
+		"daily": "0x99ff99",
+		"weekly": "0xddbbff",
+		"monthly": "0xffffcb",
+		"combat": "0xff5555",
+		"events": "0xccccff",
+		
+		"caravan": "0xf7a0b5",
+		"mutatedEvent": "0xd2ff22",
+		"publicEvent": "0xffb300",
+		"worldEvent": "0xffffcb",
+		
+		"showScoreBar": "0xffffff",
+		"scoreBar": "0x0066ff",
+		"showXPBar": "0x99ff99",
+		"xpBar": "0x009900",
+		
+		"minervaAvailable": "0xaaffaa",
+		"minervaNotAvailable": "0xffaaaa",
+		
+		"miniSeasonActive": "0x77eeff",
+		"miniSeasonInactive": "0xff7777",
+		
+		"verdantSeasonActive": "0xaaff77",
+		"verdantSeasonEnded": "0xff7777"
+	},
+	"customEventChallengeColors": { // Update 1.0.3
+		"gold star:": "0x66ff66",
+		"repeatable": "0xdd88ff",
+		"epic": "0xdd88ff",
+		"week 1": "0x9999ff",
+		"week 2": "0x9999ff"
+	},
+	
+	"hideChallengesState": "hidden", /* Options: hidden, shown */
+	"hideChallenges": [
+		"level up 5 more times"
+	],
+	
+	"hideEventsState": "hidden", /* Options: hidden, shown */
+	"hideEvents": [
+		"powering up"
+	],
+	
+	/* HUD Modes:
+	"ActivateTypeMode", "All", "AutoVanity", "CampPlacement", "ContainerMode", "CrosshairAndActivateOnly",
+	"DeathRespawnMode", "DefaultScopeMenu", "DialogueMode", "EndOfMatch", "FurnitureEnterExit", "InsideMemory",
+	"InspectMode", "IronSights", "LegendaryPerksMode", "LockpickingMode", "MapMenu", "MessageMode",
+	"MovementDisabled", "NoHud", "PauseMode", "PerksMode", "Pipboy", "PowerArmor", "RadialMenu", "ScopeMenu",
+	"SelfieMode", "SitWaitMode", "SpectatorMode", "TerminalMode", "VATS", "VATSPlayback", "VertibirdMode",
+	"WorkshopMode"
+	"Loading", "MainMenu"
+	"Fishing"
+	
+	"All" is default HUD mode (non-power armor), not all of them */
+	"HUDModesState": "shown", /* Options: hidden, shown */
+	"HUDModes": [
+		"ActivateTypeMode",
+		"All",
+		"ContainerMode",
+		"InspectMode",
+		"MapMenu",
+		"Pipboy",
+		"PowerArmor",
+		"SelfieMode",
+		"WorkshopMode"
+	]
+}
