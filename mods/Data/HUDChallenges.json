@@ -227,8 +227,8 @@
 		
 	Data will show in order in which it is listed here: */
 	"displayData": [
-		"showVersion",
-		"showHUDMode",
+		//"showVersion",
+		//"showHUDMode",
 		//"showRenderTime",
 		//"showElapsedTime",
 		//"showLastConfigUpdate",
@@ -237,16 +237,15 @@
 		//"showTime12",
 		//"showTime24",
 		//"showUTCTime",
-		"showSeasonEndTime",
-		"showMiniSeasonTime",
-		"showVerdantSeasons",
-		"emptyspace:10",
+		//"showSeasonEndTime",
+		//"showMiniSeasonTime",
+		//"showVerdantSeasons",
+		//"emptyspace:10",
 		
 		"showMinerva",
 		"showNuclearCodes",
-		
-		//"showXPBar",
-		//"showScoreBar",
+		"showXPBar",
+		"showScoreBar",
 		"emptyspace:10",
 		
 		"text:orange:DAILY ({dailyProgress}) ({dailyExpireTime})",
