@@ -17,6 +17,9 @@
 	"swapToContainerInventoryHotkey": 0,
 	"hideUnknownGamepadButtonIcons": true,
 	"defaultSelectedTab": "-",
+	"scrapItemCountThresholdPopup": 5,
+	"transferItemCountThresholdPopup": 4,
+
 	"additionalColumnsConfig": {
 		"enabled": false,
 		"offsetInventories": 132,
@@ -33,7 +36,7 @@
 		"ExampleGroup2": ["item 3", "item 4"]
 	},
 	"legendaryModsConfig": {
-		"enabled": false,
+		"enabled": true,
 		"showUnknownModsAmongAllChars": false,
 		"showInWorkbench": true,
 		"showInStash": true,
@@ -41,14 +44,21 @@
 		"showInWorldContainers": true,
 		"learnableText": "[Learnable]",
 		"learnableFromArmorText": "[Learnable from Armor]",
+		"learnableFromPowerArmorText": "[Learnable from Power Armor]",
 		"learnableFromWeaponText": "[Learnable from Weapon]",
 		"learnableTextColorStyle": "PREFIX",
-		"learnableTextColor": "0xff0000"
+		"learnableTextColor": "0xff0000",
+		"keepText": "[Keep]",
+		"keepTextColorStyle": "PREFIX",
+		"keepTextColor": "0x00ffd1",
+		"keepLearnableText": "[Keep+Learnable]",
+		"keepLearnableTextColorStyle": "PREFIX",
+		"keepLearnableTextColor": "0xd100ff"
 	},
 	"categoryWeightConfig": {
 		"enabled": false,
 		"debug": false,
-		"hotkey": 116,
+		"hotkey": "F5",
 		"weightLabelWidth": 200,
 		"itemCardDelay":75,
 		"itemCardFilters": ["WEAPON", "ARMOR", "FOOD_WATER", "AID", "JUNK", "AMMO"]
@@ -63,7 +73,7 @@
 			"showButton": true,
 			"showMessage": true,
 			"name": "Lock All",
-			"hotkey": 75,
+			"hotkey": "K",
 			"delay": 50
 		},
 		"saleProtection": {
@@ -109,20 +119,184 @@
 		"limitHighColor": "0xff0000"
 	},
 	"campAssignConfig": {
-		"name": "Assign R_AMOUNT",
 		"enabled": false,
-		"debug": false,
-		"showButton": true,
-		"hotkey": 70,
-		"amount": 10,
-		"delay": 600
+		"configs": [
+			{
+				"name": "AutoVend",
+				"enabled": false,
+				"debug": true,
+				"showButton": true,
+				"assignMode": "VENDOR",
+				"hotkey": "F",
+				"delay": 700,
+				"checkAccountName": false,
+				"accountName": ["acc 1", "acc 2"],
+				"checkCharacterName": false,
+				"characterName": ["char 1", "char 2"],
+				"checkContainerName": false,
+				"containerName": ["cont 1", "cont 2"],
+				"configs": [
+					{
+						"enabled": false,
+						"matchMode": "EXACT",
+						"itemNames": ["Stimpak"],
+						"types": ["AID"],
+						"amount": 0,
+						"price": 7
+					},
+					{
+						"enabled": true,
+						"matchMode": "EXACT",
+						"itemNames": ["Stimpak: Super"],
+						"types": ["AID"],
+						"amount": -30,
+						"price": 10
+					},
+					{
+						"enabled": true,
+						"matchMode": "CONTAINS",
+						"itemNames": [".44", ".38", "10mm", "5mm"],
+						"types": ["AMMO"],
+						"amount": 0,
+						"price": 1
+					},
+					{
+						"enabled": false,
+						"matchMode": "STARTS",
+						"itemNames": ["plan: ", "recipe: "],
+						"types": ["NOTES"],
+						"amount": 0,
+						"price": -1
+					}
+				]
+			},
+			{
+				"name": "Vend Selected {amount}",
+				"enabled": false,
+				"debug": true,
+				"showButton": true,
+				"assignMode": "VENDOR",
+				"hotkey": "G",
+				"amount": 10,
+				"delay": 700,
+				"price": -1,
+				"onlyHighlightedItem": true
+			},
+			{
+				"name": "AutoDisplay",
+				"enabled": false,
+				"debug": true,
+				"showButton": true,
+				"assignMode": "DISPLAY",
+				"hotkey": "F",
+				"delay": 700,
+				"checkAccountName": false,
+				"accountName": ["acc 1", "acc 2"],
+				"checkCharacterName": false,
+				"characterName": ["char 1", "char 2"],
+				"checkContainerName": false,
+				"containerName": ["cont 1", "cont 2"],
+				"configs": [
+					{
+						"enabled": true,
+						"matchMode": "CONTAINS",
+						"itemNames": ["sugar bombs"],
+						"types": ["FOOD_WATER"],
+						"amount": 1
+					},
+					{
+						"enabled": true,
+						"matchMode": "CONTAINS",
+						"itemNames": ["fasnacht loon"],
+						"types": ["APPAREL"],
+						"amount": 3
+					},
+					{
+						"enabled": false,
+						"matchMode": "CONTAINS",
+						"itemNames": ["Company Tea"],
+						"types": ["WEAPONS"],
+						"amount": 3
+					}
+				]
+			},
+			{
+				"name": "Display Selected {amount}",
+				"enabled": false,
+				"debug": true,
+				"showButton": true,
+				"assignMode": "DISPLAY",
+				"hotkey": "G",
+				"amount": 3,
+				"delay": 700,
+				"onlyHighlightedItem": true
+			},
+			{
+				"name": "AutoFreeze",
+				"enabled": false,
+				"debug": true,
+				"showButton": true,
+				"assignMode": "OTHER",
+				"hotkey": "F",
+				"delay": 700,
+				"checkAccountName": false,
+				"accountName": ["acc 1", "acc 2"],
+				"checkCharacterName": false,
+				"characterName": ["char 1", "char 2"],
+				"checkContainerName": false,
+				"containerName": ["MILITARY CRYO-FREEZER", "NUKA-COLA CRYO FREEZER", "container 3"],
+				"configs": [
+					{
+						"comment": "RECHARGER EXAMPLE",
+						"enabled": false,
+						"matchMode": "CONTAINS",
+						"itemNames": ["core"],
+						"types": ["AMMO"],
+						"amount": 4,
+						"conditionUnder": 100
+					},
+					{
+						"enabled": true,
+						"matchMode": "CONTAINS",
+						"itemNames": ["Smoked Mirelurk Fillets", "Seared Venison With Berries", "Brain Bombs", "Broiled Scorchbeast Brain"],
+						"types": ["FOOD_WATER"],
+						"amount": -2
+					},
+					{
+						"enabled": true,
+						"matchMode": "CONTAINS",
+						"itemNames": ["Cranberry Relish", "Black-Eyed Susan's Soothin'", "Sweetwater Special Blend"],
+						"types": ["FOOD_WATER"],
+						"amount": -3
+					},
+					{
+						"enabled": true,
+						"matchMode": "CONTAINS",
+						"itemNames": ["Blight Soup", "Tato Salad"],
+						"types": ["FOOD_WATER"],
+						"amount": -6
+					}
+				]
+			},
+			{
+				"name": "Freeze Selected {amount}",
+				"enabled": false,
+				"debug": true,
+				"showButton": true,
+				"assignMode": "OTHER",
+				"hotkey": "G",
+				"amount": 6,
+				"delay": 700,
+				"onlyHighlightedItem": true
+			}
+		]
 	},
 	"buyConfig": {
 		"testRun": false,
 		"name": "AutoBuy",
 		"enabled": false,
 		"debug": false,
-		"hotkey": 66,
+		"hotkey": "B",
 		"showButton": true,
 		"showMessage": "FULL",
 		"maxItems": 50,
@@ -152,7 +326,7 @@
 		"enabled": true,
 		"showButton": true,
 		"showMessage": "FULL",
-		"hotkey": 78,
+		"hotkey": "N",
 		"maxItems": 100,
 		"delay": 25,
 		"configs": [
@@ -179,7 +353,7 @@
 				"itemNames": ["Purified Water"]
 			}
 		]
-		
+
 	},
 	"lootConfig": {
 		"testRun": false,
@@ -188,7 +362,7 @@
 		"debug": false,
 		"showButton": true,
 		"showMessage": false,
-		"hotkey": 70,
+		"hotkey": "F",
 		"maxItems": 100,
 		"delay": 25,
 		"transferLegendaries": [1,2,3,4,5],
@@ -223,7 +397,7 @@
 		"debug": false,
 		"showButton": true,
 		"showMessage": false,
-		"hotkey": 70,
+		"hotkey": "F",
 		"maxItems": 100,
 		"delay": 25,
 		"configs": [
@@ -268,7 +442,7 @@
 			"enabled": false,
 			"debug": true,
 			"showButton": true,
-			"hotkey": 71,
+			"hotkey": "G",
 			"delay": 50,
 			"delayItemCardStep": 100,
 			"transferLegendaries": [3],
@@ -287,7 +461,7 @@
 			"enabled": false,
 			"debug": true,
 			"showButton": true,
-			"hotkey": 71,
+			"hotkey": "G",
 			"delay": 50,
 			"delayItemCardStep": 100,
 			"transferLegendaries": [3,4],
@@ -308,7 +482,7 @@
 			"debug": false,
 			"showButton": true,
 			"showMessage": false,
-			"hotkey": 49,
+			"hotkey": "1",
 			"amount": 5000,
 			"exactAmountInDestination": true,
 			"types": ["AMMO"],
@@ -323,7 +497,7 @@
 			"debug": false,
 			"showButton": true,
 			"showMessage": false,
-			"hotkey": 84,
+			"hotkey": "T",
 			"amount": 100,
 			"exactAmountInDestination": true,
 			"types": ["JUNK"],
@@ -338,7 +512,7 @@
 			"debug": false,
 			"showButton": true,
 			"showMessage": false,
-			"hotkey": 50,
+			"hotkey": "2",
 			"amount": 5000,
 			"repeat": 15,
 			"onlyHighlightedItem": true,
@@ -354,7 +528,7 @@
 			"debug": false,
 			"showButton": true,
 			"showMessage": false,
-			"hotkey": 66,
+			"hotkey": "B",
 			"amount": 500,
 			"onlyHighlightedItem": true,
 			"types": ["JUNK", "AMMO"],
@@ -369,7 +543,7 @@
 			"debug": false,
 			"showButton": true,
 			"showMessage": false,
-			"hotkey": 49,
+			"hotkey": "1",
 			"amount": 1000,
 			"types": ["AMMO"],
 			"matchMode": "EXACT",
@@ -383,7 +557,7 @@
 			"debug": false,
 			"showButton": true,
 			"showMessage": false,
-			"hotkey": 50,
+			"hotkey": "2",
 			"amount": 3,
 			"transferFavorite": false,
 			"transferEquipped": false,
@@ -414,7 +588,7 @@
 			"debug": false,
 			"showButton": true,
 			"showMessage": false,
-			"hotkey": 51,
+			"hotkey": "3",
 			"maxItems": 100,
 			"amount": 0,
 			"delay": 50,
@@ -432,7 +606,7 @@
 			"debug": false,
 			"showButton": true,
 			"showMessage": false,
-			"hotkey": 52,
+			"hotkey": "4",
 			"amount": 0,
 			"delay": 50,
 			"transferEquipped": false,
@@ -449,7 +623,7 @@
 			"debug": false,
 			"showButton": true,
 			"showMessage": false,
-			"hotkey": 53,
+			"hotkey": "5",
 			"amount": 1,
 			"matchMode": "EXACT",
 			"itemNames": ["Bloatfly Gland", "Bloodbug Proboscis", "Stingwing Barb", "Tick Blood Sac"],
@@ -459,7 +633,7 @@
 	"extractConfig": {
 		"name": "Extract",
 		"enabled": true,
-		"hotkey": 79,
+		"hotkey": "O",
 		"showButton": true,
 		"types": [],
 		"additionalItemDataForAll": false,
