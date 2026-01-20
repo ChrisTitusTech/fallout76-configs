@@ -192,8 +192,6 @@
 	
 	"_comment_displayData": "Display data options: showVersion, showHUDMode, showRenderTime, showElapsedTime, showLastConfigUpdate, showLastEventsUpdate, showLastChallengesUpdate, showXPBar (xpBar field), showScoreBar (scoreBar field), showTime12, showTime24, showUTCTime (offsetUTC field), showSeasonEndTime, showMinerva (minerva field), showNuclearCodes (nuclearCodes field), showEventTimer (eventTimer field), showMiniSeasonTime (miniSeason field), showVerdantSeasons, showFishingSeason (fishingSeason field), showRaidXP, showSmiley (smiley field), showSiloCooldowns (siloCooldowns field) | emptyspace:height | separator:height:color | text:color:text (accepts {dailyExpireTime}, {weeklyExpireTime}, {dailyProgress}, {weeklyProgress}, {monthlyExpireTime}, {monthlyProgress}) | challenges:group (daily, weekly, events, seasonal, character, survival, combat, social, world, fishing, burning_springs) | events:group (mutatedEvent, publicEvent, worldEvent, caravan) | positionX:number and positionY:number (if anchor is bottom, applies to records above) | textAlign:alignment (left, right, center) | textSize:number | ySpacing:number",
 	"displayData": [
-		"showSeasonEndTime",
-		"showMiniSeasonTime",
 		"showMinerva",
 		"emptyspace:10",
 		
@@ -207,11 +205,6 @@
 		
 		"text:orange:WEEKLY ({weeklyProgress}) ({weeklyExpireTime})",
 		"challenges:weekly",
-		"emptyspace:10",
-		
-		"text:orange:EVENT ({eventsProgress}) ({eventsExpireTime})",
-		"challenges:events",
-		"challenges:seasonal",
 		"emptyspace:10",
 		
 		"text:orange:EVENTS",
