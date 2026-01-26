@@ -293,35 +293,6 @@
 	},
 	"buyConfig": {
 		"testRun": false,
-		"name": "AutoBuy",
-		"enabled": false,
-		"debug": false,
-		"hotkey": "B",
-		"showButton": true,
-		"showMessage": "FULL",
-		"maxItems": 50,
-		"delayNpcVendor": 50,
-		"delayCampVendor": 1250,
-		"configs": [
-			{
-				"enabled": false,
-				"amount": 0,
-				"maxPrice": 1,
-				"types": ["AMMO"],
-				"matchMode": "EXACT",
-				"itemNames": ["5.56 round", ".45 Round", "Fusion Cell"]
-			},
-			{
-				"enabled": false,
-				"amount": 0,
-				"maxPrice": 20,
-				"matchMode": "CONTAINS",
-				"itemNames": ["nuka-cola", "sugar bombs", "fragmentation grenade"]
-			}
-		]
-	},
-	"npcSellConfig": {
-		"testRun": false,
 		"name": "AutoSell",
 		"enabled": true,
 		"showButton": true,
@@ -331,29 +302,18 @@
 		"delay": 25,
 		"configs": [
 			{
-				"enabled": false,
+				"enabled": true,
 				"sellFavorite": false,
 				"sellEquipped": false,
-				"types": ["AID", "FOOD_WATER", "WEAPON"],
-				"matchMode": "EXACT",
-				"itemNames": ["Glowing Blood", "Rad-X", "RadAway", "Insect Repellent", "Plasma Grenade",
-					"Plasma Mine", "Fragmentation Mine", "Baseball Grenade", "Floater Flamer Grenade", "Floater Gnasher Grenade",
-					"Floater Freezer Grenade", "Cryo Mine", "Cryogenic Grenade", "Bug Grenade", "Pulse Mine", "Pulse Grenade",
-					"Molotov Cocktail"],
+				"types": ["AID", "FOOD_WATER", "JUNK", "AMMO", "NOTES", "HOLO", "APPAREL"],
+				"matchMode": "ALL",
+				"itemNames": [],
 				"checkCharacterName": false,
 				"characterName": "none",
 				"checkAccountName": false,
 				"accountName": "none"
-			},
-			{
-				"enabled": false,
-				"amount": -10,
-				"types": ["FOOD_WATER"],
-				"matchMode": "EXACT",
-				"itemNames": ["Purified Water"]
 			}
 		]
-
 	},
 	"lootConfig": {
 		"testRun": false,
@@ -367,33 +327,15 @@
 		"delay": 25,
 		"transferLegendaries": [1,2,3,4,5],
 		"transferTaggedForSearch": true,
-		"matchMode": "CONTAINS",
-		"itemNames": ["cap", "bobby pin", "cell", "cartridge",
-			"fuel", ".45", "5.56", "stimpak", "mentats", "psycho", "med-x",
-			"radaway", "rad-x", "priest pack", "pail", "bag", "gift"],
-		"configs": [
-			{
-				"enabled": true,
-				"checkAccountName": false,
-				"accountName": "none",
-				"checkCharacterName": true,
-				"characterName": "Zelia",
-				"itemNames": ["railway spike"]
-			},
-			{
-				"enabled": false,
-				"checkAccountName": true,
-				"accountName": ["acc 1", "acc 2"],
-				"checkCharacterName": true,
-				"characterName": ["char 1", "char 2"],
-				"itemNames": ["item 1", "item 2", "..."]
-			}
-		]
+		"types": ["WEAPON", "ARMOR", "AID", "FOOD_WATER", "JUNK", "AMMO", "NOTES", "HOLO", "APPAREL"],
+		"matchMode": "ALL",
+		"itemNames": [],
+		"configs": []
 	},
 	"scrapConfig": {
-		"testRun": true,
+		"testRun": false,
 		"name": "AutoScrap",
-		"enabled": false,
+		"enabled": true,
 		"debug": false,
 		"showButton": true,
 		"showMessage": false,
@@ -402,32 +344,14 @@
 		"delay": 25,
 		"configs": [
 			{
-				"README": "READ DESCRIPTION ON NEXUSMODS BEFORE ENABLING MULTIPLE SCRAP CONFIGS",
+				"README": "Auto scrap all non-favorite items",
 				"enabled": true,
 				"scrapFavorite": false,
 				"scrapEquipped": false,
 				"onlyLegendaries": false,
 				"types": ["WEAPON", "ARMOR"],
-				"matchMode": "CONTAINS",
-				"excluded": ["syringer", "chassis", "helmet", "Zapper", "enclave",
-					"paddle", "baseball", "pearly", "father winter", "exc",
-					"bloatfly gland", "bloodbug proboscis", "tick blood sac",
-					"stingwing barb", "vocal sac", "hardened mass", "*"],
-				"checkCharacterName": false,
-				"characterName": "none",
-				"checkAccountName": false,
-				"accountName": "none"
-			},
-			{
-				"README": "READ DESCRIPTION ON NEXUSMODS BEFORE ENABLING MULTIPLE SCRAP CONFIGS",
-				"enabled": false,
-				"scrapFavorite": false,
-				"scrapEquipped": false,
-				"onlyLegendaries": true,
-				"scrapByLegendaryStar": [1,2,3,4],
-				"matchMode": "CONTAINS",
-				"types": ["WEAPON", "ARMOR"],
-				"excluded": ["unyielding", "overeater", "anti", "blood", "vampire", "quad", "*", "#", "EXAMPLE_GROUP"],
+				"matchMode": "ALL",
+				"excluded": [],
 				"checkCharacterName": false,
 				"characterName": "none",
 				"checkAccountName": false,
@@ -647,55 +571,9 @@
 			"delimiterLine": "\n",
 			"valueNotFound": "",
 			"displayColumnNames": true,
-			"columns": [
-				"text",
-				"count",
-				"itemType",
-				"itemLevel",
-				"numLegendaryStars",
-				"legendary_1",
-				"legendary_2",
-				"legendary_3",
-				"legendary_4",
-				"isTradable",
-				"weight",
-				"weightInStash",
-				"physical",
-				"energy",
-				"radiation",
-				"poison",
-				"fire",
-				"cryo",
-				"source",
-				"char",
-				"account"
-			]
-		},
-		"verboseOutput": false,
-		"apiMethods": []
-	},
-	"localizationConfig": {
-		"ARMOR_MOD_LEADED": "Leaded",
-		"ARMOR_PREFIXES": {
-			"REINFORCED": "Reinforced",
-			"SHADOWED": "Shadowed",
-			"FIBERGLASS": "Fiberglass",
-			"POLYMER": "Polymer",
-			"BOS": "BOS",
-			"BOILED": "Boiled",
-			"GIRDED": "Girded",
-			"TREATED": "Treated",
-			"PAINTED": "Painted",
-			"ENAMELED": "Enameled",
-			"STUDDED": "Studded",
-			"ALLOYED": "Alloyed",
-			"POLISHED": "Polished",
-			"WELDED": "Welded",
-			"TEMPERED": "Tempered",
-			"HARDENED": "Hardened",
-			"BUTTRESSED": "Buttressed"
-		},
-		"ARMOR_GRADES": {
+			"columns": []
+			},
+			"ARMOR_GRADES": {
 			"LIGHT": "Light",
 			"STURDY": "Sturdy",
 			"HEAVY": "Heavy",
