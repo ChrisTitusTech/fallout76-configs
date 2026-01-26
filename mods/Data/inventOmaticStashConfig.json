@@ -339,7 +339,8 @@
 				"itemNames": ["Glowing Blood", "Rad-X", "RadAway", "Insect Repellent", "Plasma Grenade",
 					"Plasma Mine", "Fragmentation Mine", "Baseball Grenade", "Floater Flamer Grenade", "Floater Gnasher Grenade",
 					"Floater Freezer Grenade", "Cryo Mine", "Cryogenic Grenade", "Bug Grenade", "Pulse Mine", "Pulse Grenade",
-					"Molotov Cocktail"],
+					"Molotov Cocktail", "Calmex", "Canned Dog Food", "Fragmentation Grenade", "Glowing Meat", "Honeycomb", "Mutant Hound Meat",
+					"Nuka-Dog", "Purified Water", "Rad-X: Diluted", "RadAway: Diluted"],
 				"checkCharacterName": false,
 				"characterName": "none",
 				"checkAccountName": false,
@@ -348,9 +349,9 @@
 			{
 				"enabled": true,
 				"amount": -10,
-				"types": ["FOOD_WATER"],
+				"types": ["AID"],
 				"matchMode": "EXACT",
-				"itemNames": ["Purified Water"]
+				"itemNames": ["Stimpak", "Stimpak: Diluted"]
 			}
 		]
 
