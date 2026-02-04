@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UniMap>
+ <QuickFT>
+  <HotKey>
+   <FT Slot="1">
+    <Key>112</Key>	<!-- F1 -->
+    <ID>80</ID>		<!-- Camp -->
+   </FT>
+   <FT Slot="2">
+    <Key>113</Key>	<!-- F2 -->
+    <ID>81</ID>		<!-- Tent -->
+   </FT>
+   <FT Slot="3">
+    <Key>114</Key>		<!-- F3 -->
+    <ID>6773263</ID>	<!-- The Whitespring North Entrance -->
+
+   </FT>
+   <FT Slot="4">
+    <Key>115</Key>		<!-- F4 -->
+    <ID>631890</ID>		<!-- The Whitespring Resort -->
+   </FT>
+   <FT Slot="5">
+    <Key>116</Key>		<!-- F5 -->
+    <ID>2913845</ID>	<!-- Foundation -->
+   </FT>
+   <FT Slot="6">
+    <Key>117</Key>		<!-- F6 -->
+    <ID>399020</ID>		<!-- The Crater -->
+   </FT>
+   <FT Slot="7">
+    <Key>118</Key>		<!-- F7 -->
+    <ID>617126</ID>		<!-- Fort Atlas -->
+   </FT>
+   <FT Slot="8">
+    <Key>119</Key>		<!-- F8 -->
+    <ID>631879</ID>		<!-- The Rusty Pick -->
+   </FT>
+   <FT Slot="9">
+    <Key>120</Key>		<!-- F9 -->
+    <ID>8030880</ID>	<!-- Fisherman's Rest -->
+   </FT>
+   <FT Slot="10">
+    <Key>121</Key>		<!-- F10 -->
+    <ID>6769791</ID>	<!-- Nuka-World On Tour -->
+   </FT>
+   <FT Slot="11">
+    <Key>122</Key>		<!-- F11 -->
+    <ID>7051120</ID>	<!-- The Trading Post -->
+   </FT>
+   <FT Slot="12">
+    <Key>123</Key>		<!-- F12 -->
+    <ID>8290444</ID>	<!-- Highway Town -->
+   </FT>
+   <FT Slot="13">
+    <Key>97</Key>	<!-- 1(num) -->
+    <ID>80</ID>		<!-- Camp -->
+   </FT>
+   <FT Slot="14">
+    <Key>98</Key>	<!-- 2(num) -->
+    <ID>81</ID>		<!-- Tent -->
+   </FT>
+   <FT Slot="15">
+    <Key>99</Key>	<!-- 3(num) -->
+    <ID>725073</ID>	<!-- Valut 76 -->
+   </FT>
+   <FT Slot="16">
+    <Key>100</Key>		<!-- 4(num) -->
+    <ID>1548354</ID>	<!-- Site Alpha -->
+   </FT>
+   <FT Slot="17">
+    <Key>101</Key>		<!-- 5(num) -->
+    <ID>3008567</ID>	<!-- Site Bravo -->
+   </FT>
+   <FT Slot="18">
+    <Key>102</Key>		<!-- 6(num) -->
+    <ID>3843327</ID>	<!-- Site Charlie -->
+   </FT>
+   <FT Slot="19">
+    <Key>103</Key>		<!-- 7(num) -->
+    <ID>3837135</ID>	<!-- Fissure Site: Prime -->
+   </FT>
+   <FT Slot="20">
+    <Key>104</Key>		<!-- 8(num) -->
+    <ID>3501068</ID>	<!-- DropSite V9 -->
+   </FT>
+   <FT Slot="21">
+    <Key>105</Key>		<!-- 9(num) -->
+    <ID>3742201</ID>	<!-- Forward Station Delta -->
+   </FT>
+   <FT Slot="22">
+    <Key>96</Key>		<!-- 0(num) -->
+    <ID>4242713</ID>	<!-- The Wayward -->
+   </FT>
+   <FT Slot="23">
+    <Key>106</Key>	<!-- *(num) -->
+    <ID>60</ID>		<!-- FT to Friend1 -->
+   </FT>
+   <FT Slot="24">
+    <Key>107</Key>	<!-- +(num) -->
+    <ID>61</ID>		<!-- FT to Friend2 -->
+   </FT>
+   <FT Slot="25">
+    <Key>109</Key>	<!-- -(num) -->
+    <ID>62</ID>		<!-- FT to Friend3 -->
+   </FT>
+   <FT Slot="26">
+    <Key>110</Key>	<!-- .(num) -->
+    <ID>63</ID>		<!-- FT to Friend4 -->
+   </FT>
+   <FT Slot="27">
+    <Key>111</Key>	<!-- /(num) -->
+    <ID>64</ID>		<!-- FT to Friend5 -->
+   </FT>
+  </HotKey>
+
+  <HotKeyPlayer>
+   <Name ID="60">
+    Friend1
+   </Name>
+   <Name ID="61">
+    Friend2
+   </Name>
+   <Name ID="62">
+    Friend3
+   </Name>
+   <Name ID="63">
+    Friend4
+   </Name>
+   <Name ID="64">
+    Friend5
+   </Name>
+   <Name ID="65">
+    Friend6
+   </Name>
+   <Name ID="66">
+    Friend7
+   </Name>
+   <Name ID="67">
+    Friend8
+   </Name>
+   <Name ID="68">
+    Friend9
+   </Name>
+   <Name ID="69">
+    Friend10
+   </Name>
+  </HotKeyPlayer>
+ </QuickFT>
+</UniMap>

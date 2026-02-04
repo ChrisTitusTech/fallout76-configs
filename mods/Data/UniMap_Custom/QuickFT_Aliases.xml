@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UniMap>
+ <QuickFT>
+  <Aliases>
+   <Name><ID>3837135</ID><Text>Fissure Site: Prime</Text></Name>
+   <Name><ID>3802895</ID><Text>Fissure Site: NE Savage Divide</Text></Name>
+   <Name><ID>3823575</ID><Text>Fissure Site: N Cranberry Bog</Text></Name>
+   <Name><ID>3823885</ID><Text>Fissure Site: N Savage Divide</Text></Name>
+   <Name><ID>3823838</ID><Text>Fissure Site: NW Mire</Text></Name>
+   <Name><ID>3830892</ID><Text>Fissure Site: S Cranberry Bog</Text></Name>
+   <Name><ID>3823740</ID><Text>Fissure Site: S Forest</Text></Name>
+   <Name><ID>3823642</ID><Text>Fissure Site: S Savage Divide</Text></Name>
+  </Aliases>
+ </QuickFT>
+</UniMap>

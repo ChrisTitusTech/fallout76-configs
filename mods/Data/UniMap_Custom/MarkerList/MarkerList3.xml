@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UniMap>
+ <MarkerList>
+  <Title>[ D/W Challenges: Lockpick and Hack ]</Title>
+  <Coordinate>4K</Coordinate>
+  <Markers>
+   <Marker><Name>Lockpicking (Many safes @Junkyard)</Name><X>1123</X><Y>1126</Y></Marker>
+   <Marker><Name></Name></Marker>	<!-- Separator -->
+   <Marker><Name>Lv0 Lockpick (W.W's Water Park)</Name><X>1827</X><Y>713</Y></Marker>
+   <Marker><Name>Lv0 Lockpick (2F Aaronholt)</Name><X>1191</X><Y>783</Y></Marker>
+   <Marker><Name>Lv0 Lockpick (Mama Dolce)</Name><X>1941</X><Y>1461</Y></Marker>
+   <Marker><Name>Lv0 Lockpick (Isolated Cabin)</Name><X>1429</X><Y>1569</Y></Marker>
+   <Marker><Name>Lv0 Lockpick (Cow Spots Creamery)</Name><X>1169</X><Y>2150</Y></Marker>
+   <Marker><Name>Lv0 Lockpick (1F N.A.C Trainyard)</Name><X>2168</X><Y>2187</Y></Marker>
+   <Marker><Name>Lv0 Lockpick (Hornwright AP.Site#1)</Name><X>1290</X><Y>2609</Y></Marker>
+   <Marker><Name>Lv0 Lockpick (Flooded Trainyard)</Name><X>3249</X><Y>3044</Y></Marker>
+   <Marker><Name>Lv0 Lockpick (2F S.Belle Motel)</Name><X>3259</X><Y>1860</Y></Marker>
+   <Marker><Name>Lv0 Lockpick (Near The Coop)</Name><X>1035</X><Y>1296</Y></Marker>
+   <Marker><Name>Lv0 Lockpick (Aaronholt Homestead)</Name><X>1194</X><Y>840</Y></Marker>
+   <Marker><Name>Lv0 Lockpick (1F Blue Ridge B.H #1)</Name><X>1088</X><Y>1432</Y></Marker>
+   <Marker><Name>Lv0 Lockpick (1F Blue Ridge B.H #2)</Name><X>1084</X><Y>1434</Y></Marker>
+   <Marker><Name>Lv0 Lockpick (2F Blue Ridge B.H #3)</Name><X>1089</X><Y>1433</Y></Marker>
+   <Marker><Name>Lv0 Lockpick (2F Blue Ridge B.H #4)</Name><X>1093</X><Y>1427</Y></Marker>
+   <Marker><Name></Name></Marker>	<!-- Separator -->
+   <Marker><Name>Lv0 Hack (Abbie's Bunker)</Name><X>3350</X><Y>1078</Y></Marker>
+   <Marker><Name>Lv0 Hack (1F Mama Dolce)</Name><X>1936</X><Y>1457</Y></Marker>
+   <Marker><Name>Lv0 Hack (2F Landview Lighthouse)</Name><X>1511</X><Y>1518</Y></Marker>
+   <Marker><Name>Lv0 Hack (1F Arktos Pharma)</Name><X>1766</X><Y>1685</Y></Marker>
+   <Marker><Name>Lv0 Hack (2F Camp McClintock)</Name><X>1562</X><Y>2140</Y></Marker>
+   <Marker><Name>Lv0 Hack (Wade Airport CtrlTower)</Name><X>1433</X><Y>2269</Y></Marker>
+   <Marker><Name>Lv0 Hack (1F General's Steakhouse)</Name><X>3335</X><Y>2475</Y></Marker>
+   <Marker><Name>Lv0 Hack (Bleeding Kate's)</Name><X>1617</X><Y>2565</Y></Marker>
+   <Marker><Name>Lv0 Hack (Near Nuka-World)</Name><X>1495</X><Y>2910</Y></Marker>
+   <Marker><Name>Lv0 Hack (2F Mountainside B&amp;B)</Name><X>2106</X><Y>2749</Y></Marker>
+   <Marker><Name>Lv0 Hack (R&amp;G Processing Services)</Name><X>2062</X><Y>2892</Y></Marker>
+   <Marker><Name>Lv0 Hack (4F Charleston Bld.)</Name><X>1347</X><Y>2398</Y></Marker>
+   <Marker><Name>Lv0 Hack (2F Lewisburg Visitor Center)</Name><X>1637</X><Y>2840</Y></Marker>
+   <Marker><Name>Lv0 Hack (2F Tygart Water Treatment=)</Name><X>1824</X><Y>1991</Y></Marker>
+   <Marker><Name>Lv0 Hack (Black Mountain Ord.Works)</Name><X>916</X><Y>1286</Y></Marker>
+   <Marker><Name>Lv0 Hack (Clarksburg Shooting Club)</Name><X>1932</X><Y>888</Y></Marker>
+   <Marker><Name>Lv0 Hack (3F Bloody Frank's)</Name><X>2954</X><Y>1795</Y></Marker>
+   <Marker><Name>Lv0 Hack (Scott Turner's House)</Name><X>3292</X><Y>2693</Y></Marker>
+   <Marker><Name>Lv0 Hack (Crimson Prospect *Top floor)</Name><X>3047</X><Y>2774</Y></Marker>
+   <Marker><Name>Lv0 Hack (The Coop)</Name><X>1061</X><Y>1255</Y></Marker>
+  </Markers>
+ </MarkerList>
+</UniMap>

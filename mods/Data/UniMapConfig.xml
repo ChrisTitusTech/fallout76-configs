@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UniMap Creator="Unikko" Site="https://www.nexusmods.com/fallout76/mods/1534" Ver="1">
+
+ <UniMapVersion>1.3</UniMapVersion>
+
+ <MapBooks>
+  <MapBook Book="1">UniMap_MapBooks\01-TZMap_Vanilla-Enhanced_UniBook.xml</MapBook><MapPages Book="1">2</MapPages>
+ </MapBooks>
+
+ <MapBooksPitt>
+  <MapBookPitt Book="1">UniMap_MapBooks\TZM_ThePitt_UniBook.xml</MapBookPitt><MapPagesPitt Book="1">4</MapPagesPitt>
+ </MapBooksPitt>
+
+ <QuickFT>
+  <Activate>yes</Activate>
+  <MenuFile>UniMap_Custom\QuickFT_Menu.xml</MenuFile>
+  <HotKeyFile>UniMap_Custom\QuickFT_HotKey.xml</HotKeyFile>
+  <AliasesFile>UniMap_Custom\QuickFT_Aliases.xml</AliasesFile>
+  <DispMarkerID>yes</DispMarkerID>
+  <TwoStepQuickFT>0</TwoStepQuickFT>
+ </QuickFT>
+
+ <PlayerNotifier>
+  <Activate>no</Activate>
+  <PlayerNotifierFile>UniMap_Custom\PlayerNotifier.xml</PlayerNotifierFile>
+ </PlayerNotifier>
+
+ <MarkerList>
+  <Activate>yes</Activate>
+  <MarkerListSlotMax>10</MarkerListSlotMax>
+  <MarkerListFileDir>UniMap_Custom\MarkerList</MarkerListFileDir>
+ </MarkerList>
+
+ <Settings>
+
+  <OffsetUI>
+   <CampBuilds>
+    <X>0</X>
+    <Y>0</Y>
+   </CampBuilds>
+   <ChallengeTracker>
+    <X>0</X>
+    <Y>0</Y>
+   </ChallengeTracker>
+   <ScoreWidget>
+    <X>0</X>
+    <Y>0</Y>
+   </ScoreWidget>
+   <RecentActivity>
+    <X>0</X>
+    <Y>0</Y>
+   </RecentActivity>
+   <BottomRight>
+    <X>0</X>
+    <Y>0</Y>
+   </BottomRight>
+  </OffsetUI>
+
+  <Display>
+   <DispMapBookName>yes</DispMapBookName>
+   <DispMapName>yes</DispMapName>
+   <DispMapModName>no</DispMapModName>
+   <DispMapModCreator>no</DispMapModCreator>
+   <DispButtonHints>yes</DispButtonHints>
+   <DispMapBookInfo>yes</DispMapBookInfo>
+   <DispMapPageInfo>yes</DispMapPageInfo>
+   <DispMapResolution>yes</DispMapResolution>
+   <DispHideLevelInfo>yes</DispHideLevelInfo>
+   <DispFindTypeInfo>yes</DispFindTypeInfo>
+   <DispPlayers>yes</DispPlayers>
+   <DispNukes>yes</DispNukes>
+  </Display>
+
+  <ZoomSpeed>
+   <Trigger>2.5</Trigger>
+   <Wheel>0.1</Wheel>
+  </ZoomSpeed>
+
+  <GamePadController>
+   <UsePadButton>yes</UsePadButton>
+   <SwapPadButton>no</SwapPadButton>
+  </GamePadController>
+
+  <TimelinedBlastZone>
+   <Activate>no</Activate>
+   <HideDuplicateBlastZoneMarker>yes</HideDuplicateBlastZoneMarker>
+   <TLBZ1>
+    <LineColor>F5CC5C</LineColor>
+    <FillColor>FF0000</FillColor>
+   </TLBZ1>
+   <TLBZ2>
+    <LineColor>F5CC5C</LineColor>
+    <FillColor>00FF00</FillColor>
+   </TLBZ2>
+   <TLBZ3>
+    <LineColor>F5CC5C</LineColor>
+    <FillColor>0000FF</FillColor>
+   </TLBZ3>
+  </TimelinedBlastZone>
+
+  <HideMarker>
+   <HideIncKeyCode>80</HideIncKeyCode>
+   <HideDecKeyCode>79</HideDecKeyCode>
+   <HideLevel>
+    <Hide Level="1">1</Hide>
+    <Hide Level="2">2</Hide>
+    <Hide Level="3">3</Hide>
+    <Hide Level="4">4</Hide>
+    <Hide Level="5">5</Hide>
+    <Hide Level="6">6</Hide>
+    <Hide Level="7">7</Hide>
+   </HideLevel>
+  </HideMarker>
+
+  <FindMarker>
+   <FindIncKeyCode>190</FindIncKeyCode>
+   <FindDecKeyCode>188</FindDecKeyCode>
+   <HideResetOnFind>yes</HideResetOnFind>
+   <LineThickness>1</LineThickness>
+   <LineColor>00FF00</LineColor>
+   <LineAlpha>0.5</LineAlpha>
+   <TeamMemberWaypoint>yes</TeamMemberWaypoint>
+   <FindQuickCamp>yes</FindQuickCamp>
+   <FindType>
+    <Find Type ="1">6</Find>
+    <Find Type ="2">3</Find>
+    <Find Type ="3">2</Find>
+    <Find Type ="4">1</Find>
+    <Find Type ="5">7</Find>
+    <Find Type ="6">5</Find>
+    <Find Type ="7">4</Find>
+    <Find Type ="8">8</Find>
+   </FindType>
+  </FindMarker>
+
+  <MapBook>
+   <CycleMapBook>no</CycleMapBook>
+   <ForwardKeyCode>36</ForwardKeyCode>
+   <BackwardKeyCode>35</BackwardKeyCode>
+  </MapBook>
+
+  <MapPage>
+   <CycleMapPage>no</CycleMapPage>
+   <ForwardKeyCode>33</ForwardKeyCode>
+   <BackwardKeyCode>34</BackwardKeyCode>
+  </MapPage>
+
+  <Develop>
+   <PlayerPixPos>yes</PlayerPixPos>
+   <Pitt>yes</Pitt>
+  </Develop>
+
+  <System>
+   <SingleMapMode>no</SingleMapMode>
+   <VariableMapPages>yes</VariableMapPages>
+   <PageMax>10</PageMax>
+   <MarkerListMax>9</MarkerListMax>
+  </System>
+
+ </Settings>
+
+</UniMap>

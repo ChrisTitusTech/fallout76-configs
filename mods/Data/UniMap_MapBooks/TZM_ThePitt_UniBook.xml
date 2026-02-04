@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UniMap>
+	<MapBook>
+		<MapBookName>
+			TZM_ThePitt_UniBook
+		</MapBookName>
+			
+		<MapBookCreator>
+			TZTZT
+		</MapBookCreator>
+		<MapResolution>
+			8K
+		</MapResolution><!-- Map resolution (4K or 8K) used by UniMap -->
+
+		<!-- Map Page Number origin is "1", but Map Page Number is not referenced by UniMap -->
+		<!-- No limit on the number of Map pages -->
+		<!-- If the page number is "0", skip loading. -->
+		<Map Page="1">
+			<Directory>textures\TZM_ThePitt_UniBook\</Directory>
+			<Texture>UnionDues_PaperMap.dds</Texture>
+			<MapName>UnionDues-PaperMap</MapName>
+			<MapModName>TZMap</MapModName>
+			<Creator>TZTZT</Creator>
+		</Map>
+		<Map Page="2">
+			<Directory>textures\TZM_ThePitt_UniBook\</Directory>
+			<Texture>UnionDues_SatelliteMap.dds</Texture>
+			<MapName>UnionDues-SatelliteMap</MapName>
+			<MapModName>TZMap</MapModName>
+			<Creator>TZTZT</Creator>
+		</Map>
+		<Map Page="3">
+			<Directory>textures\TZM_ThePitt_UniBook\</Directory>
+			<Texture>FromAshesToFire_PaperMap.dds</Texture>
+			<MapName>FromAshesToFire-PaperMap</MapName>
+			<MapModName>TZMap</MapModName>
+			<Creator>TZTZT</Creator>
+		</Map>
+		<Map Page="4">
+			<Directory>textures\TZM_ThePitt_UniBook\</Directory>
+			<Texture>FromAshesToFire_SatelliteMap.dds</Texture>
+			<MapName>FromAshesToFire-SatelliteMap</MapName>
+			<MapModName>TZMap</MapModName>
+			<Creator>TZTZT</Creator>
+		</Map>
+
+	</MapBook>
+</UniMap>

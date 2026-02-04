@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UniMap>
+ <MapBook>
+  <MapBookName>MapBook Sample</MapBookName>
+  <MapBookCreator>Unikko</MapBookCreator>
+  <MapResolution>4K</MapResolution>
+  <Map Page="1">
+   <Directory>textures\UniMapSampleMap4K\</Directory>
+   <Texture>FO76_Default_Map.dds</Texture>
+   <MapName>Default Map</MapName>
+   <MapModName>Vanilla Maps</MapModName>
+   <Creator>Bethesda</Creator>
+  </Map>
+  <Map Page="2">
+   <Directory>textures\UniMapSampleMap4K\</Directory>
+   <Texture>FO76_Default_Military_Map.dds</Texture>
+   <MapName>Military Map</MapName>
+   <MapModName>Vanilla Maps</MapModName>
+   <Creator>Bethesda</Creator>
+  </Map>
+ </MapBook>
+</UniMap>

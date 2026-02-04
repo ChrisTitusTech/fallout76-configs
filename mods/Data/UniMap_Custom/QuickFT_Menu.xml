@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UniMap>
+ <QuickFT>
+  <Menu List="Main">
+   <Title>Main</Title>
+   <ID>92</ID>	<!-- Mark this location -->
+   <ID>1</ID>	<!-- Custom Marker -->
+   <ID>0</ID>
+   <ID>80</ID>	<!-- Camp -->
+   <ID>81</ID>	<!-- Tent -->
+   <ID>0</ID>
+   <ID>16</ID>	<!-- C.A.M.P. -->
+   <ID>17</ID>	<!-- Team/Friends -->
+   <ID>21</ID>	<!-- Player -->
+   <ID>20</ID>	<!-- Events -->
+   <ID>19</ID>	<!-- Owned Workshops -->
+   <ID>18</ID>	<!-- Hotkeys -->
+   <ID>0</ID>
+   <ID>725073</ID>	<!-- Valut 76 -->
+   <ID>631890</ID>	<!-- The Whitespring Resort -->
+   <ID>6773263</ID>	<!-- The Whitespring North Entrance -->
+   <ID>2913845</ID>	<!-- Foundataion -->
+   <ID>399020</ID>	<!-- The Crater -->
+   <ID>617126</ID>	<!-- Fort Atlas -->
+   <ID>631879</ID>	<!-- The Rusty Pick -->
+   <ID>6769791</ID>	<!-- Nuka-World On Tour -->
+   <ID>3501054</ID>	<!-- The Rose Room -->
+   <ID>7896145</ID>	<!-- Dark Hollow Manor -->
+   <ID>7051120</ID>	<!-- The Trading Post -->
+   <ID>7963109</ID>	<!-- Radiant Hills -->
+   <ID>8030880</ID>	<!-- Fisherman's Rest -->
+   <ID>8290444</ID>	<!-- Highway Town -->
+   <ID>0</ID>
+   <ID>2</ID>	<!-- Station and Vendor -->
+   <ID>3</ID>	<!-- Event -->
+   <ID>4</ID>	<!-- Nuclear -->
+   <ID>5</ID>	<!-- Vault -->
+   <ID>15</ID>	<!-- Locations Added In Game Updates -->
+   <ID>0</ID>
+   <ID>8</ID>	<!-- A-B -->
+   <ID>9</ID>	<!-- C-D-E -->
+   <ID>10</ID>	<!-- F-G-H -->
+   <ID>11</ID>	<!-- I-J-K-L-M-N -->
+   <ID>12</ID>	<!-- O-P-Q-R -->
+   <ID>13</ID>	<!-- S-T -->
+   <ID>14</ID>	<!-- U-V-W-X-Y-Z-0 -->
+
+  </Menu>
+
+  <Menu List="1">
+   <Title>[ $$PlayerSetMarkerName ]</Title>
+   <ID>90</ID>	<!-- Place/Move Marker -->
+   <ID>91</ID>	<!-- Remove Marker -->
+   <ID>92</ID>	<!-- Mark this location -->
+   <ID>0</ID>
+   <ID>101</ID>	<!-- Marker List Slot1 (Marker_List1.xml) -->
+   <ID>102</ID>	<!-- Marker List Slot2 (Marker_List2.xml) -->
+   <ID>103</ID>	<!-- Marker List Slot3 (Marker_List3.xml) -->
+   <ID>104</ID>	<!-- Marker List Slot4 (Marker_List4.xml) -->
+   <ID>105</ID>	<!-- Marker List Slot5 (Marker_List5.xml) -->
+   <ID>106</ID>	<!-- Marker List Slot6 (Marker_List6.xml) -->
+   <ID>107</ID>	<!-- Marker List Slot7 (Marker_List7.xml) -->
+   <ID>108</ID>	<!-- Marker List Slot8 (Marker_List8.xml) -->
+   <ID>109</ID>	<!-- Marker List Slot9 (Marker_List9.xml) -->
+   <ID>110</ID>	<!-- Marker List Slot10 (Marker_List10.xml) -->
+  </Menu>
+
+  <Menu List="2">
+   <Title>[ STATION AND VENDOR ]</Title>
+   <ID>4160614</ID>	<!-- Berkeley Springs Station -->
+   <ID>2921257</ID>	<!-- Charleston Station -->
+   <ID>2922437</ID>	<!-- Grafton Station -->
+   <ID>8404498</ID>	<!-- Hocking Hills Station -->
+   <ID>2920855</ID>	<!-- Lewisburg Station -->
+   <ID>2922042</ID>	<!-- Morgantown Station -->
+   <ID>2919599</ID>	<!-- Pleasant Valley Station -->
+   <ID>2920061</ID>	<!-- R&G Station -->
+   <ID>2919147</ID>	<!-- Sunnytop Station -->
+   <ID>2921649</ID>	<!-- Sutton Station -->
+   <ID>2920463</ID>	<!-- Watoga Station -->
+   <ID>4242713</ID>	<!-- The Wayward -->
+   <ID>2920862</ID>	<!-- Welch Station -->
+   <ID>2919604</ID>	<!-- The Whitespring Station -->
+   <ID>0</ID>
+   <ID>114098</ID>	<!-- Big Bend Tunnel East -->
+   <ID>101023</ID>	<!-- Big Bend Tunnel West -->
+   <ID>7544502</ID>	<!-- Blue Ridge Bunkhouse -->
+   <ID>102080</ID>	<!-- Camden Park -->
+   <ID>20588</ID>	<!-- Charleston Fire Department -->
+   <ID>399020</ID>	<!-- The Crator -->
+   <ID>87379</ID>	<!-- Flatwoods -->
+   <ID>2913845</ID>	<!-- Foundation -->
+   <ID>684695</ID>	<!-- Gilman Lumber Mill -->
+   <ID>450088</ID>	<!-- Grafton -->
+   <ID>8290444</ID>	<!-- Highway Town -->
+   <ID>597750</ID>	<!-- Middle Mountain Pitstop -->
+   <ID>576713</ID>	<!-- Morgantown Airport -->
+   <ID>6769791</ID>	<!-- Nuka-World On Tour -->
+   <ID>102960</ID>	<!-- Pleasant Valley Ski Resort -->
+   <ID>7051120</ID>	<!-- The Trading Post -->
+   <ID>5822654</ID>	<!-- Vault 79 -->
+   <ID>468488</ID>	<!-- Watoga Shopping Plaza -->
+   <ID>4242713</ID>	<!-- The Wayward -->
+   <ID>631892</ID>	<!-- The Whitespring Bunker -->
+   <ID>631890</ID>	<!-- The Whitespring Resort -->
+   <ID>2907923</ID>	<!-- The Whitespring Service Entrance -->
+  </Menu>
+
+  <Menu List="3">
+   <Title>[ EVENT ]</Title>
+   <ID>3823788</ID>	<!-- Gleaming Depths -->
+   <ID>0</ID>
+   <ID>6607440</ID>	<!-- Foundation Outpost -->
+   <ID>6271008</ID>	<!-- Metal Dome -->
+   <ID>597750</ID>	<!-- Middle Mountain Pitstop -->
+   <ID>617056</ID>	<!-- Palace of the Winding Path -->
+   <ID>359529</ID>	<!-- Sacramental Glade -->
+   <ID>1089654</ID>	<!-- Sons of Dane Compound -->
+   <ID>631718</ID>	<!-- Sunday Brothers' Cabin -->
+   <ID>0</ID>
+   <ID>381753</ID>	<!-- Helvetia -->
+   <ID>617161</ID>	<!-- Point Pleasant -->
+   <ID>0</ID>
+   <ID>1100970</ID>	<!-- Charleston Capitol Building -->
+   <ID>341971</ID>	<!-- Dyer Chemical -->
+   <ID>540415</ID>	<!-- Garrahan Mining Headquarters -->
+   <ID>604863</ID>	<!-- Monongah -->
+   <ID>728388</ID>	<!-- Wavy Willard's Water Park -->
+   <ID>0</ID>
+   <ID>1124667</ID>	<!-- Arktos Pharma -->
+   <ID>114098</ID>	<!-- Big Bend Tunnel East -->
+   <ID>1089152</ID>	<!-- Emmett Mountain Disposal Site -->
+   <ID>4136226</ID>	<!-- Pylon Ambush Site -->
+   <ID>0</ID>
+   <ID>7061131</ID>	<!-- Hawksbill Weather Station -->
+   <ID>7771676</ID>	<!-- Thunder Mountain Substation TM-03 -->
+   <ID>8023841</ID>	<!-- Susan's Cabin -->
+   <ID>0</ID>
+   <ID>8290444</ID>	<!-- Highway Town -->
+   <ID>8310160</ID>	<!-- Jackson Junkyard -->
+  </Menu>
+
+  <Menu List="4">
+   <Title>[ NUCLEAR ]</Title>
+   <ID>1548354</ID>	<!-- Site Alpha -->
+   <ID>3008567</ID>	<!-- Site Bravo -->
+   <ID>3843327</ID>	<!-- Site Charlie -->
+   <ID>0</ID>
+   <ID>3837135</ID>	<!-- Fissure Site: Prime -->
+   <ID>3501068</ID>	<!-- DropSite V9 -->
+   <ID>3742201</ID>	<!-- Forward Station Delta -->
+   <ID>5212784</ID>	<!-- Overgrown Sundew Grove -->
+   <ID>598560</ID>	<!-- Monongah Mine -->
+   <ID>6769791</ID>	<!-- Nuka-World On Tour -->
+   <ID>7061131</ID>	<!-- Hawksbill Weather Station -->
+  </Menu>
+
+  <Menu List="5">
+   <Title>[ VAULT ]</Title>
+   <ID>6198648</ID>	<!-- Vault 51 -->
+   <ID>4423942</ID>	<!-- Vault 63 -->
+   <ID>725073</ID>	<!-- Vault 76 -->
+   <ID>5822654</ID>	<!-- Vault 79 -->
+   <ID>718418</ID>	<!-- Vault 94 -->
+   <ID>727653</ID>	<!-- Vault 96 -->
+  </Menu>
+
+  <Menu List="6">
+   <Title>[ Skyline Valley ]</Title>
+   <ID>6890440</ID>	<!-- Abandoned Convoy -->
+   <ID>7216775</ID>	<!-- Big Meadows Gas Well -->
+   <ID>7051119</ID>	<!-- Camp Liberty -->
+   <ID>7896145</ID>	<!-- Dark Hollow Manor -->
+   <ID>7227502</ID>	<!-- Grindstone Arch -->
+   <ID>7061131</ID>	<!-- Hawksbill Weather Station -->
+   <ID>7096970</ID>	<!-- Hemlock Springs Dump -->
+   <ID>7051129</ID>	<!-- High Knob Lookout -->
+   <ID>7884934</ID>	<!-- Makeout Point -->
+   <ID>7051128</ID>	<!-- Naked Creek -->
+   <ID>7051142</ID>	<!-- Old Crimora Mines -->
+   <ID>7097453</ID>	<!-- Old Rag Lookout -->
+   <ID>7275690</ID>	<!-- Ranger Station Bunker -->
+   <ID>7051118</ID>	<!-- Rapidan Camp -->
+   <ID>7814649</ID>	<!-- Research Site Bavaria -->
+   <ID>7814650</ID>	<!-- Research Site Rhineland -->
+   <ID>7814648</ID>	<!-- Research Site Saxony -->
+   <ID>7051123</ID>	<!-- Shenandoah Visitor Center -->
+   <ID>7939103</ID>	<!-- Shining Creek Cavern -->
+   <ID>7051121</ID>	<!-- Slumber Mill Motel -->
+   <ID>7061132</ID>	<!-- South River Bridge -->
+   <ID>7051125</ID>	<!-- Stony Man Lookout -->
+   <ID>7051120</ID>	<!-- The Trading Post -->
+   <ID>7790934</ID>	<!-- Three Ponds -->
+   <ID>7771676</ID>	<!-- Thunder Mountain Substation TM-03 -->
+  </Menu>
+
+  <Menu List="7">
+   <Title>[ Ghoul Within ]</Title>
+   <ID>7962683</ID>	<!-- Hillside Cavern -->
+   <ID>7963109</ID>	<!-- Radiant Hills -->
+   <ID>8023841</ID>	<!-- Susan's Cabin -->
+   <ID>8049321</ID>	<!-- The Bullengrube -->
+   <ID>8354080</ID>	<!-- Old Danielson Cabin -->
+   <ID>8056380</ID>	<!-- Point Repose -->
+  </Menu>
+
+  <Menu List="8">
+   <Title>[ A-B ]</Title>
+   <ID>16741</ID>	<!-- Aaronholt Homestead -->
+   <ID>1292413</ID>	<!-- Abandoned Bunker -->
+   <ID>6890440</ID>	<!-- Abandoned Convoy -->
+   <ID>2794730</ID>	<!-- Abandoned Mine Shaft 1 -->
+   <ID>2544627</ID>	<!-- Abandoned Mine Shaft 2 -->
+   <ID>2794728</ID>	<!-- Abandoned Mine Shaft 3 -->
+   <ID>2797087</ID>	<!-- Abandoned Mine Shaft 4 -->
+   <ID>5282682</ID>	<!-- Abandoned Mine Shaft 5 -->
+   <ID>2728898</ID>	<!-- Abandoned Mine Shaft 6 -->
+   <ID>5282698</ID>	<!-- Abandoned Mine Shaft Elaine -->
+   <ID>5282701</ID>	<!-- Abandoned Mine Site Kittery -->
+   <ID>3046962</ID>	<!-- Abandoned Waste Dump -->
+   <ID>3216401</ID>	<!-- Abbie's Bunker -->
+   <ID>8710324</ID>	<!-- Abraxodyne Chemical Power Substation -->
+   <ID>8706924</ID>	<!-- Albany -->
+   <ID>611083</ID>	<!-- Alpine River Cabins -->
+   <ID>3742182</ID>	<!-- Ammo Dump -->
+   <ID>468491</ID>	<!-- AMS Corporate Headquarters -->
+   <ID>3742198</ID>	<!-- AMS Testing Site -->
+   <ID>3716162</ID>	<!-- Anchor Farm -->
+   <ID>45523</ID>	<!-- Appalachian Antiques -->
+   <ID>1124667</ID>	<!-- Arktos Pharma -->
+   <ID>8404500</ID>	<!-- Ash Cave -->
+   <ID>8347829</ID>	<!-- Athens -->
+   <ID>3501050</ID>	<!-- Autumn Acre Cabin -->
+   <ID>549874</ID>	<!-- AVR Medical Center -->
+   <ID>0</ID>
+   <ID>3501048</ID>	<!-- Bailey Family Cabin -->
+   <ID>5280593</ID>	<!-- Bastion Park -->
+   <ID>3878782</ID>	<!-- Becker Farm -->
+   <ID>45623</ID>	<!-- Beckley -->
+   <ID>3501037</ID>	<!-- Beckwith Farm -->
+   <ID>3797043</ID>	<!-- Belching Betty -->
+   <ID>396485</ID>	<!-- Berkeley Springs -->
+   <ID>4160614</ID>	<!-- Berkeley Springs Station -->
+   <ID>4134982</ID>	<!-- Big Al's Tattoo Parlor -->
+   <ID>3183171</ID>	<!-- Big B's Rest Stop -->
+   <ID>114098</ID>	<!-- Big Bend Tunnel East -->
+   <ID>101023</ID>	<!-- Big Bend Tunnel West -->
+   <ID>468481</ID>	<!-- Big Fred's BBQ Shack -->
+   <ID>3501058</ID>	<!-- Big Maw -->
+   <ID>7216775</ID>	<!-- Big Meadows Gas Well -->
+   <ID>468471</ID>	<!-- Black Bear Lodge -->
+   <ID>16733</ID>	<!-- Black Mountain Ordnance Works -->
+   <ID>16727</ID>	<!-- Blackwater Mine -->
+   <ID>5795122</ID>	<!-- Blakes Offering -->
+   <ID>3742165</ID>	<!-- Bleeding Kate's Grindhouse -->
+   <ID>5886061</ID>	<!-- Bloody Frank's -->
+   <ID>7544502</ID>	<!-- Blue Ridge Bunkhouse -->
+   <ID>617144</ID>	<!-- Bolton Greens -->
+   <ID>532420</ID>	<!-- Bootlegger's Shack -->
+   <ID>5795113</ID>	<!-- The Bounty -->
+   <ID>3183229</ID>	<!-- Braxson's Quality Medical Supplies -->
+   <ID>3959290</ID>	<!-- Brim Quarry -->
+   <ID>8049321</ID>	<!-- The Bullengrube -->
+   <ID>532429</ID>	<!-- The Burning Mine -->
+   <ID>4237196</ID>	<!-- The Burrows North -->
+   <ID>4136229</ID>	<!-- The Burrows South -->
+  </Menu>
+
+  <Menu List="9">
+   <Title>[ C-D-E ]</Title>
+   <ID>102080</ID>	<!-- Camden Park -->
+   <ID>3501080</ID>	<!-- Camp Adams -->
+   <ID>3803045</ID>	<!-- Camp Adams Lookout -->
+   <ID>7051119</ID>	<!-- Camp Liberty -->
+   <ID>617323</ID>	<!-- Camp McClintock -->
+   <ID>631642</ID>	<!-- Camp Venture -->
+   <ID>5862918</ID>	<!-- Carleton Mine -->
+   <ID>5200240</ID>	<!-- Carson Family Bunker -->
+   <ID>113338</ID>	<!-- Central Mountain Lookout -->
+   <ID>1101036</ID>	<!-- Charleston -->
+   <ID>1100970</ID>	<!-- Charleston Capitol Building -->
+   <ID>20588</ID>	<!-- Charleston Fire Department -->
+   <ID>5249437</ID>	<!-- Charleston Herald -->
+   <ID>2921257</ID>	<!-- Charleston Station -->
+   <ID>1100961</ID>	<!-- Charleston Trainyard -->
+   <ID>8195548</ID>	<!-- Checkpoint Canyon -->
+   <ID>8216713</ID>	<!-- The Chop Shop -->
+   <ID>3752620</ID>	<!-- Clancy Manor -->
+   <ID>379961</ID>	<!-- Clarksburg -->
+   <ID>389234</ID>	<!-- Clarksburg Shooting Club -->
+   <ID>3742129</ID>	<!-- Cliffwatch -->
+   <ID>3501084</ID>	<!-- Cobbleton Farm -->
+   <ID>604895</ID>	<!-- Colonel Kelly Monument -->
+   <ID>7268305</ID>	<!-- The Coop -->
+   <ID>389248</ID>	<!-- Cow Spots Creamery -->
+   <ID>3038275</ID>	<!-- Crashed Plane -->
+   <ID>399020</ID>	<!-- The Crater -->
+   <ID>5634158</ID>	<!-- Crater Watchstation -->
+   <ID>5212788</ID>	<!-- Creekside Sundew Grove -->
+   <ID>1089995</ID>	<!-- Crevasse Dam -->
+   <ID>5469944</ID>	<!-- Crimson Prospect -->
+   <ID>5250995</ID>	<!-- The Crosshair -->
+   <ID>5833333</ID>	<!-- Crossroad -->
+   <ID>0</ID>
+   <ID>3897119</ID>	<!-- Dagger's Den -->
+   <ID>7896145</ID>	<!-- Dark Hollow Manor -->
+   <ID>3501092</ID>	<!-- Darling Sister's Lab -->
+   <ID>3501090</ID>	<!-- Deathclaw Island -->
+   <ID>5599477</ID>	<!-- The Deep -->
+   <ID>4136233</ID>	<!-- Delano Grange -->
+   <ID>3742161</ID>	<!-- Dent & Sons Construction -->
+   <ID>372000</ID>	<!-- Devil's Backbone -->
+   <ID>8329532</ID>	<!-- Dino Peaks Mini Golf -->
+   <ID>3825271</ID>	<!-- Dolly Sods Lookout -->
+   <ID>372081</ID>	<!-- Dolly Sods Wilderness -->
+   <ID>3501066</ID>	<!-- Drop Site C2 -->
+   <ID>3501072</ID>	<!-- Drop Site G3 -->
+   <ID>3501068</ID>	<!-- Drop Site V9 -->
+   <ID>341971</ID>	<!-- Dyer Chemical -->
+   <ID>0</ID>
+   <ID>113334</ID>	<!-- East Kanawha Lookout -->
+   <ID>3701141</ID>	<!-- East Mountain Lookout -->
+   <ID>3825267</ID>	<!-- East Ridge Lookout -->
+   <ID>581624</ID>	<!-- Eastern Regional Penitentiary -->
+   <ID>3216402</ID>	<!-- Ella Ames' Bunker -->
+   <ID>1089152</ID>	<!-- Emmett Mountain Disposal Site -->
+   <ID>3752623</ID>	<!-- Excelsior Model Home -->
+  </Menu>
+
+  <Menu List="10">
+   <Title>[ F-G-H ]</Title>
+   <ID>3742228</ID>	<!-- Firebase Hancock -->
+   <ID>3742225</ID>	<!-- Firebase LT -->
+   <ID>3742222</ID>	<!-- Firebase Major -->
+   <ID>8030880</ID>	<!-- Fisherman's Rest -->
+   <ID>3823575</ID>	<!-- Fissure Site -->
+   <ID>3830892</ID>	<!-- Fissure Site -->
+   <ID>3823740</ID>	<!-- Fissure Site -->
+   <ID>3823838</ID>	<!-- Fissure Site -->
+   <ID>3823885</ID>	<!-- Fissure Site -->
+   <ID>3802895</ID>	<!-- Fissure Site -->
+   <ID>3823642</ID>	<!-- Fissure Site -->
+   <ID>87379</ID>	<!-- Flatwoods -->
+   <ID>3803043</ID>	<!-- Flatwoods Lookout -->
+   <ID>399207</ID>	<!-- Flooded Trainyard -->
+   <ID>617126</ID>	<!-- Fort Atlas -->
+   <ID>16738</ID>	<!-- Fort Defiance -->
+   <ID>8184550</ID>	<!-- Fort Steuben -->
+   <ID>3742216</ID>	<!-- Forward Station Alpha -->
+   <ID>3742201</ID>	<!-- Forward Station Delta -->
+   <ID>7258147</ID>	<!-- Forward Station Tango -->
+   <ID>2913845</ID>	<!-- Foundation -->
+   <ID>6607440</ID>	<!-- Foundation Outpost -->
+   <ID>4134980</ID>	<!-- Fraternity Row -->
+   <ID>3752626</ID>	<!-- The Freak Show -->
+   <ID>399289</ID>	<!-- Freddy Fear's House of Scares -->
+   <ID>0</ID>
+   <ID>532421</ID>	<!-- Garrahan Estate -->
+   <ID>540415</ID>	<!-- Garrahan Mining Headquarters -->
+   <ID>3598437</ID>	<!-- Gauley Mine -->
+   <ID>4371040</ID>	<!-- Gauley Mine Exit -->
+   <ID>20585</ID>	<!-- The General's Steakhouse -->
+   <ID>630858</ID>	<!-- The Giant Teapot -->
+   <ID>684695</ID>	<!-- Gilman Lumber Mill -->
+   <ID>3148474</ID>	<!-- Glassed Cavern -->
+   <ID>3823788</ID>	<!-- Gleaming Depths -->
+   <ID>5395416</ID>	<!-- Gnarled Shallows -->
+   <ID>450088</ID>	<!-- Grafton -->
+   <ID>1089771</ID>	<!-- Grafton Dam -->
+   <ID>2922437</ID>	<!-- Grafton Station -->
+   <ID>447229</ID>	<!-- Grafton Steel -->
+   <ID>3878747</ID>	<!-- Graninger Farm -->
+   <ID>591442</ID>	<!-- Green Country Lodge -->
+   <ID>597766</ID>	<!-- Greg's Mine Supply -->
+   <ID>7227502</ID>	<!-- Grindstone Arch -->
+   <ID>3501086</ID>	<!-- Groves Family Cabin -->
+   <ID>5395371</ID>	<!-- Gulper Lagoon -->
+   <ID>0</ID>
+   <ID>8710318</ID>	<!-- Hamley Run Camp -->
+   <ID>459621</ID>	<!-- Harpers Ferry -->
+   <ID>6346140</ID>	<!-- Harpers Ferry Tunnel -->
+   <ID>361616</ID>	<!-- Haven Church -->
+   <ID>7061131</ID>	<!-- Hawksbill Weather Station -->
+   <ID>381753</ID>	<!-- Helvetia -->
+   <ID>459679</ID>	<!-- Hemlock Holes -->
+   <ID>7096970</ID>	<!-- Hemlock Springs Dump -->
+   <ID>7051129</ID>	<!-- High Knob Lookout -->
+   <ID>5395279</ID>	<!-- Highland Marsh -->
+   <ID>8290444</ID>	<!-- Highway Town -->
+   <ID>465537</ID>	<!-- Hillfolk Hotdogs -->
+   <ID>7962683</ID>	<!-- Hillside Cavern -->
+   <ID>8404498</ID>	<!-- Hocking Hills Station -->
+   <ID>8710320</ID>	<!-- Honey Well Apiary -->
+   <ID>45391</ID>	<!-- Hopewell Cave -->
+   <ID>3501035</ID>	<!-- Horizon's Rest -->
+   <ID>350237</ID>	<!-- Hornwright Air Purifier Site #01 -->
+   <ID>547521</ID>	<!-- Hornwright Air Purifier Site #02 -->
+   <ID>359100</ID>	<!-- Hornwright Air Purifier Site #03 -->
+   <ID>2044100</ID>	<!-- Hornwright Air Purifier Site #04 -->
+   <ID>540417</ID>	<!-- Hornwright Estate -->
+   <ID>1100956</ID>	<!-- Hornwright Industrial Headquarters -->
+   <ID>1303193</ID>	<!-- Hornwright Summer Villa -->
+   <ID>1261634</ID>	<!-- Hornwright Testing Site #02 -->
+   <ID>2729111</ID>	<!-- Hornwright Testing Site #03 -->
+   <ID>2794784</ID>	<!-- Hornwright Testing Site #04 -->
+   <ID>5199282</ID>	<!-- Hunter's Ridge -->
+   <ID>465605</ID>	<!-- Hunter's Shack -->
+   <ID>466974</ID>	<!-- Huntersville -->
+  </Menu>
+
+  <Menu List="11">
+   <Title>[ I-J-K-L-M-N ]</Title>
+   <ID>1230520</ID>	<!-- Investigator's Cabin -->
+   <ID>468486</ID>	<!-- Isolated Cabin -->
+   <ID>0</ID>
+   <ID>8310160</ID>	<!-- Jackson Junkyard -->
+   <ID>3742159</ID>	<!-- Johnson's Acre -->
+   <ID>0</ID>
+   <ID>630986</ID>	<!-- Kanawha County Cemetery -->
+   <ID>20583</ID>	<!-- Kanawha Nuka-Cola Plant -->
+   <ID>391169</ID>	<!-- Kerwood Mine -->
+   <ID>3501060</ID>	<!-- Kiddie Corner Cabins -->
+   <ID>1303160</ID>	<!-- The Kill Box -->
+   <ID>3183180</ID>	<!-- KMAX Transmission -->
+   <ID>3742235</ID>	<!-- Knife Edge -->
+   <ID>0</ID>
+   <ID>3501082</ID>	<!-- Lady Janet's Soft Serve -->
+   <ID>3742241</ID>	<!-- Lake Eloise -->
+   <ID>32730</ID>	<!-- Lake Reynolds -->
+   <ID>630932</ID>	<!-- Landview Lighthouse -->
+   <ID>372436</ID>	<!-- Lewis & Sons Farming Supply -->
+   <ID>591210</ID>	<!-- Lewisburg -->
+   <ID>2920855</ID>	<!-- Lewisburg Station -->
+   <ID>3742204</ID>	<!-- Lost Home -->
+   <ID>399029</ID>	<!-- Lucky Hole Mine -->
+   <ID>0</ID>
+   <ID>3501064</ID>	<!-- Mac's Farm -->
+   <ID>7884934</ID>	<!-- Makeout Point -->
+   <ID>6182465</ID>	<!-- Makeshift Vault -->
+   <ID>576852</ID>	<!-- Mama Dolce's Food Processing -->
+   <ID>3501076</ID>	<!-- Marigold Pavilion -->
+   <ID>8710322</ID>	<!-- Meadow Breeze Storage Depot -->
+   <ID>6271008</ID>	<!-- Metal Dome -->
+   <ID>597750</ID>	<!-- Middle Mountain Pitstop -->
+   <ID>598056</ID>	<!-- Miners Monument -->
+   <ID>7789548</ID>	<!-- Mire's Eye -->
+   <ID>604863</ID>	<!-- Monongah -->
+   <ID>598560</ID>	<!-- Monongah Mine -->
+   <ID>631076</ID>	<!-- Monongah Overlook -->
+   <ID>604494</ID>	<!-- Monongah Power Plant -->
+   <ID>2937568</ID>	<!-- Monongah Power Substation MZ-01 -->
+   <ID>2939654</ID>	<!-- Monongah Power Substation MZ-02 -->
+   <ID>2941708</ID>	<!-- Monongah Power Substation MZ-03 -->
+   <ID>3324967</ID>	<!-- Monorail Elevator -->
+   <ID>5359194</ID>	<!-- Moonshiner's Shack -->
+   <ID>3317063</ID>	<!-- Morgantown -->
+   <ID>576713</ID>	<!-- Morgantown Airport -->
+   <ID>1100172</ID>	<!-- Morgantown High School -->
+   <ID>2922042</ID>	<!-- Morgantown Station -->
+   <ID>576849</ID>	<!-- Morgantown Trainyard -->
+   <ID>3501056</ID>	<!-- Mosstown -->
+   <ID>5795119</ID>	<!-- Moth-Home -->
+   <ID>605170</ID>	<!-- Mount Blair Trainyard -->
+   <ID>611091</ID>	<!-- Mountainside Bed & Breakfast -->
+   <ID>5822653</ID>	<!-- Mysterious Cave -->
+   <ID>0</ID>
+   <ID>7051128</ID>	<!-- Naked Creek -->
+   <ID>3501074</ID>	<!-- NAR Repair Yard -->
+   <ID>12346</ID>	<!-- National Isolated Radio Array -->
+   <ID>450106</ID>	<!-- National Radio Astronomy Research Center -->
+   <ID>611124</ID>	<!-- New Appalachian Central Trainyard -->
+   <ID>631368</ID>	<!-- New Gad -->
+   <ID>2741780</ID>	<!-- New River Gorge Bridge - East -->
+   <ID>2741777</ID>	<!-- New River Gorge Bridge - West -->
+   <ID>616961</ID>	<!-- New River Gorge Resort -->
+   <ID>3843444</ID>	<!-- Nicholson's End -->
+   <ID>3501042</ID>	<!-- North Cutthroat Camp -->
+   <ID>662406</ID>	<!-- North Kanawha Lookout -->
+   <ID>113342</ID>	<!-- North Mountain Lookout -->
+   <ID>6769791</ID>	<!-- Nuka-World On Tour -->
+  </Menu>
+
+  <Menu List="12">
+   <Title>[ O-P-Q-R ]</Title>
+   <ID>630803</ID>	<!-- Ohio River Adventures -->
+   <ID>7051142</ID>	<!-- Old Crimora Mines -->
+   <ID>8354080</ID>	<!-- Old Danielson Cabin -->
+   <ID>3742210</ID>	<!-- Old Mold Quarry -->
+   <ID>7097453</ID>	<!-- Old Rag Lookout -->
+   <ID>7496632</ID>	<!-- Organ Cave North -->
+   <ID>7496461</ID>	<!-- Organ Cave South -->
+   <ID>7496590</ID>	<!-- Organ Cave West -->
+   <ID>617131</ID>	<!-- Orwell Orchards -->
+   <ID>5212784</ID>	<!-- Overgrown Sundew Grove -->
+   <ID>101849</ID>	<!-- Overlook Cabin -->
+   <ID>1251225</ID>	<!-- Overseer's Camp -->
+   <ID>4163886</ID>	<!-- Overseer's Home -->
+   <ID>0</ID>
+   <ID>617056</ID>	<!-- Palace of the Winding Path -->
+   <ID>616945</ID>	<!-- Philippi Battlefield Cemetery -->
+   <ID>5795115</ID>	<!-- The Pigsty -->
+   <ID>631882</ID>	<!-- Pioneer Scout Camp -->
+   <ID>3739687</ID>	<!-- Pioneer Scout Lookout -->
+   <ID>3742190</ID>	<!-- Pleasant Hills Cemetery -->
+   <ID>103328</ID>	<!-- Pleasant Valley Cabins -->
+   <ID>102960</ID>	<!-- Pleasant Valley Ski Resort -->
+   <ID>2919599</ID>	<!-- Pleasant Valley Station -->
+   <ID>617161</ID>	<!-- Point Pleasant -->
+   <ID>8056380</ID>	<!-- Point Repose -->
+   <ID>3183211</ID>	<!-- Portside Pub -->
+   <ID>16820</ID>	<!-- Poseidon Energy Plant WV-06 -->
+   <ID>2945819</ID>	<!-- Poseidon Power Substation PX-01 -->
+   <ID>2943765</ID>	<!-- Poseidon Power Substation PX-02 -->
+   <ID>2947873</ID>	<!-- Poseidon Power Substation PX-03 -->
+   <ID>379915</ID>	<!-- Prickett's Fort -->
+   <ID>3837135</ID>	<!-- Prime -->
+   <ID>8710326</ID>	<!-- Prospect Hill -->
+   <ID>630868</ID>	<!-- Pumpkin House -->
+   <ID>4136226</ID>	<!-- Pylon Ambush Site -->
+   <ID>5280588</ID>	<!-- Pylon V-13 -->
+   <ID>0</ID>
+   <ID>3501070</ID>	<!-- Quarry X3 -->
+   <ID>0</ID>
+   <ID>604623</ID>	<!-- R & G Processing Services -->
+   <ID>2920061</ID>	<!-- R&G Station -->
+   <ID>7963109</ID>	<!-- Radiant Hills -->
+   <ID>8232783</ID>	<!-- Railroad Service Yard -->
+   <ID>3216403</ID>	<!-- Raleigh Clay's Bunker -->
+   <ID>630817</ID>	<!-- Ranger District Office -->
+   <ID>3825269</ID>	<!-- Ranger Lookout -->
+   <ID>7275690</ID>	<!-- Ranger Station Bunker -->
+   <ID>1292082</ID>	<!-- Ransacked Bunker -->
+   <ID>7051118</ID>	<!-- Rapidan Camp -->
+   <ID>3501094</ID>	<!-- Red Rocket Filling Station -->
+   <ID>618416</ID>	<!-- Relay Tower DP-B5-21 -->
+   <ID>539258</ID>	<!-- Relay Tower EL-B1-02 -->
+   <ID>624124</ID>	<!-- Relay Tower EM-B1-27 -->
+   <ID>623782</ID>	<!-- Relay Tower HG-B7-09 -->
+   <ID>617364</ID>	<!-- Relay Tower HN-B1-12 -->
+   <ID>618771</ID>	<!-- Relay Tower LW-B1-22 -->
+   <ID>7814649</ID>	<!-- Research Site Bavaria -->
+   <ID>7814650</ID>	<!-- Research Site Rhineland -->
+   <ID>7814648</ID>	<!-- Research Site Saxony -->
+   <ID>632519</ID>	<!-- The Retreat -->
+   <ID>3742106</ID>	<!-- Ripper Alley -->
+   <ID>103370</ID>	<!-- Riverside Manor -->
+   <ID>630961</ID>	<!-- RobCo Research Center -->
+   <ID>3742193</ID>	<!-- Rollins Labor Camp -->
+   <ID>3501054</ID>	<!-- The Rose Room -->
+   <ID>8345399</ID>	<!-- The Rust Kingdom -->
+   <ID>631879</ID>	<!-- The Rusty Pick -->
+  </Menu>
+
+  <Menu List="13">
+   <Title>[ S-T ]</Title>
+   <ID>359529</ID>	<!-- Sacramental Glade -->
+   <ID>3742124</ID>	<!-- Safe 'n Clean Disposal -->
+   <ID>468495</ID>	<!-- Sal's Grinders -->
+   <ID>8706925</ID>	<!-- Sand Fork Lumber -->
+   <ID>8710445</ID>	<!-- Sandy's Sock Hop -->
+   <ID>5200260</ID>	<!-- Scenic Overlook -->
+   <ID>3501046</ID>	<!-- Seneca Gang Camp -->
+   <ID>630990</ID>	<!-- Seneca Rocks -->
+   <ID>3866153</ID>	<!-- Seneca Rocks Visitor Center -->
+   <ID>7268301</ID>	<!-- Settler's Ridge -->
+   <ID>8710310</ID>	<!-- Shade Hill Church -->
+   <ID>7051123</ID>	<!-- Shenandoah Visitor Center -->
+   <ID>7939103</ID>	<!-- Shining Creek Cavern -->
+   <ID>1230440</ID>	<!-- Silva Homestead -->
+   <ID>1548354</ID>	<!-- Site Alpha -->
+   <ID>3008567</ID>	<!-- Site Bravo -->
+   <ID>3843327</ID>	<!-- Site Charlie -->
+   <ID>3501052</ID>	<!-- Skullbone Vantage -->
+   <ID>3742262</ID>	<!-- Slocum's Joe -->
+   <ID>3501096</ID>	<!-- The Sludge Hole -->
+   <ID>5584133</ID>	<!-- The Sludge Works -->
+   <ID>7051121</ID>	<!-- Slumber Mill Motel -->
+   <ID>3878650</ID>	<!-- Smith Farm -->
+   <ID>3742186</ID>	<!-- Solomon's Pond -->
+   <ID>1089654</ID>	<!-- Sons of Dane Compound -->
+   <ID>3501039</ID>	<!-- South Cutthroat Camp -->
+   <ID>3803041</ID>	<!-- South Mountain Lookout -->
+   <ID>7061132</ID>	<!-- South River Bridge -->
+   <ID>3183207</ID>	<!-- Southern Belle Motel -->
+   <ID>5251009</ID>	<!-- Southhampton Estate -->
+   <ID>5212780</ID>	<!-- Sparse Sundew Grove -->
+   <ID>2913848</ID>	<!-- Spruce Knob Campground -->
+   <ID>3742239</ID>	<!-- Spruce Knob Channels -->
+   <ID>3742237</ID>	<!-- Spruce Knob Lake -->
+   <ID>7051125</ID>	<!-- Stony Man Lookout -->
+   <ID>3824056</ID>	<!-- Striker Row -->
+   <ID>631131</ID>	<!-- Sugar Grove -->
+   <ID>1303190</ID>	<!-- Sugarmaple -->
+   <ID>631175</ID>	<!-- Summersville -->
+   <ID>3741247</ID>	<!-- Summersville Dam -->
+   <ID>631316</ID>	<!-- Summersville Docks -->
+   <ID>631718</ID>	<!-- Sunday Brothers' Cabin -->
+   <ID>1089651</ID>	<!-- Sunnytop Ski Lanes -->
+   <ID>3007875</ID>	<!-- Sunnytop Ski Lanes Base Lodge -->
+   <ID>2919147</ID>	<!-- Sunnytop Station -->
+   <ID>3742213</ID>	<!-- Sunrise Field -->
+   <ID>8186528</ID>	<!-- Super Duper Mart -->
+   <ID>3742232</ID>	<!-- Superior Sunset Farm -->
+   <ID>7596363</ID>	<!-- Surly's Shack -->
+   <ID>3742206</ID>	<!-- Survey Camp Alpha -->
+   <ID>8023841</ID>	<!-- Susan's Cabin -->
+   <ID>631790</ID>	<!-- Sutton -->
+   <ID>2921649</ID>	<!-- Sutton Station -->
+   <ID>5250975</ID>	<!-- Sylvie & Sons Logging Camp -->
+   <ID>0</ID>
+   <ID>3139469</ID>	<!-- Tanagra Town -->
+   <ID>3742219</ID>	<!-- The Thorn -->
+   <ID>7790934</ID>	<!-- Three Ponds -->
+   <ID>611764</ID>	<!-- Thunder Mountain Power Plant -->
+   <ID>2933450</ID>	<!-- Thunder Mountain Substation TM-01 -->
+   <ID>2935507</ID>	<!-- Thunder Mountain Substation TM-02 -->
+   <ID>7771676</ID>	<!-- Thunder Mountain Substation TM-03 -->
+   <ID>103331</ID>	<!-- Top of the World -->
+   <ID>631384</ID>	<!-- Torrance House -->
+   <ID>3119998</ID>	<!-- Toxic Dried Lakebed -->
+   <ID>3501044</ID>	<!-- Toxic Larry's Meat 'n Go -->
+   <ID>7051120</ID>	<!-- The Trading Post -->
+   <ID>3501088</ID>	<!-- Transmission Station 1AT-U03 -->
+   <ID>5280591</ID>	<!-- Treetops -->
+   <ID>3742243</ID>	<!-- Twin Lakes -->
+   <ID>3501078</ID>	<!-- Twin Pine Cabins -->
+   <ID>8602126</ID>	<!-- Tycoon Lake -->
+   <ID>465570</ID>	<!-- Tygart Water Treatment -->
+   <ID>662395</ID>	<!-- Tyler County Fairgrounds -->
+  </Menu>
+
+  <Menu List="14">
+   <Title>[ U-V-W-X-Y-Z-0 ]</Title>
+   <ID>591222</ID>	<!-- Uncanny Caverns -->
+   <ID>3183140</ID>	<!-- Unfinished Mansion -->
+   <ID>3824051</ID>	<!-- US-13C Bivouac -->
+   <ID>0</ID>
+   <ID>2794028</ID>	<!-- Valley Galleria -->
+   <ID>3501100</ID>	<!-- The Vantage -->
+   <ID>6198648</ID>	<!-- Vault 51 -->
+   <ID>4423942</ID>	<!-- Vault 63 -->
+   <ID>725073</ID>	<!-- Vault 76 -->
+   <ID>5822654</ID>	<!-- Vault 79 -->
+   <ID>718418</ID>	<!-- Vault 94 -->
+   <ID>727653</ID>	<!-- Vault 96 -->
+   <ID>64448</ID>	<!-- Vault-Tec Agricultural Research Center -->
+   <ID>531283</ID>	<!-- Vault-Tec University -->
+   <ID>5212787</ID>	<!-- Veiled Sundew Grove -->
+   <ID>0</ID>
+   <ID>28055</ID>	<!-- Watoga -->
+   <ID>468502</ID>	<!-- Watoga Civic Center -->
+   <ID>468493</ID>	<!-- Watoga Emergency Services -->
+   <ID>103380</ID>	<!-- Watoga Estates -->
+   <ID>468492</ID>	<!-- Watoga High School -->
+   <ID>468490</ID>	<!-- Watoga Municipal Center -->
+   <ID>468488</ID>	<!-- Watoga Shopping Plaza -->
+   <ID>2920463</ID>	<!-- Watoga Station -->
+   <ID>468494</ID>	<!-- Watoga Transit Hub -->
+   <ID>5828629</ID>	<!-- Watoga Underground -->
+   <ID>728388</ID>	<!-- Wavy Willard's Water Park -->
+   <ID>4242713</ID>	<!-- The Wayward -->
+   <ID>737068</ID>	<!-- Welch -->
+   <ID>2920862</ID>	<!-- Welch Station -->
+   <ID>750015</ID>	<!-- Wendigo Cave -->
+   <ID>1088413</ID>	<!-- West Tek Research Center -->
+   <ID>8710314</ID>	<!-- Westbrook Horse Ranch -->
+   <ID>631072</ID>	<!-- White Powder Winter Sports -->
+   <ID>631892</ID>	<!-- The Whitespring Bunker -->
+   <ID>631898</ID>	<!-- The Whitespring Golf Club -->
+   <ID>630827</ID>	<!-- Whitespring Lookout -->
+   <ID>6773263</ID>	<!-- The Whitespring North Entrance -->
+   <ID>631890</ID>	<!-- The Whitespring Resort -->
+   <ID>2907923</ID>	<!-- The Whitespring Service Entrance -->
+   <ID>2919604</ID>	<!-- The Whitespring Station -->
+   <ID>3501098</ID>	<!-- Widow's Perch -->
+   <ID>3501062</ID>	<!-- Willard Corporate Housing -->
+   <ID>1088427</ID>	<!-- Wilson Brother's Auto Repair -->
+   <ID>3663582</ID>	<!-- Wixon Homestead -->
+   <ID>2995408</ID>	<!-- Woods Estate -->
+   <ID>8576885</ID>	<!-- World of Corn -->
+   <ID>2856720</ID>	<!-- WV Lumber Co. -->
+   <ID>0</ID>
+   <ID>3742127</ID>	<!-- Yellow Sandy's Still -->
+   <ID>0</ID>
+   <ID>3501041</ID>	<!-- 98 NAR Regional -->
+  </Menu>
+
+  <Menu List="15">
+   <Title>[ Locations Added In Game Updates ]</Title>
+   <ID>6</ID>	<!-- Skyline Valley -->
+   <ID>7</ID>	<!-- Ghoul Within -->
+   <ID>30</ID>	<!-- Burning Springs -->
+  </Menu>
+
+  <Menu List="30">
+   <Title>[ Burning Springs ]</Title>
+   <ID>8710324</ID>	<!-- Abraxodyne Chemical Power Substation -->
+   <ID>8706924</ID>	<!-- Albany -->
+   <ID>8404500</ID>	<!-- Ash Cave -->
+   <ID>8347829</ID>	<!-- Athens -->
+   <ID>8195548</ID>	<!-- Checkpoint Canyon -->
+   <ID>8329532</ID>	<!-- Dino Peaks Mini Golf -->
+   <ID>8184550</ID>	<!-- Fort Steuben -->
+   <ID>8710318</ID>	<!-- Hamley Run Camp -->
+   <ID>8290444</ID>	<!-- Highway Town -->
+   <ID>8404498</ID>	<!-- Hocking Hills Station -->
+   <ID>8710320</ID>	<!-- Honey Well Apiary -->
+   <ID>8310160</ID>	<!-- Jackson Junkyard -->
+   <ID>8710322</ID>	<!-- Meadow Breeze Storage Depot -->
+   <ID>8710326</ID>	<!-- Prospect Hill -->
+   <ID>8232783</ID>	<!-- Railroad Service Yard -->
+   <ID>8706925</ID>	<!-- Sand Fork Lumber -->
+   <ID>8710445</ID>	<!-- Sandy's Sock Hop -->
+   <ID>8710310</ID>	<!-- Shade Hill Church -->
+   <ID>8186528</ID>	<!-- Super Duper Mart -->
+   <ID>8216713</ID>	<!-- The Chop Shop -->
+   <ID>8345399</ID>	<!-- The Rust Kingdom -->
+   <ID>8602126</ID>	<!-- Tycoon Lake -->
+   <ID>8710314</ID>	<!-- Westbrook Horse Ranch -->
+   <ID>8576885</ID>	<!-- World of Corn -->
+  </Menu>
+
+ </QuickFT>
+</UniMap>

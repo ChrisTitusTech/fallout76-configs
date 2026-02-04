@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UniMap>
+ <MarkerList>
+  <Title>[ D/W Challenges: Collect and Kill ]</Title>
+  <Coordinate>4K</Coordinate>
+  <Markers>
+   <Marker><Name>Soap (Bathtub)</Name><X>1412</X><Y>2085</Y></Marker>
+   <Marker><Name>Soap (Wheelbarrow)</Name><X>1002</X><Y>892</Y></Marker>
+   <Marker><Name>Soap (2F S.Belle Motel)</Name><X>3258</X><Y>1862</Y></Marker>
+   <Marker><Name>Teddy bear (Loft)</Name><X>2433</X><Y>623</Y></Marker>
+   <Marker><Name>Toilet paper:7 (V-Galleria)</Name><X>3445</X><Y>2092</Y></Marker>
+   <Marker><Name>Toilet paper:6 (Instance)</Name><X>1463</X><Y>922</Y></Marker>
+   <Marker><Name>Crystal (Many decanters)</Name><X>1398</X><Y>754</Y></Marker>
+   <Marker><Name>Burnt book (Summersville)</Name><X>1740</X><Y>2130</Y></Marker>
+   <Marker><Name>T-Paper,B-Book,Cigar,etc (Instance)</Name><X>2057</X><Y>3666</Y></Marker>
+   <Marker><Name>Garden Gnome:8 (General's SteakH.)</Name><X>3298</X><Y>2465</Y></Marker>
+   <Marker><Name>Garden Gnome:4 (Near Fort Defiance)</Name><X>2845</X><Y>3024</Y></Marker>
+   <Marker><Name>Garden Gnome:12 (HW Test Site #02)</Name><X>868</X><Y>3135</Y></Marker>
+   <Marker><Name>Pre-war money:101 (Event)</Name><X>1983</X><Y>1312</Y></Marker>
+   <Marker><Name>Pre-war money (Roof)</Name><X>1019</X><Y>1044</Y></Marker>
+   <Marker><Name>Pre-war money (Near Dagger's Den)</Name><X>2895</X><Y>2062</Y></Marker>
+   <Marker><Name></Name></Marker>	<!-- Separator -->
+   <Marker><Name>Honey Beast:3 (Middle Mt.Pitstop)</Name><X>2347</X><Y>2369</Y></Marker>
+   <Marker><Name>Mole Rat (Welch Station)</Name><X>988</X><Y>2960</Y></Marker>
+   <Marker><Name>Mole Rat (1AT-U03)</Name><X>963</X><Y>1161</Y></Marker>
+   <Marker><Name>Mole Rat (Hillfolk Hotdogs)</Name><X>998</X><Y>1894</Y></Marker>
+   <Marker><Name>Mole Rat (Near Riverside Manor) </Name><X>1509</X><Y>2534</Y></Marker>
+   <Marker><Name>Mole Rat (Flatwoods)</Name><X>1354</X><Y>1839</Y></Marker>
+   <Marker><Name>Angler:3 (Gnarled Shallows)</Name><X>3446</X><Y>1061</Y></Marker>
+   <Marker><Name>Angler:3 (Near Mire's Eye)</Name><X>3389</X><Y>828</Y></Marker>
+   <Marker><Name>Gulper:4 (Gulper Lagoon)</Name><X>3164</X><Y>1265</Y></Marker>
+   <Marker><Name>Gulper:2 (Dyer Chemical)</Name><X>3279</X><Y>1546</Y></Marker>
+   <Marker><Name>Mirelurk Hunter (Lake Reynolds)</Name><X>1587</X><Y>2903</Y></Marker>
+   <Marker><Name>Stingwing:3 (Bleeding Kate's G.)</Name><X>1615</X><Y>2566</Y></Marker>
+   <Marker><Name>Stingwing:3 (Whitespring)</Name><X>1943</X><Y>2554</Y></Marker>
+   <Marker><Name>Radstag:6 (Near Dent &amp; Sons C.)</Name><X>1956</X><Y>3229</Y></Marker>
+   <Marker><Name>Mongrel:4 (Aaronholt Homestead)</Name><X>1179</X><Y>785</Y></Marker>
+   <Marker><Name>Fox:4 (Big Fred's BBQ Shack)</Name><X>2462</X><Y>2171</Y></Marker>
+   <Marker><Name>Wolf:4 (Near Widow's Perch)</Name><X>1442</X><Y>2588</Y></Marker>
+   <Marker><Name>Wolf:6 (Autumn Acre Cabin)</Name><X>2756</X><Y>1715</Y></Marker>
+  </Markers>
+ </MarkerList>
+</UniMap>

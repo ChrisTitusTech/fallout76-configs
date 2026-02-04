@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UniMap>
+	<MapBook>
+		<MapBookName>
+			01-TZM_Vanilla-Enhanced_UniBook
+		</MapBookName>
+			
+		<MapBookCreator>
+			TZTZT
+		</MapBookCreator>
+		<MapResolution>
+			8K
+		</MapResolution><!-- Map resolution (4K or 8K) used by UniMap -->
+
+		<!-- Map Page Number origin is "1", but Map Page Number is not referenced by UniMap -->
+		<!-- No limit on the number of Map pages -->
+		<!-- If the page number is "0", skip loading. -->
+		<Map Page="1">
+			<Directory>textures\01-TZMap_Vanilla-Enhanced_UniBook\</Directory>
+			<Texture>VanillaEnhanced.dds</Texture>
+			<MapName>VanillaEnhanced</MapName>
+			<MapModName>TZMap</MapModName>
+			<Creator>TZTZT</Creator>
+		</Map>
+		<Map Page="2">
+			<Directory>textures\01-TZMap_Vanilla-Enhanced_UniBook\</Directory>
+			<Texture>VanillaEnhanced-Markers.dds</Texture>
+			<MapName>VanillaEnhanced-Markers</MapName>
+			<MapModName>TZMap</MapModName>
+			<Creator>TZTZT</Creator>
+		</Map>
+
+
+	</MapBook>
+</UniMap>
