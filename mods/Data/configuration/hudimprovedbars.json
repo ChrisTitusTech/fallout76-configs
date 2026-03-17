@@ -1,41 +1,126 @@
 {
-  //Yes yes, I know that adding comments to JSON is a crime against the specification.
-  // Forgive me, Todd
+  //Yes yes, I  do know what you're thinking... Adding comments to JSON is not standard compliant.
+  // Forgive me, Todd Howard
+  //==========================================================================================================================
+  // Improved Bars and HUD Configuration File
+  // Created by DCHoaxer95 - https://www.nexusmods.com/fallout76/mods/3106
+  // Version 1.17 only. Yes that means it won't work with older versions of the mod, and you cannot use older config files with this version.
+  // Last updated: Somewhere in March 2026
+  // If you need help, visit the mod page or contact me on Nexus Mods or Discord
+  // Oh and by the way, if you like this mod, consider endorsing it on Nexus Mods.
+  // It helps a lot!
+  // Enjoy!
+  //==========================================================================================================================
+  // GENERAL SETTINGS
+  //==========================================================================================================================
   "features": [
     {
+      // IHB language
+      // Available values: "en" - English, "pl" - Polish, "de" - German, "fr" - French, "it" - Italian, "es" - Spanish, "ru" - Russian, "zh" - Chinese
+      // Sets the language for the mod. Does not affect game language.
+      // Need more languages? Contact me on Nexus Mods or Discord
+      "language": "en",
+      // Global scale factor for all HUD elements. 1.0 is default size.  [Range: 0.1 - 10]
+      // Use this setting to globally scale all HUD elements added by this mod.
+      // If you want to scale individual elements, you can do that in the "widgets" section, by adding the "scaleFactor" for desired widget. 
+      //  This setting will scale all elements, including those that don't have individual scale settings.
+      "scaleFactor": 0.9,
       // Should we automatically realign elements under the HP bar? [Available values: true/false]
-      // Original positions - Weight:  -30,15 Caps: 60,15 Cores: 215,15 Clock: 250,15 
-      // DISABLE THIS IF YOU WANT TO SET A CUSTOM POSITIONS FOT LEFT SIDE WIDGETS (Currencies/Cores/Weight/Clock)
+      // This is needed for the widgets under the HP bar, such as weight, currencies, cores, clock, 
+      // because they have different widths, and if you have more than one of them enabled, they will overlap each other.
+      // DISABLE this if you have custom positions for these elements
+      // When enabled, it will automatically align these elements to the left, on the X axis
       "autoAlignLeftGroup": true,
-      // At which percentage the thirst bars should be hidden. Must be a ranged number between 0 and 1, but setting it to 100 makes it stay forever.  [Default game value: 0.2 Maximum value: 100]
+      // By default, the bars disappear after a short time when they reach [value] => [thirstBarsPercentIndefiniteShow]%. 
+      // This can be useful for players who want to keep an eye on their hunger and thirst levels without worrying about the bars disappearing.
+      // For example, if you set this to 50, the bars will stay visible until your hunger or thirst increases above 50%. 
+      // Setting this to 100 makes it stay forever.  [Default game value: 0.2 Maximum value: 1.0]
       "thirstBarsPercentIndefiniteShow": 0.2,
-      // Whether to hide survival icons or not [Available values: true/false]
+      // Whether to show hunger and thirst icons next to the bars. [Available values: true/false]
       "showHungerThirstIcons": true,
+      // Debug stuff
+      // This section is for debugging purposes. It allows you to enable debug mode, which will show additional information and messages in the console. 
+      // You can also enable messages for mod initialization and config reload events. 
+      // This can be useful for troubleshooting issues with the mod or for development purposes. [Available values: true/false]
+      // ShowDebug is not yet implemented. It will be implemented in the future, but for now, it does nothing.
+      "debugSettings": {
+        // Enable debug mode. do not use this
+        "showDebug": false,
+        // Show a message when mod is initialized
+        "showModInitializationMessage": true,
+        // Show a message when config is reloaded
+        "showConfigReloadMessage": true
+      },
       //This subsection defines specific widget settings, as well as the on-screen coordinates for the HUD elements. All positions are relative to the parent containers. Change it only if you have to.
       // You can set the scale of each widget elements, if you do not like their default sizes. 
       "widgets": [
         {
+          // Experience widget shows your current level and experience progress. It can also show the percentage of experience progress towards the next level, 
+          // if you enable the percentage option.
+          "xp": {
+            "enabled":true,
+            "percentage":true,
+            "scaleFactor":0.8,
+            "x":25,
+            "y":-50
+          },
+          // Shows active effects and some other stuff. Experimental. 
+          // This widget REQUIRES SFE, in order to work. Due the way it handles some internal stuff, Incompatible with save everything mod. Sorru!
+          // Currenly not implemented, but it will be in the future. For now, it does nothing.
+          // NOT IMPLEMENTED
+          "effectstracker": {
+            "enabled": false,
+            "x": -10,
+            "y": -50,
+            "showLunchboxes": true
+          },
+          // Vendor tracker shows when vendors are available to trade with you.
+          // Currently supports Minerva vendor only.
+          "vendortracker": {
+            "enabled": true,
+            // When enabled, shows minerva vendor status
+            "minervaVendor": true,
+            // Positioning
+            "x": -550,
+            "y": -75
+          },
+          // Nuke codes widget shows the actual nuke codes on the screen.
+          "nukecodes": {
+            // Whether to show nuke codes on the screen. [Available values: true/false]
+            // Even if you disable this, you can still see the nuke codes by pressing F11 and going into Improved Bars and HUD section. This setting only controls the visibility of the widget on the screen.
+            "enabled": true,
+            // POSITIONING 
+            "x": -585,
+            "y": -20
+          },
           "weight": {
             // Whether to display the player's current carry weight. [Available values: true/false]
             "enabled": true,
-            "x": -30,
-            "y": 15,
-            "scale": 1
+            // POSITIONING 
+            "x": -20,
+            "y": -20
           },
           "currencies": {
             //Whether to show the number of bottle caps and optionally other currencies specified in 'showonly' setting. [Available values: true/false]
             "enabled": true,
-            // Which currencies to show, separated by ';' [Available values "caps", "scrips", "bullion", "stamps"]
-            "showonly": "caps;bullion;stamps;scrips",
-            "x": 60,
-            "y": 15,
-            "scale": 1
+            // Which currencies to show, separated by ';' [Available values "caps", "bullion", "scrips", "stamps", "tadpole", "possum", "perks"]
+            // You can change the order of currencies too. Type your desired order separated by ';'
+            "showOnly": "caps;bullion;stamps;scrips;perks;tadpole;possum",
+            // Should the icons be colored or mono?  [Available values: true/false]  
+            "coloredIcons": true,
+            // POSITIONING
+            // Whether to show icons vertically or hortizonally [Available values: true/false]
+            // autoAlignLeftGroup is disabled for this widget if this feature is enabled. Will mess up things, unless you move each item individually.
+            "vertical": true,
+            "x": -90,
+            "y": -130
           },
           "cores": {
             // Whether to display the number of fusion cores. [Available values: true/false]
             "enabled": true,
-            "x": 215,
-            "y": 15
+            // POSITIONING
+            "x": 60,
+            "y": -20
           },
           "clock": {
             // Displays a clock.
@@ -47,9 +132,9 @@
             "mode": "server;local",
             // Whether to show your local time next to the server time.
             "use24hFormat": true,
-            "x": 250,
-            "y": 15,
-            "scale": 1
+            // POSITIONING
+            "x": 105,
+            "y": -20
           },
           "weaponcond": {
             //Whether to show the condition of the currently equipped weapon. [Available values: true/false]
@@ -61,16 +146,17 @@
             "shortenNames": false,
             // Toggles visibility of the weapon icon
             "showWeaponIcon": true,
-            "x": -60,
-            "y": -95,
-            "scale": 1
+            "x": -75,
+            "y": -115
           },
           "stats": {
             //Whether to show the simple SPECIAL widget. [Available values: true/false]
             "enabled": true,
-            "x": -100,
-            "y": -110,
-            "scale": 1
+            // Whether to show icons vertically or hortizonally [Available values: true/false, default: false]
+            "vertical": false,
+            "showDiffs": true,
+            "x": 650,
+            "y": 0
           },
           // Monitor up to 5 items. TEST ONLY
           // Pattern accepts a valid regex pattern.
@@ -85,33 +171,35 @@
           "itemmonitor": {
             "enabled": true,
             "inline": true,
-            "x": -100,
-            "y": 35,
-            "scale": 1,
+            "x": -40,
+            "y": 0,
             "valueprefix": "",
             "items": [
-              // This example matches Superstimpaks
+              // This example matches Stimpaks.
+              // All rules set there are for  English only
+              // Make your own rules for your language, or ask me to add some presets for your language. I can add presets for popular items in different languages, but I won't be able to add them for every language, so you might have to create your own rules. 
+              // If you need help with that, contact me on Nexus Mods or Discord.
+              {
+                "enabled": true,
+                "pattern": "/Stimpak/",
+                "label": "Stimpaks",
+                "valuecolor": "#66ACB7",
+                "labelcolor": "#FFFFCA"
+              },
+              // Super stimpaks only
               {
                 "enabled": true,
                 "pattern": "/Stimpak: Super/",
                 "label": "Superstimpaks",
-                "valuecolor": "#66ACB7",
+                "valuecolor": "#99FF99",
                 "labelcolor": "#FFFFCA"
               },
-              // This example counts treasury notes
+              //  This example counts treasury notes
               {
                 "enabled": true,
                 "pattern": "/Treasury Note/",
                 "label": "Treasury notes",
-                "valuecolor": "#66ACB7",
-                "labelcolor": "#FFFFCA"
-              },
-              // Etc...
-              {
-                "enabled": false,
-                "pattern": "",
-                "label": "Everything",
-                "valuecolor": "#66ACB7",
+                "valuecolor": "#FFAA77",
                 "labelcolor": "#FFFFCA"
               },
               {
@@ -136,10 +224,26 @@
         {
           "global": {
             "weight": "#FFFFAA",
-            "currencies": "#FFFFAA",
-            "cores": "#FFFFAA",
-            "clock": "#FFFFAA",
-            "weaponcond": "#FFFFCA",
+            "currencies": {
+              "caps": "#FFFFAA",
+              "bullion": "#FFFFAA",
+              "scrips": "#FFFFAA",
+              "stamps": "#FFFFAA",
+              "tadpole": "#FFFFAA",
+              "possum": "#FFFFAA",
+              "perks": "#FFFFAA",
+              "maxValue": "#E63E30"
+            },
+            "cores": "#44EEFF",
+            "clock": "#DDDDDD",
+            "weaponcond": "#FFEEAA",
+            "nukecodes": {
+              "A": "#FFFFAA",
+              "B": "#FFFFAA",
+              "C": "#FFFFAA",
+              "separator": "#FFFFAA",
+              "value": "#66ACB7"
+            },
             "special": {
               "S": "#779878",
               "P": "#786D4F",
@@ -154,7 +258,10 @@
       ]
     }
   ],
-  //Controls the visibility and display style of bar segments
+  // ==========================================================================================================================
+  // SEGMENTS SETTINGS
+  // This section allows you to configure segments for health, hunger, and thirst bars.
+  // ==========================================================================================================================
   "segments": [
     {
       //Enables segmentated health bar. [Available values: true/false]
@@ -163,7 +270,10 @@
       "hunger": true,
       //Enables segmentated thirst bar. [Available values: true/false]
       "thirst": true,
-      //Determines the visual style for each segment widget. Available values are "single" (one segment at 20%) and "full" (four segments every 20%).  
+      //Determines the style of the segments. Available styles:
+      // health: "single" - single segment at 20% health, "full" - full segmented bar every 20% health
+      // hunger: "single" - single segment at 20% hunger, "full" - full segmented bar every 20% hunger
+      // thirst: "single" - single segment at 20% thirst, "full" - full segmented bar eery 20% thirst
       "style": [
         {
           "health": "single",
@@ -173,12 +283,15 @@
       ]
     }
   ],
-  //Configures whether specific percentages are displayed, and what suffix to use
+  // ==========================================================================================================================
+  // PERCENTAGES SETTINGS
+  // This section allows you to configure percentage displays for health, hunger, thirst, feral, and glow bars.
+  // ==========================================================================================================================
   "percentages": [
     {
       //Whether to show percentage  near health bar. [Available values: true/false]
       "health": true,
-      //Whether to show the original bethesdas percentage near health bar. [Available values: true/false. Setting this to true disables mods's health percentage info. if the percentage disappears completely, you have old HUDMenu (chatmod?)]
+      //Whether to show the original bethesda's percentage near health bar. [Available values: true/false. Setting this to true disables mods's health percentage info. if the percentage disappears completely, you have old HUDMenu (chatmod?)]
       "bethhealth": false,
       //Whether to show percentage  near hunger bar. [Available values: true/false]
       "hunger": true,
