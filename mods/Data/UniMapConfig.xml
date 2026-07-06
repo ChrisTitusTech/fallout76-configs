@@ -157,10 +157,6 @@
    <MarkerListMax>9</MarkerListMax>
   </System>
 
-  <Infestation>
-   <Notification>yes</Notification>
-  </Infestation>
-
  </Settings>
 
 </UniMap>
