@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UniMap>
+	<MapBook>
+		<MapBookName>
+			03-TZM-SAT-Buildings-Flora-UniBook
+		</MapBookName>
+			
+		<MapBookCreator>
+			TZTZT
+		</MapBookCreator>
+		<MapResolution>
+			8K
+		</MapResolution><!-- Map resolution (4K or 8K) used by UniMap -->
+
+		<!-- Map Page Number origin is "1", but Map Page Number is not referenced by UniMap -->
+		<!-- No limit on the number of Map pages -->
+		<!-- If the page number is "0", skip loading. -->
+		<Map Page="1">
+			<Directory>textures\03-TZM-SAT-Buildings-Flora-UniBook\</Directory>
+			<Texture>SAT-Buildings-Flora.dds</Texture>
+			<MapName>SatelliteMap-Buildings-Flora</MapName>
+			<MapModName>TZMap</MapModName>
+			<Creator>TZTZT</Creator>
+		</Map>
+		<Map Page="2">
+			<Directory>textures\03-TZM-SAT-Buildings-Flora-UniBook\</Directory>
+			<Texture>SAT-Buildings-Flora-Markers.dds</Texture>
+			<MapName>SatelliteMap-Buildings-Flora-Markers</MapName>
+			<MapModName>TZMap</MapModName>
+			<Creator>TZTZT</Creator>
+		</Map>
+
+	</MapBook>
+</UniMap>
