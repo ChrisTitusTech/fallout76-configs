@@ -4,11 +4,11 @@
  <UniMapVersion>1.3</UniMapVersion>
 
  <MapBooks>
-  <MapBook Book="1">UniMap_MapBooks\01-TZMap_Vanilla-Enhanced_UniBook.xml</MapBook><MapPages Book="1">2</MapPages>
+  <MapBook Book="1">UniMap_MapBooks\MapBookSample.xml</MapBook><MapPages Book="1">2</MapPages>
  </MapBooks>
 
  <MapBooksPitt>
-  <MapBookPitt Book="1">UniMap_MapBooks\TZM_ThePitt_UniBook.xml</MapBookPitt><MapPagesPitt Book="1">4</MapPagesPitt>
+  <MapBookPitt Book="1">UniMap_MapBooks\MapBookPittSample.xml</MapBookPitt><MapPagesPitt Book="1">1</MapPagesPitt>
  </MapBooksPitt>
 
  <QuickFT>
@@ -156,6 +156,10 @@
    <PageMax>10</PageMax>
    <MarkerListMax>9</MarkerListMax>
   </System>
+
+  <Infestation>
+   <Notification>yes</Notification>
+  </Infestation>
 
  </Settings>
 

@@ -10,7 +10,8 @@
 		"textColor": "0xffffff",
 		"textShadow": false,
 		"hideResistances": false,
-		"hideButtons": false
+		"hideButtons": false,
+		"tieToHUDOpacity": false
 	},
 	
 	"disabled": false,
@@ -71,6 +72,10 @@
 			{"partName": "EYE", "minHitChance": 1}
 		],
 		"HANDY": [
+			{"partName": "THRUSTER", "minHitChance": 1},
+			{"partName": "EYE", "minHitChance": 1}
+		],
+		"FARMHAND": [
 			{"partName": "THRUSTER", "minHitChance": 1},
 			{"partName": "EYE", "minHitChance": 1}
 		],
@@ -152,21 +157,6 @@
 		"STRANGLER QUEEN": [
 			{"partName": "SPOUTS", "minHitChance": 1},
 			{"partName": "LEG", "minHitChance": 1}
-		],
-		"ALIEN DRONE": [
-			{"partName": "BODY"}
-		],
-		"CAPTAIN ALPHA": [
-			{"partName": "BODY"}
-		],
-		"CAPTAIN OMEGA": [
-			{"partName": "BODY"}
-		],
-		"ALIEN INVADER": [
-			{"partName": "TORSO"}
-		],
-		"GENERAL ZETA": [
-			{"partName": "TORSO"}
 		]
 	}
 }
