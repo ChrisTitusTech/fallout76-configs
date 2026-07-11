@@ -1,0 +1,2873 @@
+{
+  "debug": false,
+  "debugKeys": false,
+  "debugX": 0,
+  "debugY": 0,
+  "toggleDebugHotkey": 192,
+  "hideLoadMessage": false,
+  "showCategoryItemCount": false,
+  "showDurabilityValue": true,
+  "maintainScrollPosition": false,
+  "hideTakeAllConfirm": true,
+  "defaultVendorItemPrice": {
+    "enabled": true,
+    "defaultValue": -1,
+    "itemNames": {
+      "^Addictol$": 15,
+      "^Adrenal Reaction Serum$": 400,
+      "^Backwoodsman 1$": 50,
+      "^Backwoodsman 10$": 50,
+      "^Backwoodsman 3$": 50,
+      "^Backwoodsman 4$": 50,
+      "^Backwoodsman 5$": 50,
+      "^Backwoodsman 7$": 50,
+      "^Backwoodsman 9$": 50,
+      "^Berry Mentats$": 50,
+      "^Bird Bones Serum$": 400,
+      "^Bobblehead: Agility$": 50,
+      "^Bobblehead: Big Guns$": 50,
+      "^Bobblehead: Caps$": 50,
+      "^Bobblehead: Endurance$": 50,
+      "^Bobblehead: Energy Weapons$": 50,
+      "^Bobblehead: Explosive$": 50,
+      "^Bobblehead: Intelligence$": 50,
+      "^Bobblehead: Leader$": 400,
+      "^Bobblehead: Lock Picking$": 50,
+      "^Bobblehead: Repair$": 50,
+      "^Bobblehead: Science$": 50,
+      "^Bobblehead: Small Guns$": 50,
+      "^Bobblehead: Sneak$": 50,
+      "^Bobblehead: Strength$": 50,
+      "^Bobblehead: Unarmed$": 50,
+      "^Buffout$": 15,
+      "^Calmex$": 15,
+      "^Chameleon Serum$": 400,
+      "^Eagle Eyes Serum$": 400,
+      "^Egg Head Serum$": 400,
+      "^Electrically Charged Serum$": 400,
+      "^Empath Serum$": 400,
+      "^Fury$": 15,
+      "^Glowing Blood$": 10,
+      "^Glowing Blood Pack$": 10,
+      "^Glowing Bobblehead: Endurance$": 250,
+      "^Glowing Bobblehead: Lock Picking$": 250,
+      "^Glowing Bobblehead: Unarmed$": 250,
+      "^Grape Mentats$": 15,
+      "^Grognak the Barbarian 8$": 50,
+      "^Grounded Serum$": 400,
+      "^Guns and Bullets 1$": 50,
+      "^Guns and Bullets 3$": 50,
+      "^Guns and Bullets 4$": 50,
+      "^Guns and Bullets 6$": 50,
+      "^Healing Factor Serum$": 400,
+      "^Herbivore Serum$": 400,
+      "^Herd Mentality Serum$": 400,
+      "^High-Radiation Fluids$": 25,
+      "^Live & Love 2$": 50,
+      "^Live & Love 4$": 50,
+      "^Live & Love 8$": 100,
+      "^Marsupial Serum$": 400,
+      "^Med-X$": 15,
+      "^Mentats$": 15,
+      "^Orange Mentats$": 15,
+      "^Phantom Device$": 50,
+      "^Plague Walker Serum$": 400,
+      "^Psycho$": 15,
+      "^Psychobuff$": 15,
+      "^Psychotats$": 15,
+      "^Rad-X$": 5,
+      "^Rad-X: Diluted$": 3,
+      "^RadAway$": 5,
+      "^Scaly Skin Serum$": 400,
+      "^Scouts' Life 10$": 50,
+      "^Scouts' Life 3$": 50,
+      "^Scouts' Life 6$": 50,
+      "^Scouts' Life 8$": 50,
+      "^Stealth Boy$": 50,
+      "^Stealth Boy Mark III$": 100,
+      "^Stimpak$": 10,
+      "^Stimpak: Diluted$": 5,
+      "^Stimpak: Super$": 15,
+      "^Tales from the West Virginia Hills 2$": 50,
+      "^Tales from the West Virginia Hills 3$": 50,
+      "^Talons Serum$": 400,
+      "^Tesla Science 1$": 50,
+      "^Tesla Science 2$": 50,
+      "^Tesla Science 5$": 50,
+      "^Tesla Science 7$": 50,
+      "^Tesla Science 9$": 50,
+      "^Tumblers Today 1$": 50,
+      "^Twisted Muscles Serum$": 400,
+      "^U\\.S\\. Covert Operations Manual 1$": 50,
+      "^U\\.S\\. Covert Operations Manual 4$": 50,
+      "^U\\.S\\. Covert Operations Manual 9$": 50,
+      "^Unstable Isotope Serum$": 400,
+      "^Unstoppables 1$": 50,
+      "^Unstoppables 3$": 50,
+      "^\\.308 Round$": 1,
+      "^\\.38 Round$": 1,
+      "^\\.44 Round$": 1,
+      "^\\.45 Round$": 1,
+      "^\\.50 Caliber Ball$": 1,
+      "^10mm Round$": 1,
+      "^2mm Electromagnetic Cartridge$": 1,
+      "^Camera Film$": 1,
+      "^Fuel$": 1,
+      "^Fusion Cell$": 1,
+      "^Fusion Core$": 50,
+      "^Plasma Core$": 25,
+      "^Shotgun Shell$": 1,
+      "^Syringer Ammo$": 1,
+      "^Ultracite Plasma Cartridge$": 1,
+      "^Ultracite Plasma Core$": 30,
+      "^Brotherhood Scribe Outfit$": 63,
+      "^Enclave Officer Hat$": 50,
+      "^Enclave Officer Uniform$": 63,
+      "^Fasnacht Glowing Turkey Mask$": 40000,
+      "^Fasnacht Jackalope Mask$": 250,
+      "^Fasnacht Winter Man Mask$": 30000,
+      "^Field Scribe's Hat$": 15,
+      "^Field Scribe's Uniform$": 48,
+      "^Fire Breather Helmet$": 75,
+      "^Fire Breather Uniform$": 63,
+      "^Lab Coat$": 8,
+      "^Radstag Hide Outfit$": 28,
+      "^Sheepsquatch Mascot Outfit$": 225,
+      "^Straight Jacket$": 50,
+      "^Tattered Dress$": 8,
+      "^VTU Jacket and Jeans$": 25,
+      "^White Wolf Fedora$": 15,
+      "^Eye of Ra$": 100,
+      "^Garb of Mysteries$": 250,
+      "^Hazmat Suit$": 50,
+      "^Overeater's Excavator Torso$": 500,
+      "^Bubblegum$": 10,
+      "^Canned Coffee$": 50,
+      "^Cola Perk Bubblegum$": 5,
+      "^Dirty Water$": 1,
+      "^Glowing Mass$": 5,
+      "^Grape Perk Bubblegum$": 5,
+      "^Honey$": 5,
+      "^Nuka-Cherry$": 5,
+      "^Nuka-Cola$": 5,
+      "^Nuka-Cola Quantum$": 25,
+      "^Nuka-Cola Twist$": 5,
+      "^Pepper$": 10,
+      "^Salt$": 10,
+      "^Spices$": 10,
+      "^Spoiled Meat$": 1,
+      "^Spoiled Vegetables$": 1,
+      "^Strawberry Perk Bubblegum$": 5,
+      "^Sugar$": 10,
+      "^Toxic Goo$": 5,
+      "^Vintage Mire Magic Moonshine$": 25,
+      "^Vintage Nukashine$": 25,
+      "^Watermelon Perk Bubblegum$": 5,
+      "^A Lead at Last$": 10,
+      "^Blackwater Mine: Orientation$": 10,
+      "^BoS Archive: ARP Background$": 10,
+      "^BoS Report - Antique Store$": 10,
+      "^Bridge Club Recording$": 10,
+      "^Camp Guide Program v3\\.4$": 10,
+      "^Course Instructions$": 10,
+      "^Elder Maxson's Final Conversation$": 10,
+      "^Everything Changes$": 10,
+      "^Fire Breathers Final Exam Briefing$": 10,
+      "^First Day of Command$": 10,
+      "^Freddie Lang's Holotape$": 10,
+      "^Going well$": 10,
+      "^Gym Session Notes$": 10,
+      "^Hornwright's Proposal$": 10,
+      "^I Hate Flatwoods$": 10,
+      "^Interrogation: Doe, Jane$": 10,
+      "^Jesus Sunday's Holotape - Part 5$": 10,
+      "^Joyce's Message$": 10,
+      "^Light 'er Up$": 10,
+      "^Margie McClintock's Holotape$": 10,
+      "^Morris Stevens' Holotape$": 10,
+      "^Mort's Edu-Tape #01: Placing Your C\\.A\\.M\\.P\\.$": 10,
+      "^Mort's Edu-Tape #02: Building At Your C\\.A\\.M\\.P\\.$": 10,
+      "^Mort's Edu-Tape #03: Powering Your C\\.A\\.M\\.P\\.$": 10,
+      "^Nuka Tapper$": 50,
+      "^One Last Toast$": 10,
+      "^Overseer's Journal, Entry 1$": 10,
+      "^Overseer's Journal, Entry 2$": 10,
+      "^Overseer's Journal, Entry 3$": 10,
+      "^Overseer's Journal, Entry 5$": 10,
+      "^Overseer's Journal, Entry 6$": 10,
+      "^Overseer's Log - C\\.A\\.M\\.P\\.$": 10,
+      "^Overseer's Log - Flatwoods$": 10,
+      "^Protecting Our Own$": 10,
+      "^Report on Harpers Ferry Attack$": 10,
+      "^Rita - The Fire Breather$": 10,
+      "^Scorchslayer's Journal - Part 1$": 10,
+      "^Scorchslayer's Journal - Part 3$": 10,
+      "^Situation Report S-487$": 10,
+      "^Springhill Feedback$": 10,
+      "^Survivor Story: Colonel$": 10,
+      "^Survivor Story: Dassa Ben-Ami$": 10,
+      "^Survivor Story: Kesha McDermott$": 10,
+      "^Survivor Story: Rev\\. Delbert Winters$": 10,
+      "^The Addington's Dangerous Game$": 10,
+      "^The Huntersville Incident$": 10,
+      "^The Nuclear Option$": 10,
+      "^The Wayward Interrogation$": 10,
+      "^The Whitespring Staff Meeting, 12\\.27\\.79$": 10,
+      "^They're Coming$": 10,
+      "^US Government Supply Requisition$": 10,
+      "^Volunteer Training: Camping 101$": 10,
+      "^Weapon Demonstration$": 10,
+      "^Welcome to the Fire Breathers$": 10,
+      "^Hardened Mass$": 25,
+      "^Aluminum Ore$": 5,
+      "^Bait - Improved$": 5,
+      "^Beast of Beckley Card$": 10,
+      "^Black Titanium Ore$": 5,
+      "^Bobby Pin$": 1,
+      "^Brotherhood Recon Rifle Schematics$": 100,
+      "^Claim Token$": 5,
+      "^Commendation$": 10,
+      "^Copper Ore$": 5,
+      "^Dove Necklace$": 10,
+      "^Gold Ore$": 5,
+      "^Heating Coil$": 10,
+      "^Mothman Card$": 10,
+      "^Nuclear Keycard$": 100,
+      "^Pleasant Valley Claim Ticket$": 10,
+      "^Scrap Kit$": 50,
+      "^Silver Ore$": 5,
+      "^Upgraded Motor$": 10,
+      "^Uranium Ore$": 5,
+      "^¬ Aristocrat's$": 1000,
+      "^¬ Auto Stim$": 500,
+      "^¬ Executioner's$": 1000,
+      "^¬ Gourmand's$": 500,
+      "^¬ Juggernaut's$": 500,
+      "^¬ Mutant Slayer's$": 500,
+      "^¬ Quad$": 3000,
+      "^¬ Stalker's$": 500,
+      "^¬ Suppressor's$": 500,
+      "^¬ Troubleshooter's$": 500,
+      "^¬¬ Crippling$": 3000,
+      "^¬¬ Endurance$": 3000,
+      "^¬¬ Heavy Hitter's$": 4000,
+      "^¬¬ Poisoner's$": 3000,
+      "^¬¬ Rapid$": 4000,
+      "^¬¬ Riposting$": 1500,
+      "^¬¬¬ Agility$": 5000,
+      "^¬¬¬ Arms Keeper's$": 10000,
+      "^¬¬¬ Diver's$": 5000,
+      "^¬¬¬ Intelligence$": 8000,
+      "^¬¬¬¬ Bully's$": 7000,
+      "^¬¬¬¬ Tarnished$": 7000,
+      "^Ash Heap Treasure Map #01$": 10,
+      "^Ash Heap Treasure Map #02$": 10,
+      "^Cranberry Bog Treasure Map #02$": 10,
+      "^Cranberry Bog Treasure Map #03$": 10,
+      "^Cranberry Bog Treasure Map #04$": 10,
+      "^Forest Treasure Map #03$": 10,
+      "^Forest Treasure Map #04$": 10,
+      "^Forest Treasure Map #06$": 10,
+      "^Forest Treasure Map #07$": 10,
+      "^Forest Treasure Map #08$": 10,
+      "^Forest Treasure Map #09$": 10,
+      "^Forest Treasure Map #10$": 10,
+      "^Hells Eagles$": 10,
+      "^Mire Treasure Map #01$": 10,
+      "^Mire Treasure Map #02$": 10,
+      "^Mire Treasure Map #03$": 10,
+      "^Mire Treasure Map #04$": 10,
+      "^Mire Treasure Map #05$": 10,
+      "^Plan: Ashtray$": 25,
+      "^Plan: Barn Building Set$": 25,
+      "^Plan: BoS Combat Armor Chest Piece$": 25,
+      "^Plan: Bottle and Cappy Balloon Statue$": 500,
+      "^Plan: Campfire Tales Tent$": 63,
+      "^Plan: Cartography Table$": 500,
+      "^Plan: Cigarette Machine$": 25,
+      "^Plan: Cryo Mine$": 75,
+      "^Plan: Cushioned Raider Armor Legs$": 25,
+      "^Plan: Deep Pocketed Leather Armor Limbs$": 25,
+      "^Plan: Deep Pocketed Trapper Armor Limbs$": 25,
+      "^Plan: Double Display Shelf$": 25,
+      "^Plan: Drowned Signal Lantern$": 500,
+      "^Plan: Electrified Mr\\. Handy Buzz Blade$": 3,
+      "^Plan: Elegant Couches$": 25,
+      "^Plan: File Cabinets$": 25,
+      "^Plan: High-Tech Table$": 100,
+      "^Plan: Large Toolbox$": 25,
+      "^Plan: Light Metal Arms$": 15,
+      "^Plan: Light Metal Legs$": 15,
+      "^Plan: Light Metal Torso$": 15,
+      "^Plan: Lion Statues$": 25,
+      "^Plan: Marine Arms$": 25,
+      "^Plan: Metal Box$": 25,
+      "^Plan: Metal Diner Doors$": 25,
+      "^Plan: Metal Signs$": 25,
+      "^Plan: Military Cot$": 25,
+      "^Plan: MIRV Frag Grenade$": 85,
+      "^Plan: Modern Couches$": 25,
+      "^Plan: Modern Kitchen Tables$": 25,
+      "^Plan: Mole Miner Gauntlet$": 18,
+      "^Plan: Mr\\. Handy Buzz Blade$": 10,
+      "^Plan: Nuka Cola Bottle Kiosk$": 500,
+      "^Plan: Nuka-Cola Grenade$": 125,
+      "^Plan: Nuka-Cola Rocket$": 750,
+      "^Plan: Nuke Mine$": 125,
+      "^Plan: Ogua Hunter Outfit$": 500,
+      "^Plan: Park Grill$": 25,
+      "^Plan: Pioneer Scout Bowie Knife Paint$": 200,
+      "^Plan: Pocketed Leather Armor Chest$": 25,
+      "^Plan: Pocketed Leather Armor Limbs$": 25,
+      "^Plan: Pocketed Raider Armor Chest$": 25,
+      "^Plan: Raider Jet Pack$": 75,
+      "^Plan: Rug Set 2$": 25,
+      "^Plan: Shadowed Combat Armor Arms$": 25,
+      "^Plan: Shadowed Leather Armor Arm$": 25,
+      "^Plan: Single-Action Revolver Ivory Grip$": 25,
+      "^Plan: Stone Fountain$": 25,
+      "^Plan: T-45 Jet Pack$": 75,
+      "^Plan: T-51b Jet Pack$": 75,
+      "^Plan: T-60 Jet Pack$": 75,
+      "^Plan: Tesla Rifle$": 500,
+      "^Plan: Ultra-Light Build Marine Armor Limbs$": 100,
+      "^Plan: Ultra-Light Build Robot Armor Limbs$": 25,
+      "^Plan: Ultracite Cooling Vent$": 75,
+      "^Plan: Ultracite Jet Pack$": 75,
+      "^Plan: Ultracite Left Arm$": 3,
+      "^Plan: Ultracite Left Leg$": 3,
+      "^Plan: Ultracite Optimized Bracers$": 75,
+      "^Plan: Ultracite Right Arm$": 3,
+      "^Plan: Ultracite Right Leg$": 3,
+      "^Plan: Ultracite Sensor Array$": 75,
+      "^Plan: Ultracite Torso$": 3,
+      "^Plan: Walking Cane$": 25,
+      "^Plan: Warehouse Building Set$": 25,
+      "^Plan: Wooden Patio Chair$": 25,
+      "^Raider's Journal Entry 1$": 10,
+      "^Recipe: Bloatfly Loaf$": 15,
+      "^Recipe: Bloodbug Peppersteak$": 100,
+      "^Recipe: Cranberry Jam$": 15,
+      "^Recipe: Firecap Souffle$": 15,
+      "^Recipe: Healing Salve \\(Forest\\)$": 38,
+      "^Recipe: Mirelurk Cake$": 15,
+      "^Recipe: Pumpkin Pie$": 6,
+      "^Recipe: S'mores$": 125,
+      "^Recipe: Steeped Strangler Pod Tea$": 15,
+      "^Recipe: Tasty Mutton Meat Pie$": 500,
+      "^Recipe: Tasty Radscorpion Egg Omelette$": 15,
+      "^Savage Divide Treasure Map #01$": 10,
+      "^Savage Divide Treasure Map #03$": 10,
+      "^Savage Divide Treasure Map #04$": 10,
+      "^Savage Divide Treasure Map #05$": 10,
+      "^Savage Divide Treasure Map #06$": 10,
+      "^Savage Divide Treasure Map #07$": 10,
+      "^Savage Divide Treasure Map #08$": 10,
+      "^Savage Divide Treasure Map #09$": 10,
+      "^Savage Divide Treasure Map #10$": 10,
+      "^Toxic Valley Treasure Map #03$": 10,
+      "^You Have Been Insulted!$": 1000,
+      "^#Holy Fire$": 2750,
+      "^#Prime Gatling Plasma$": 5000,
+      "^Blade of Bastet$": 250,
+      "^Burning Love$": 500,
+      "^Hunter's Multi-Purpose Axe$": 250,
+      "^Juggernaut's Recoil Compensated Automatic Enclave Plasma Rifle$": 5000,
+      "^Plasma Grenade$": 5,
+      "^Troubleshooter's Short Ultracite Laser Pistol$": 500,
+      "^Troubleshooter's Tactical Ultracite Gatling Laser$": 750,
+      "^V63 Zweihaender$": 1000,
+      "^Vampire's Salvaged Assaultron Head$": 500,
+      "^Voice of Set$": 250
+    },
+    "categoryNames": {}
+  },
+  "hideHeader": true,
+  "hideVignette": true,
+  "notifyLegendaryModLearnedOnScrap": true,
+  "swapToPlayerInventoryHotkey": 0,
+  "swapToContainerInventoryHotkey": 0,
+  "hideUnknownGamepadButtonIcons": true,
+  "defaultSelectedTab": "-",
+  "scrapItemCountThresholdPopup": 5,
+  "transferItemCountThresholdPopup": 4,
+  "additionalColumnsConfig": {
+    "enabled": false,
+    "offsetInventories": 132,
+    "columns": {
+      "LEVEL": false,
+      "VALUE": true,
+      "VALUE_PER_WEIGHT": false,
+      "WEIGHT": true,
+      "STACK_WEIGHT": true
+    }
+  },
+  "itemNamesGroupConfig": {
+    "EXAMPLE_GROUP": [
+      "item 1",
+      "item 2",
+      "...",
+      "xyz"
+    ],
+    "ExampleGroup2": [
+      "item 3",
+      "item 4"
+    ]
+  },
+  "legendaryModsConfig": {
+    "enabled": true,
+    "showUnknownModsAmongAllChars": false,
+    "showInWorkbench": true,
+    "showInStash": true,
+    "showInVendors": true,
+    "showInWorldContainers": true,
+    "learnableText": "[Learnable]",
+    "learnableFromArmorText": "[Learnable from Armor]",
+    "learnableFromPowerArmorText": "[Learnable from Power Armor]",
+    "learnableFromWeaponText": "[Learnable from Weapon]",
+    "learnableTextColorStyle": "PREFIX",
+    "learnableTextColor": "0xff0000",
+    "keepText": "[Keep]",
+    "keepTextColorStyle": "PREFIX",
+    "keepTextColor": "0x00ffd1",
+    "keepLearnableText": "[Keep+Learnable]",
+    "keepLearnableTextColorStyle": "PREFIX",
+    "keepLearnableTextColor": "0xd100ff"
+  },
+  "categoryWeightConfig": {
+    "enabled": false,
+    "debug": false,
+    "hotkey": "F5",
+    "weightLabelWidth": 200,
+    "itemCardDelay": 75,
+    "itemCardFilters": [
+      "WEAPON",
+      "ARMOR",
+      "FOOD_WATER",
+      "AID",
+      "JUNK",
+      "AMMO"
+    ]
+  },
+  "protectionConfig": {
+    "debug": true,
+    "checkOnSelectionChange": true,
+    "itemLocking": {
+      "testRun": false,
+      "enabled": true,
+      "debug": true,
+      "showButton": true,
+      "showMessage": true,
+      "name": "Lock All",
+      "hotkey": "K",
+      "delay": 50
+    },
+    "saleProtection": {
+      "enabled": true,
+      "favorite": true,
+      "equipped": true,
+      "maxCurrency": true,
+      "named": false,
+      "matchMode": "CONTAINS",
+      "itemNames": [
+        "EXAMPLE_GROUP",
+        "ExampleGroup2",
+        "item 1",
+        "item 2"
+      ]
+    },
+    "scrapProtection": {
+      "enabled": true,
+      "favorite": true,
+      "equipped": true,
+      "knownLegendaryMods": true,
+      "named": false,
+      "matchMode": "CONTAINS",
+      "itemNames": [
+        "EXAMPLE_GROUP",
+        "item 1",
+        "item 2"
+      ]
+    },
+    "transferProtection": {
+      "enabled": true,
+      "favorite": true,
+      "equipped": true,
+      "named": false,
+      "matchMode": "CONTAINS",
+      "itemNames": [
+        "EXAMPLE_GROUP",
+        "item 1",
+        "item 2"
+      ],
+      "disableForContainers": [
+        "POWER ARMOR"
+      ]
+    }
+  },
+  "tabsConfig": {
+    "enabled": true,
+    "maxTabs": 14,
+    "labelWidthScale": 1.1
+  },
+  "currencyLimitConfig": {
+    "enabled": true,
+    "debug": false,
+    "defaultColor": "0x00ff00",
+    "limitLow": 80,
+    "limitLowColor": "0xffff00",
+    "limitHigh": 90,
+    "limitHighColor": "0xff0000"
+  },
+  "campAssignConfig": {
+    "enabled": true,
+    "configs": [
+      {
+        "name": "AutoVend",
+        "enabled": false,
+        "debug": true,
+        "showButton": true,
+        "assignMode": "VENDOR",
+        "hotkey": "F",
+        "delay": 700,
+        "checkAccountName": false,
+        "accountName": [
+          "acc 1",
+          "acc 2"
+        ],
+        "checkCharacterName": false,
+        "characterName": [
+          "char 1",
+          "char 2"
+        ],
+        "checkContainerName": false,
+        "containerName": [
+          "cont 1",
+          "cont 2"
+        ],
+        "configs": [
+          {
+            "enabled": false,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Stimpak"
+            ],
+            "types": [
+              "AID"
+            ],
+            "amount": 0,
+            "price": 7
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Stimpak: Super"
+            ],
+            "types": [
+              "AID"
+            ],
+            "amount": -30,
+            "price": 10
+          },
+          {
+            "enabled": true,
+            "matchMode": "CONTAINS",
+            "itemNames": [
+              ".44",
+              ".38",
+              "10mm",
+              "5mm"
+            ],
+            "types": [
+              "AMMO"
+            ],
+            "amount": 0,
+            "price": 1
+          },
+          {
+            "enabled": false,
+            "matchMode": "STARTS",
+            "itemNames": [
+              "plan: ",
+              "recipe: "
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": -1
+          }
+        ]
+      },
+      {
+        "name": "Vend Selected {amount}",
+        "enabled": false,
+        "debug": true,
+        "showButton": true,
+        "assignMode": "VENDOR",
+        "hotkey": "G",
+        "amount": 10,
+        "delay": 700,
+        "price": -1,
+        "onlyHighlightedItem": true
+      },
+      {
+        "name": "AutoDisplay",
+        "enabled": false,
+        "debug": true,
+        "showButton": true,
+        "assignMode": "DISPLAY",
+        "hotkey": "F",
+        "delay": 700,
+        "checkAccountName": false,
+        "accountName": [
+          "acc 1",
+          "acc 2"
+        ],
+        "checkCharacterName": false,
+        "characterName": [
+          "char 1",
+          "char 2"
+        ],
+        "checkContainerName": false,
+        "containerName": [
+          "cont 1",
+          "cont 2"
+        ],
+        "configs": [
+          {
+            "enabled": true,
+            "matchMode": "CONTAINS",
+            "itemNames": [
+              "sugar bombs"
+            ],
+            "types": [
+              "FOOD_WATER"
+            ],
+            "amount": 1
+          },
+          {
+            "enabled": true,
+            "matchMode": "CONTAINS",
+            "itemNames": [
+              "fasnacht loon"
+            ],
+            "types": [
+              "APPAREL"
+            ],
+            "amount": 3
+          },
+          {
+            "enabled": false,
+            "matchMode": "CONTAINS",
+            "itemNames": [
+              "Company Tea"
+            ],
+            "types": [
+              "WEAPONS"
+            ],
+            "amount": 3
+          }
+        ]
+      },
+      {
+        "name": "Display Selected {amount}",
+        "enabled": false,
+        "debug": true,
+        "showButton": true,
+        "assignMode": "DISPLAY",
+        "hotkey": "G",
+        "amount": 3,
+        "delay": 700,
+        "onlyHighlightedItem": true
+      },
+      {
+        "name": "AutoFreeze",
+        "enabled": false,
+        "debug": true,
+        "showButton": true,
+        "assignMode": "OTHER",
+        "hotkey": "F",
+        "delay": 700,
+        "checkAccountName": false,
+        "accountName": [
+          "acc 1",
+          "acc 2"
+        ],
+        "checkCharacterName": false,
+        "characterName": [
+          "char 1",
+          "char 2"
+        ],
+        "checkContainerName": false,
+        "containerName": [
+          "MILITARY CRYO-FREEZER",
+          "NUKA-COLA CRYO FREEZER",
+          "container 3"
+        ],
+        "configs": [
+          {
+            "comment": "RECHARGER EXAMPLE",
+            "enabled": false,
+            "matchMode": "CONTAINS",
+            "itemNames": [
+              "core"
+            ],
+            "types": [
+              "AMMO"
+            ],
+            "amount": 4,
+            "conditionUnder": 100
+          },
+          {
+            "enabled": true,
+            "matchMode": "CONTAINS",
+            "itemNames": [
+              "Smoked Mirelurk Fillets",
+              "Seared Venison With Berries",
+              "Brain Bombs",
+              "Broiled Scorchbeast Brain"
+            ],
+            "types": [
+              "FOOD_WATER"
+            ],
+            "amount": -2
+          },
+          {
+            "enabled": true,
+            "matchMode": "CONTAINS",
+            "itemNames": [
+              "Cranberry Relish",
+              "Black-Eyed Susan's Soothin'",
+              "Sweetwater Special Blend"
+            ],
+            "types": [
+              "FOOD_WATER"
+            ],
+            "amount": -3
+          },
+          {
+            "enabled": true,
+            "matchMode": "CONTAINS",
+            "itemNames": [
+              "Blight Soup",
+              "Tato Salad"
+            ],
+            "types": [
+              "FOOD_WATER"
+            ],
+            "amount": -6
+          }
+        ]
+      },
+      {
+        "name": "Freeze Selected {amount}",
+        "enabled": false,
+        "debug": true,
+        "showButton": true,
+        "assignMode": "OTHER",
+        "hotkey": "G",
+        "amount": 6,
+        "delay": 700,
+        "onlyHighlightedItem": true
+      },
+      {
+        "name": "AutoVend Priced Sheet",
+        "enabled": true,
+        "debug": true,
+        "showButton": true,
+        "showMessage": true,
+        "assignMode": "VENDOR",
+        "hotkey": "F",
+        "delay": 2000,
+        "configs": [
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Nuka-Cola Rocket"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 750
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Bottle and Cappy Balloon Statue"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 500
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Cartography Table"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 500
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Drowned Signal Lantern"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 500
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Nuka Cola Bottle Kiosk"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 500
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Ogua Hunter Outfit"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 500
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Tesla Rifle"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 500
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Pioneer Scout Bowie Knife Paint"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 200
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Nuka-Cola Grenade"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 125
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Nuke Mine"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 125
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: High-Tech Table"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 100
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Ultra-Light Build Marine Armor Limbs"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 100
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: MIRV Frag Grenade"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 85
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Cryo Mine"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 75
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Raider Jet Pack"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 75
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: T-45 Jet Pack"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 75
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: T-51b Jet Pack"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 75
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: T-60 Jet Pack"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 75
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Ultracite Cooling Vent"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 75
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Ultracite Jet Pack"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 75
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Ultracite Optimized Bracers"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 75
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Ultracite Sensor Array"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 75
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Campfire Tales Tent"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 63
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Ashtray"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 25
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Barn Building Set"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 25
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: BoS Combat Armor Chest Piece"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 25
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Cigarette Machine"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 25
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Cushioned Raider Armor Legs"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 25
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Deep Pocketed Leather Armor Limbs"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 25
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Deep Pocketed Trapper Armor Limbs"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 25
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Double Display Shelf"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 25
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Elegant Couches"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 25
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: File Cabinets"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 25
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Large Toolbox"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 25
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Lion Statues"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 25
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Marine Arms"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 25
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Metal Box"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 25
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Metal Diner Doors"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 25
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Metal Signs"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 25
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Military Cot"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 25
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Modern Couches"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 25
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Modern Kitchen Tables"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 25
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Park Grill"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 25
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Pocketed Leather Armor Chest"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 25
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Pocketed Leather Armor Limbs"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 25
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Pocketed Raider Armor Chest"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 25
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Rug Set 2"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 25
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Shadowed Combat Armor Arms"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 25
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Shadowed Leather Armor Arm"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 25
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Single-Action Revolver Ivory Grip"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 25
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Stone Fountain"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 25
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Ultra-Light Build Robot Armor Limbs"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 25
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Walking Cane"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 25
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Warehouse Building Set"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 25
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Wooden Patio Chair"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 25
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Mole Miner Gauntlet"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 18
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Light Metal Arms"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 15
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Light Metal Legs"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 15
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Light Metal Torso"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 15
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Mr. Handy Buzz Blade"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 10
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Electrified Mr. Handy Buzz Blade"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 3
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Ultracite Left Arm"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 3
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Ultracite Left Leg"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 3
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Ultracite Right Arm"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 3
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Ultracite Right Leg"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 3
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plan: Ultracite Torso"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 0,
+            "price": 3
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "You Have Been Insulted!"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 4,
+            "price": 1000
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Overeater's Excavator Torso"
+            ],
+            "types": [
+              "ARMOR"
+            ],
+            "amount": 1,
+            "price": 500
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Recipe: Tasty Mutton Meat Pie"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 1,
+            "price": 500
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "¬ Auto Stim"
+            ],
+            "types": [
+              "MODS"
+            ],
+            "amount": 1,
+            "price": 500
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "¬ Gourmand's"
+            ],
+            "types": [
+              "MODS"
+            ],
+            "amount": 2,
+            "price": 500
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "¬ Juggernaut's"
+            ],
+            "types": [
+              "MODS"
+            ],
+            "amount": 1,
+            "price": 500
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "¬ Mutant Slayer's"
+            ],
+            "types": [
+              "MODS"
+            ],
+            "amount": 1,
+            "price": 500
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "¬ Stalker's"
+            ],
+            "types": [
+              "MODS"
+            ],
+            "amount": 1,
+            "price": 500
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Adrenal Reaction Serum"
+            ],
+            "types": [
+              "AID"
+            ],
+            "amount": 1,
+            "price": 400
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Bird Bones Serum"
+            ],
+            "types": [
+              "AID"
+            ],
+            "amount": 2,
+            "price": 400
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Chameleon Serum"
+            ],
+            "types": [
+              "AID"
+            ],
+            "amount": 1,
+            "price": 400
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Eagle Eyes Serum"
+            ],
+            "types": [
+              "AID"
+            ],
+            "amount": 4,
+            "price": 400
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Egg Head Serum"
+            ],
+            "types": [
+              "AID"
+            ],
+            "amount": 4,
+            "price": 400
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Electrically Charged Serum"
+            ],
+            "types": [
+              "AID"
+            ],
+            "amount": 1,
+            "price": 400
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Empath Serum"
+            ],
+            "types": [
+              "AID"
+            ],
+            "amount": 1,
+            "price": 400
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Grounded Serum"
+            ],
+            "types": [
+              "AID"
+            ],
+            "amount": 2,
+            "price": 400
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Healing Factor Serum"
+            ],
+            "types": [
+              "AID"
+            ],
+            "amount": 4,
+            "price": 400
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Herbivore Serum"
+            ],
+            "types": [
+              "AID"
+            ],
+            "amount": 2,
+            "price": 400
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Herd Mentality Serum"
+            ],
+            "types": [
+              "AID"
+            ],
+            "amount": 2,
+            "price": 400
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Marsupial Serum"
+            ],
+            "types": [
+              "AID"
+            ],
+            "amount": 1,
+            "price": 400
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Plague Walker Serum"
+            ],
+            "types": [
+              "AID"
+            ],
+            "amount": 3,
+            "price": 400
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Scaly Skin Serum"
+            ],
+            "types": [
+              "AID"
+            ],
+            "amount": 4,
+            "price": 400
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Talons Serum"
+            ],
+            "types": [
+              "AID"
+            ],
+            "amount": 1,
+            "price": 400
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Twisted Muscles Serum"
+            ],
+            "types": [
+              "AID"
+            ],
+            "amount": 4,
+            "price": 400
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Unstable Isotope Serum"
+            ],
+            "types": [
+              "AID"
+            ],
+            "amount": 8,
+            "price": 400
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Recipe: S'mores"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 1,
+            "price": 125
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Recipe: Bloodbug Peppersteak"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 1,
+            "price": 100
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Phantom Device"
+            ],
+            "types": [
+              "AID"
+            ],
+            "amount": 1,
+            "price": 50
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Stealth Boy"
+            ],
+            "types": [
+              "AID"
+            ],
+            "amount": 1,
+            "price": 50
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Recipe: Healing Salve (Forest)"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 2,
+            "price": 38
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Recipe: Bloatfly Loaf"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 1,
+            "price": 15
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Recipe: Cranberry Jam"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 1,
+            "price": 15
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Recipe: Mirelurk Cake"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 1,
+            "price": 15
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Recipe: Steeped Strangler Pod Tea"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 1,
+            "price": 15
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Recipe: Tasty Radscorpion Egg Omelette"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 1,
+            "price": 15
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Bubblegum"
+            ],
+            "types": [
+              "FOOD_WATER"
+            ],
+            "amount": 1,
+            "price": 10
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Forest Treasure Map #03"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 1,
+            "price": 10
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Forest Treasure Map #06"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 2,
+            "price": 10
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Forest Treasure Map #07"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 2,
+            "price": 10
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Forest Treasure Map #08"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 1,
+            "price": 10
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Forest Treasure Map #10"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 3,
+            "price": 10
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Glowing Blood"
+            ],
+            "types": [
+              "AID"
+            ],
+            "amount": 7,
+            "price": 10
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Mire Treasure Map #01"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 2,
+            "price": 10
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Mire Treasure Map #03"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 1,
+            "price": 10
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Mire Treasure Map #05"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 1,
+            "price": 10
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Savage Divide Treasure Map #01"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 1,
+            "price": 10
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Savage Divide Treasure Map #03"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 1,
+            "price": 10
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Savage Divide Treasure Map #04"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 1,
+            "price": 10
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Savage Divide Treasure Map #05"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 3,
+            "price": 10
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Savage Divide Treasure Map #06"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 1,
+            "price": 10
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Savage Divide Treasure Map #07"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 3,
+            "price": 10
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Savage Divide Treasure Map #08"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 4,
+            "price": 10
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Savage Divide Treasure Map #09"
+            ],
+            "types": [
+              "NOTES"
+            ],
+            "amount": 1,
+            "price": 10
+          },
+          {
+            "enabled": true,
+            "matchMode": "EXACT",
+            "itemNames": [
+              "Stimpak"
+            ],
+            "types": [
+              "AID"
+            ],
+            "amount": 281,
+            "price": 10
+          }
+        ]
+      }
+    ]
+  },
+  "buyConfig": {
+    "testRun": false,
+    "name": "AutoBuy",
+    "enabled": false,
+    "debug": false,
+    "hotkey": "B",
+    "showButton": true,
+    "showMessage": "FULL",
+    "maxItems": 50,
+    "delayNpcVendor": 50,
+    "delayCampVendor": 1250,
+    "configs": [
+      {
+        "enabled": false,
+        "amount": 0,
+        "maxPrice": 1,
+        "types": [
+          "AMMO"
+        ],
+        "matchMode": "EXACT",
+        "itemNames": [
+          "5.56 round",
+          ".45 Round",
+          "Fusion Cell"
+        ]
+      },
+      {
+        "enabled": false,
+        "amount": 0,
+        "maxPrice": 20,
+        "matchMode": "CONTAINS",
+        "itemNames": [
+          "nuka-cola",
+          "sugar bombs",
+          "fragmentation grenade"
+        ]
+      }
+    ]
+  },
+  "npcSellConfig": {
+    "testRun": false,
+    "name": "AutoSell",
+    "enabled": true,
+    "showButton": true,
+    "showMessage": "FULL",
+    "hotkey": "N",
+    "maxItems": 100,
+    "delay": 25,
+    "configs": [
+      {
+        "enabled": true,
+        "sellFavorite": false,
+        "sellEquipped": false,
+        "types": [
+          "AID",
+          "FOOD_WATER",
+          "WEAPON"
+        ],
+        "matchMode": "EXACT",
+        "itemNames": [
+          "Glowing Blood",
+          "Rad-X",
+          "RadAway",
+          "Insect Repellent",
+          "Plasma Grenade",
+          "Plasma Mine",
+          "Fragmentation Mine",
+          "Baseball Grenade",
+          "Floater Flamer Grenade",
+          "Floater Gnasher Grenade",
+          "Floater Freezer Grenade",
+          "Cryo Mine",
+          "Cryogenic Grenade",
+          "Bug Grenade",
+          "Pulse Mine",
+          "Pulse Grenade",
+          "Molotov Cocktail",
+          "Calmex",
+          "Canned Dog Food",
+          "Fragmentation Grenade",
+          "Glowing Meat",
+          "Honeycomb",
+          "Mutant Hound Meat",
+          "Nuka-Dog",
+          "Purified Water",
+          "Rad-X: Diluted",
+          "RadAway: Diluted",
+          "Cram",
+          "Ionized Meat",
+          "Pork n' Beans",
+          "Western Outfit",
+          "Yao Guai Meat",
+          "Dandy Boy Apples",
+          "Day Tripper",
+          "Fancy Lads Snack Cakes",
+          "Sugar Bombs",
+          "Mole Rat Chunks"
+        ],
+        "checkCharacterName": false,
+        "characterName": "none",
+        "checkAccountName": false,
+        "accountName": "none"
+      },
+      {
+        "enabled": true,
+        "amount": -10,
+        "types": [
+          "AID"
+        ],
+        "matchMode": "EXACT",
+        "itemNames": [
+          "Stimpak",
+          "Stimpak: Diluted"
+        ]
+      }
+    ]
+  },
+  "lootConfig": {
+    "testRun": false,
+    "name": "AutoLoot",
+    "enabled": true,
+    "debug": false,
+    "showButton": true,
+    "showMessage": false,
+    "hotkey": "F",
+    "maxItems": 100,
+    "delay": 25,
+    "transferLegendaries": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "transferTaggedForSearch": true,
+    "matchMode": "CONTAINS",
+    "itemNames": [
+      "cap",
+      "bobby pin",
+      "cell",
+      "cartridge",
+      "fuel",
+      ".45",
+      "5.56",
+      "stimpak",
+      "mentats",
+      "psycho",
+      "med-x",
+      "radaway",
+      "rad-x",
+      "priest pack",
+      "pail",
+      "bag",
+      "gift"
+    ],
+    "configs": [
+      {
+        "enabled": true,
+        "checkAccountName": false,
+        "accountName": "none",
+        "checkCharacterName": true,
+        "characterName": "Zelia",
+        "itemNames": [
+          "railway spike"
+        ]
+      },
+      {
+        "enabled": false,
+        "checkAccountName": true,
+        "accountName": [
+          "acc 1",
+          "acc 2"
+        ],
+        "checkCharacterName": true,
+        "characterName": [
+          "char 1",
+          "char 2"
+        ],
+        "itemNames": [
+          "item 1",
+          "item 2",
+          "..."
+        ]
+      }
+    ]
+  },
+  "scrapConfig": {
+    "testRun": false,
+    "name": "AutoScrap",
+    "enabled": true,
+    "debug": false,
+    "showButton": true,
+    "showMessage": true,
+    "hotkey": "F",
+    "maxItems": 100,
+    "delay": 25,
+    "configs": [
+      {
+        "README": "READ DESCRIPTION ON NEXUSMODS BEFORE ENABLING MULTIPLE SCRAP CONFIGS",
+        "enabled": true,
+        "scrapFavorite": false,
+        "scrapEquipped": false,
+        "onlyLegendaries": false,
+        "types": [
+          "WEAPON",
+          "ARMOR"
+        ],
+        "matchMode": "CONTAINS",
+        "excluded": [
+          "syringer",
+          "chassis",
+          "helmet",
+          "Zapper",
+          "enclave",
+          "paddle",
+          "baseball",
+          "pearly",
+          "father winter",
+          "exc",
+          "bloatfly gland",
+          "bloodbug proboscis",
+          "tick blood sac",
+          "stingwing barb",
+          "vocal sac",
+          "hardened mass",
+          "unyielding",
+          "overeater",
+          "anti",
+          "blood",
+          "vampire",
+          "quad",
+          "*",
+          "#"
+        ],
+        "checkCharacterName": false,
+        "characterName": "none",
+        "checkAccountName": false,
+        "accountName": "none"
+      }
+    ]
+  },
+  "transferConfig": [
+    {
+      "testRun": false,
+      "name": "Transfer example: All 3-star weapons that have all legendary effects in the legendaryEffects list below (EXACT)",
+      "enabled": false,
+      "debug": true,
+      "showButton": true,
+      "hotkey": "G",
+      "delay": 50,
+      "delayItemCardStep": 100,
+      "transferLegendaries": [
+        3
+      ],
+      "checkLegendaryEffects": true,
+      "legendaryEffectsMatchMode": "EXACT",
+      "legendaryEffects": [
+        "Quad",
+        "Furious",
+        "Vampire's",
+        "Bloodied",
+        "Anti-armor",
+        "Vital",
+        "Explosive",
+        "Rapid",
+        "V.A.T.S. Optimized",
+        "Swift"
+      ],
+      "types": [
+        "WEAPON"
+      ],
+      "weaponTypes": [
+        "RANGED",
+        "MELEE"
+      ],
+      "matchMode": "ALL",
+      "itemNames": [
+        ""
+      ],
+      "direction": "FROM_CONTAINER"
+    },
+    {
+      "testRun": false,
+      "name": "Transfer example: All 3/4-star non-power armor pieces (LIGHT/STURDY/HEAVY) that have weight reduction perks",
+      "enabled": false,
+      "debug": true,
+      "showButton": true,
+      "hotkey": "G",
+      "delay": 50,
+      "delayItemCardStep": 100,
+      "transferLegendaries": [
+        3,
+        4
+      ],
+      "checkLegendaryEffects": true,
+      "legendaryEffectsMatchMode": "CONTAINS",
+      "legendaryEffects": [
+        "Pack Rat",
+        "Thru-hiker",
+        "Belted",
+        "Arms Keeper"
+      ],
+      "checkArmorGrade": true,
+      "armorGrades": [
+        "LIGHT",
+        "STURDY",
+        "HEAVY"
+      ],
+      "types": [
+        "ARMOR"
+      ],
+      "matchMode": "ALL",
+      "itemNames": [
+        ""
+      ],
+      "direction": "FROM_CONTAINER"
+    },
+    {
+      "testRun": false,
+      "name": "Transfer example: Dynamically transfer ammo in both directions to always keep 5k in your inventory",
+      "enabled": false,
+      "debug": false,
+      "showButton": true,
+      "showMessage": false,
+      "hotkey": "1",
+      "amount": 5000,
+      "exactAmountInDestination": true,
+      "types": [
+        "AMMO"
+      ],
+      "matchMode": "EXACT",
+      "itemNames": [
+        ".45 Round"
+      ],
+      "direction": "FROM_CONTAINER"
+    },
+    {
+      "testRun": false,
+      "name": "Transfer example: Junk Shield, transfer exactly 100 vault steel from scrap box",
+      "enabled": false,
+      "debug": false,
+      "showButton": true,
+      "showMessage": false,
+      "hotkey": "T",
+      "amount": 100,
+      "exactAmountInDestination": true,
+      "types": [
+        "JUNK"
+      ],
+      "matchMode": "EXACT",
+      "itemNames": [
+        "Vault Steel Scrap"
+      ],
+      "direction": "FROM_CONTAINER"
+    },
+    {
+      "testRun": false,
+      "name": "Transfer example: Transfer 75000 of any highlighted/selected junk, in 15 repeats of 5000",
+      "enabled": false,
+      "debug": false,
+      "showButton": true,
+      "showMessage": false,
+      "hotkey": "2",
+      "amount": 5000,
+      "repeat": 15,
+      "onlyHighlightedItem": true,
+      "types": [
+        "JUNK"
+      ],
+      "matchMode": "ALL",
+      "itemNames": [
+        ""
+      ],
+      "direction": "FROM_CONTAINER"
+    },
+    {
+      "testRun": false,
+      "name": "Transfer example: Transfer 500 of any highlighted/selected ammo or junk",
+      "enabled": false,
+      "debug": false,
+      "showButton": true,
+      "showMessage": false,
+      "hotkey": "B",
+      "amount": 500,
+      "onlyHighlightedItem": true,
+      "types": [
+        "JUNK",
+        "AMMO"
+      ],
+      "matchMode": "ALL",
+      "itemNames": [
+        ""
+      ],
+      "direction": "FROM_CONTAINER"
+    },
+    {
+      "testRun": false,
+      "name": "Transfer example: Take 1k of .45 from ammo box",
+      "enabled": false,
+      "debug": false,
+      "showButton": true,
+      "showMessage": false,
+      "hotkey": "1",
+      "amount": 1000,
+      "types": [
+        "AMMO"
+      ],
+      "matchMode": "EXACT",
+      "itemNames": [
+        ".45 Round"
+      ],
+      "direction": "FROM_CONTAINER"
+    },
+    {
+      "testRun": false,
+      "name": "Transfer example: Take 3 of each buffs from freezer, with alternatives",
+      "enabled": false,
+      "debug": false,
+      "showButton": true,
+      "showMessage": false,
+      "hotkey": "2",
+      "amount": 3,
+      "transferFavorite": false,
+      "transferEquipped": false,
+      "transferAssigned": true,
+      "singleItemPerName": true,
+      "matchMode": "CONTAINS",
+      "itemNames": [
+        [
+          "Brain Bombs",
+          "Brain Fungus Soup"
+        ],
+        [
+          "Cranberry Relish",
+          "Cranberry Cobbler"
+        ],
+        [
+          "Blight Soup",
+          "Megasloth Mushroom Soup",
+          "Steeped Thistle Tea",
+          "Sweet Mutfruit Tea"
+        ],
+        [
+          "Sweetwater Special Blend",
+          "Gourd Soup"
+        ],
+        [
+          "Company Tea",
+          "Hard Lemonade"
+        ],
+        [
+          "Glowing Fungus Puree",
+          "Firecap Tasty Souffle",
+          "Firecap Soup"
+        ],
+        "Tato Salad",
+        "Silt Bean Puree",
+        "Glowing Fungus Soup"
+      ],
+      "direction": "FROM_CONTAINER",
+      "checkCharacterName": false,
+      "characterName": "none",
+      "checkAccountName": false,
+      "accountName": "none"
+    },
+    {
+      "testRun": false,
+      "name": "Transfer example: Drop all (up to maxItems) notes/holo with exclusions",
+      "enabled": false,
+      "debug": false,
+      "showButton": true,
+      "showMessage": false,
+      "hotkey": "3",
+      "maxItems": 100,
+      "amount": 0,
+      "delay": 50,
+      "transferFavorite": false,
+      "transferEquipped": false,
+      "types": [
+        "NOTES",
+        "HOLO"
+      ],
+      "matchMode": "NOT_CONTAINS",
+      "itemNames": [
+        "plan",
+        "recipe",
+        "map",
+        "silo state holotape"
+      ],
+      "direction": "TO_CONTAINER"
+    },
+    {
+      "testRun": false,
+      "name": "Transfer example: Transfer all nades/mines to container",
+      "enabled": false,
+      "debug": false,
+      "showButton": true,
+      "showMessage": false,
+      "hotkey": "4",
+      "amount": 0,
+      "delay": 50,
+      "transferEquipped": false,
+      "transferFavorite": false,
+      "types": [
+        "WEAPON"
+      ],
+      "matchMode": "CONTAINS",
+      "itemNames": [
+        " grenade",
+        " mine"
+      ],
+      "direction": "TO_CONTAINER"
+    },
+    {
+      "testRun": false,
+      "name": "Transfer example: Take 1 of each insect parts for scout daily",
+      "enabled": false,
+      "debug": false,
+      "showButton": true,
+      "showMessage": false,
+      "hotkey": "5",
+      "amount": 1,
+      "matchMode": "EXACT",
+      "itemNames": [
+        "Bloatfly Gland",
+        "Bloodbug Proboscis",
+        "Stingwing Barb",
+        "Tick Blood Sac"
+      ],
+      "direction": "FROM_CONTAINER"
+    }
+  ],
+  "extractConfig": {
+    "name": "Extract",
+    "enabled": true,
+    "hotkey": "O",
+    "showButton": true,
+    "types": [],
+    "additionalItemDataForAll": false,
+    "itemCardEntryDelayStep": 100,
+    "useCustomFormat": false,
+    "customFormat": {
+      "format": "CSV",
+      "itemsmodJSONFile": "../itemsmod.2.7.2025.json",
+      "delimiter": ";",
+      "delimiterLine": "\n",
+      "valueNotFound": "",
+      "displayColumnNames": true,
+      "columns": [
+        "text",
+        "count",
+        "itemType",
+        "itemLevel",
+        "numLegendaryStars",
+        "legendary_1",
+        "legendary_2",
+        "legendary_3",
+        "legendary_4",
+        "isTradable",
+        "weight",
+        "weightInStash",
+        "physical",
+        "energy",
+        "radiation",
+        "poison",
+        "fire",
+        "cryo",
+        "source",
+        "char",
+        "account"
+      ]
+    },
+    "verboseOutput": false,
+    "apiMethods": []
+  },
+  "localizationConfig": {
+    "ARMOR_MOD_LEADED": "Leaded",
+    "ARMOR_PREFIXES": {
+      "REINFORCED": "Reinforced",
+      "SHADOWED": "Shadowed",
+      "FIBERGLASS": "Fiberglass",
+      "POLYMER": "Polymer",
+      "BOS": "BOS",
+      "BOILED": "Boiled",
+      "GIRDED": "Girded",
+      "TREATED": "Treated",
+      "PAINTED": "Painted",
+      "ENAMELED": "Enameled",
+      "STUDDED": "Studded",
+      "ALLOYED": "Alloyed",
+      "POLISHED": "Polished",
+      "WELDED": "Welded",
+      "TEMPERED": "Tempered",
+      "HARDENED": "Hardened",
+      "BUTTRESSED": "Buttressed"
+    },
+    "ARMOR_GRADES": {
+      "LIGHT": "Light",
+      "STURDY": "Sturdy",
+      "HEAVY": "Heavy",
+      "POWER": "Power"
+    },
+    "ARMOR_PIECES": {
+      "LEFT_ARM": "Left Arm",
+      "LEFT_LEG": "Left Leg",
+      "RIGHT_ARM": "Right Arm",
+      "RIGHT_LEG": "Right Leg",
+      "CHEST_PIECE": "Chest Piece",
+      "PA_TORSO": "Torso",
+      "PA_HELMET": "Helmet"
+    },
+    "ARMOR_TYPES": {
+      "ARCTIC_MARINE": "Arctic Marine",
+      "BOTSMITH": "Botsmith",
+      "BROTHERHOOD": "Brotherhood",
+      "CIVIL_ENGINEER": "Civil Engineer",
+      "COMBAT": "Combat",
+      "COVERT_SCOUT": "Covert Scout",
+      "FOREST_SCOUT": "Forest Scout",
+      "LEATHER": "Leather",
+      "MARINE": "Marine",
+      "METAL": "Metal",
+      "RAIDER": "Raider",
+      "ROBOT": "Robot",
+      "SECRET_SERVICE": "Secret Service",
+      "SOLAR": "Solar",
+      "THORN": "Thorn",
+      "TRAPPER": "Trapper",
+      "URBAN_SCOUT": "Urban Scout",
+      "WOOD": "Wood",
+      "EXCAVATOR": "Excavator",
+      "HELLCAT": "Hellcat",
+      "RAIDER_POWER": "Raider Power",
+      "STRANGLER_HEART": "Strangler Heart",
+      "T_45": "T-45",
+      "T_51B": "T-51b",
+      "T_60": "T-60",
+      "T_65": "T-65",
+      "ULTRACITE": "Ultracite",
+      "UNION": "Union",
+      "VULCAN": "Vulcan",
+      "X_01": "X-01"
+    }
+  }
+}
