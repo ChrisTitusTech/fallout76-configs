@@ -8,9 +8,15 @@ import csv
 import json
 import re
 import sys
+import unicodedata
 from collections import defaultdict
+from datetime import date
+from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
+from urllib.error import HTTPError, URLError
+from urllib.parse import urlparse
+from urllib.request import Request, urlopen
 
 
 CSV_COLUMNS = [
@@ -29,9 +35,28 @@ CSV_COLUMNS = [
     "Pricing Source",
     "Pricing Notes",
     "Price Checked",
+    "NukaTrader Low",
+    "NukaTrader High",
+    "NukaTrader Recommended",
+    "NukaTrader URL",
+    "NukaTrader Checked",
+    "NukaTrader Source Modified",
     "Level",
     "Legendary Stars",
     "Legendary Effects",
+]
+
+PRICE_HISTORY_COLUMNS = [
+    "Observed On",
+    "Item Name",
+    "Price Lookup Name",
+    "Category",
+    "Source",
+    "Market Low",
+    "Market High",
+    "Recommended Price",
+    "Source URL",
+    "Source Modified",
 ]
 
 VALID_TYPES = {
@@ -41,6 +66,16 @@ VALID_TYPES = {
 
 VENDOR_SLOT_LIMIT = 120
 ASSIGN_DELAY_MS = 2000
+NUKATRADER_SITEMAPS = tuple(
+    f"https://nukatrader.com/job_listing-sitemap{suffix}.xml"
+    for suffix in ("", "2", "3")
+)
+NUKATRADER_ROUTES = {
+    "APPAREL": "apparel",
+    "NOTES": "plans",
+    "JUNK": "components",
+}
+HTTP_USER_AGENT = "fallout76-configs price checker/1.0"
 
 PRESERVED_PRICE_COLUMNS = (
     "Suggested Price",
@@ -49,7 +84,27 @@ PRESERVED_PRICE_COLUMNS = (
     "Pricing Source",
     "Pricing Notes",
     "Price Checked",
+    "NukaTrader Low",
+    "NukaTrader High",
+    "NukaTrader Recommended",
+    "NukaTrader URL",
+    "NukaTrader Checked",
+    "NukaTrader Source Modified",
 )
+
+
+class TextExtractor(HTMLParser):
+    """Collect visible text from a NukaTrader item page."""
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.parts: list[str] = []
+
+    def handle_data(self, data: str) -> None:
+        self.parts.append(data)
+
+    def text(self) -> str:
+        return " ".join(" ".join(self.parts).split())
 
 
 def item_type(item: dict[str, Any]) -> str:
@@ -81,6 +136,20 @@ def exact_regex(name: str) -> str:
     """Create an anchored ActionScript-compatible literal-name regex."""
     escaped = re.sub(r"([\\.^$|?*+()\[\]{}])", r"\\\1", name)
     return f"^{escaped}$"
+
+
+def listed_vendor_price(item: dict[str, Any]) -> int | None:
+    """Read a listing price from either legacy or Invent-O-Matic 2.8 fields."""
+    vending = item.get("vendingData") or {}
+    vending_price = int(vending.get("price", 0) or 0)
+    if vending_price and (
+        vending.get("isVendedOnOtherMachine", False)
+        or int(vending.get("machineType", 0) or 0) == 1
+    ):
+        return vending_price
+    if item.get("isOffered", False):
+        return int(item.get("offerValue", 0) or 0)
+    return None
 
 
 def legendary_effects(item: dict[str, Any]) -> str:
@@ -143,12 +212,12 @@ def normalize(input_path: Path, output_path: Path) -> None:
     rows: list[dict[str, str | int]] = []
     for (name, category, level, stars, effects), items in grouped.items():
         listed_prices = sorted({
-            int(item.get("offerValue", 0) or 0)
-            for item in items if item.get("isOffered", False)
+            price for item in items
+            if (price := listed_vendor_price(item)) is not None
         })
         listed_quantity = sum(
             int(item.get("count", 0) or 0)
-            for item in items if item.get("isOffered", False)
+            for item in items if listed_vendor_price(item) is not None
         )
         sources = sorted({item["_source"] for item in items})
         rows.append({
@@ -167,6 +236,12 @@ def normalize(input_path: Path, output_path: Path) -> None:
             "Pricing Source": "",
             "Pricing Notes": "",
             "Price Checked": "",
+            "NukaTrader Low": "",
+            "NukaTrader High": "",
+            "NukaTrader Recommended": "",
+            "NukaTrader URL": "",
+            "NukaTrader Checked": "",
+            "NukaTrader Source Modified": "",
             "Level": level or "",
             "Legendary Stars": stars or "",
             "Legendary Effects": effects,
@@ -183,10 +258,206 @@ def normalize(input_path: Path, output_path: Path) -> None:
                 row[column] = previous.get(column, "")
     output_path.parent.mkdir(parents=True, exist_ok=True)
     with output_path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=CSV_COLUMNS)
+        writer = csv.DictWriter(handle, fieldnames=CSV_COLUMNS, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
     print(f"Wrote {len(rows)} tradable item rows to {output_path}")
+
+
+def select_unlocked(input_path: Path, csv_path: Path) -> None:
+    """Select the full quantity of every tradable, transfer-unlocked item."""
+    data = load_dump(input_path)
+    unlocked: dict[tuple[str, str, str, str, str], int] = defaultdict(int)
+    for inventory in data["characterInventories"].values():
+        for source_key in ("playerInventory", "stashInventory"):
+            for item in inventory.get(source_key, []):
+                if not item.get("isTradable", False) or item.get("isTransferLocked", False):
+                    continue
+                name = str(item.get("text", "")).strip()
+                if not name:
+                    continue
+                if (
+                    name.casefold().startswith(("plan: ", "recipe: "))
+                    and not item.get("isLearnedRecipe", False)
+                ):
+                    continue
+                key = (
+                    name,
+                    item_type(item),
+                    str(int(item.get("itemLevel", 0) or 0) or ""),
+                    str(int(item.get("numLegendaryStars", 0) or 0) or ""),
+                    legendary_effects(item),
+                )
+                unlocked[key] += int(item.get("count", 0) or 0)
+
+    with csv_path.open(encoding="utf-8-sig", newline="") as handle:
+        reader = csv.DictReader(handle)
+        missing = set(CSV_COLUMNS) - set(reader.fieldnames or [])
+        if missing:
+            raise ValueError(f"CSV is missing columns: {', '.join(sorted(missing))}")
+        rows = list(reader)
+
+    selected = 0
+    for row in rows:
+        key = tuple(row.get(column, "") for column in (
+            "Item Name", "Category", "Level", "Legendary Stars", "Legendary Effects"
+        ))
+        quantity = unlocked.get(key, 0)
+        row["Quantity to Sell"] = str(quantity) if quantity else ""
+        selected += bool(quantity)
+
+    with csv_path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=CSV_COLUMNS, lineterminator="\n")
+        writer.writeheader()
+        writer.writerows(rows)
+    print(f"Selected all unlocked quantities for {selected} rows in {csv_path}")
+
+
+def nukatrader_slug(name: str) -> str:
+    """Convert an inventory lookup name to NukaTrader's URL slug style."""
+    name = re.sub(r"^(?:Plan|Recipe):\s*", "", name, flags=re.IGNORECASE)
+    name = name.replace("'", "")
+    ascii_name = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode()
+    return re.sub(r"[^a-z0-9]+", "-", ascii_name.casefold()).strip("-")
+
+
+def fetch_text(url: str) -> str:
+    request = Request(url, headers={"User-Agent": HTTP_USER_AGENT})
+    try:
+        with urlopen(request, timeout=30) as response:
+            return response.read().decode("utf-8", "replace")
+    except (HTTPError, URLError) as error:
+        raise ValueError(f"cannot fetch {url}: {error}") from error
+
+
+def parse_nukatrader_page(page: str) -> tuple[int, int, int, str] | None:
+    """Return low, high, recommended, and source-modified values when present."""
+    extractor = TextExtractor()
+    extractor.feed(page)
+    text = extractor.text()
+
+    def price(*patterns: str) -> int | None:
+        for pattern in patterns:
+            match = re.search(pattern, text, flags=re.IGNORECASE)
+            if match:
+                return int(match.group(1).replace(",", ""))
+        return None
+
+    low = price(r"Price Low\s+([\d,]+)\s+caps", r"Low:?\s+([\d,]+)\s+caps")
+    high = price(r"Price High\s+([\d,]+)\s+caps", r"High:?\s+([\d,]+)\s+caps")
+    recommended = price(
+        r"Estimated Value\s+([\d,]+)\s+caps",
+        r"Recommended:?\s+([\d,]+)\s+caps",
+    )
+    if low is None or high is None or recommended is None:
+        return None
+    modified_match = re.search(r'"dateModified":"([^"T]+)', page)
+    source_modified = modified_match.group(1) if modified_match else ""
+    return low, high, recommended, source_modified
+
+
+def refresh_nukatrader(csv_path: Path, history_path: Path, checked_on: str) -> None:
+    """Refresh NukaTrader observations without replacing other pricing sources."""
+    try:
+        date.fromisoformat(checked_on)
+    except ValueError as error:
+        raise ValueError("--date must use YYYY-MM-DD format") from error
+
+    with csv_path.open(encoding="utf-8-sig", newline="") as handle:
+        reader = csv.DictReader(handle)
+        required = {"Item Name", "Price Lookup Name", "Category", "Suggested Price"}
+        missing = required - set(reader.fieldnames or [])
+        if missing:
+            raise ValueError(f"CSV is missing columns: {', '.join(sorted(missing))}")
+        rows = list(reader)
+
+    catalog: dict[str, str] = {}
+    for sitemap in NUKATRADER_SITEMAPS:
+        for url in re.findall(r"<loc>([^<]+)</loc>", fetch_text(sitemap)):
+            catalog[urlparse(url).path.rstrip("/")] = url
+
+    observations: list[dict[str, str | int]] = []
+    matched = 0
+    without_market_price = 0
+    for row in rows:
+        category = (row.get("Category") or "").upper()
+        route = NUKATRADER_ROUTES.get(category)
+        if not route:
+            continue
+        path = f"/{route}/{nukatrader_slug(row.get('Price Lookup Name') or '')}"
+        url = catalog.get(path)
+        if not url:
+            continue
+        parsed = parse_nukatrader_page(fetch_text(url))
+        if parsed is None:
+            without_market_price += 1
+            continue
+        low, high, recommended, source_modified = parsed
+        matched += 1
+        row.update({
+            "NukaTrader Low": str(low),
+            "NukaTrader High": str(high),
+            "NukaTrader Recommended": str(recommended),
+            "NukaTrader URL": url,
+            "NukaTrader Checked": checked_on,
+            "NukaTrader Source Modified": source_modified,
+        })
+        if (row.get("Pricing Source") or "").strip() == "NukaTrader":
+            row.update({
+                "Suggested Price": str(recommended),
+                "Market Low": str(low),
+                "Market High": str(high),
+                "Pricing Notes": url,
+                "Price Checked": checked_on,
+            })
+        observations.append({
+            "Observed On": checked_on,
+            "Item Name": row.get("Item Name", ""),
+            "Price Lookup Name": row.get("Price Lookup Name", ""),
+            "Category": category,
+            "Source": "NukaTrader",
+            "Market Low": low,
+            "Market High": high,
+            "Recommended Price": recommended,
+            "Source URL": url,
+            "Source Modified": source_modified,
+        })
+
+    existing_history: list[dict[str, str]] = []
+    existing_keys: set[tuple[str, str, str]] = set()
+    if history_path.exists():
+        with history_path.open(encoding="utf-8-sig", newline="") as handle:
+            reader = csv.DictReader(handle)
+            if set(reader.fieldnames or []) != set(PRICE_HISTORY_COLUMNS):
+                raise ValueError(f"history CSV columns do not match {history_path}")
+            existing_history = list(reader)
+        existing_keys = {
+            (row["Observed On"], row["Item Name"], row["Source URL"])
+            for row in existing_history
+        }
+    new_observations = [
+        row for row in observations
+        if (str(row["Observed On"]), str(row["Item Name"]), str(row["Source URL"]))
+        not in existing_keys
+    ]
+    with csv_path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=CSV_COLUMNS, lineterminator="\n")
+        writer.writeheader()
+        writer.writerows(rows)
+
+    history_path.parent.mkdir(parents=True, exist_ok=True)
+    with history_path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(
+            handle, fieldnames=PRICE_HISTORY_COLUMNS, lineterminator="\n"
+        )
+        writer.writeheader()
+        writer.writerows(existing_history)
+        writer.writerows(new_observations)
+    print(
+        f"Refreshed {matched} NukaTrader market prices in {csv_path}; "
+        f"{without_market_price} matched pages had NPC-only or no market prices; "
+        f"appended {len(new_observations)} observations to {history_path}"
+    )
 
 
 def parse_integer(value: str, field: str, line: int) -> int:
@@ -247,6 +518,7 @@ def build_config(csv_path: Path, config_path: Path, output_path: Path) -> None:
                 "types": [category],
                 "amount": quantity,
                 "price": price,
+                "_alreadyListed": (row.get("Already Listed") or "").strip() == "YES",
             })
 
     if not entries:
@@ -255,7 +527,9 @@ def build_config(csv_path: Path, config_path: Path, output_path: Path) -> None:
     if len(entries) > VENDOR_SLOT_LIMIT:
         entries.sort(
             key=lambda entry: (
-                0 if entry["itemNames"][0].startswith("Plan: ") else 1,
+                0 if "Bobblehead" in entry["itemNames"][0] else
+                1 if entry["itemNames"][0].startswith(("Plan: ", "Recipe: ")) else
+                2 if entry["_alreadyListed"] else 3,
                 -entry["price"],
                 entry["itemNames"][0].casefold(),
             )
@@ -271,6 +545,8 @@ def build_config(csv_path: Path, config_path: Path, output_path: Path) -> None:
                 f"  - {entry['itemNames'][0]} ({entry['price']} caps)",
                 file=sys.stderr,
             )
+    for entry in entries:
+        del entry["_alreadyListed"]
     try:
         config = json.loads(config_path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as error:
@@ -312,10 +588,23 @@ def parser() -> argparse.ArgumentParser:
     normalize_parser = commands.add_parser("normalize", help="create a pricing CSV")
     normalize_parser.add_argument("input", type=Path)
     normalize_parser.add_argument("output", type=Path)
+    select_parser = commands.add_parser(
+        "select-unlocked",
+        help="select all tradable and transfer-unlocked inventory quantities",
+    )
+    select_parser.add_argument("input", type=Path)
+    select_parser.add_argument("csv", type=Path)
     build_parser = commands.add_parser("build", help="create a config from a priced CSV")
     build_parser.add_argument("csv", type=Path)
     build_parser.add_argument("config", type=Path)
     build_parser.add_argument("output", type=Path)
+    nuka_parser = commands.add_parser(
+        "refresh-nukatrader",
+        help="refresh NukaTrader reference prices and append source history",
+    )
+    nuka_parser.add_argument("csv", type=Path)
+    nuka_parser.add_argument("history", type=Path)
+    nuka_parser.add_argument("--date", default=date.today().isoformat())
     return main
 
 
@@ -324,8 +613,12 @@ def main() -> int:
     try:
         if args.command == "normalize":
             normalize(args.input, args.output)
-        else:
+        elif args.command == "select-unlocked":
+            select_unlocked(args.input, args.csv)
+        elif args.command == "build":
             build_config(args.csv, args.config, args.output)
+        else:
+            refresh_nukatrader(args.csv, args.history, args.date)
     except (OSError, ValueError) as error:
         print(f"error: {error}", file=sys.stderr)
         return 1
