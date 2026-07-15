@@ -7,13 +7,15 @@ import argparse
 import csv
 import json
 import re
+import sqlite3
 import sys
 import unicodedata
 from collections import defaultdict
-from datetime import date
+from contextlib import contextmanager
+from datetime import date, timedelta
 from html.parser import HTMLParser
 from pathlib import Path
-from typing import Any
+from typing import Any, Iterator
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlparse
 from urllib.request import Request, urlopen
@@ -76,6 +78,53 @@ NUKATRADER_ROUTES = {
     "JUNK": "components",
 }
 HTTP_USER_AGENT = "fallout76-configs price checker/1.0"
+DEFAULT_PRICE_MAX_AGE_DAYS = 30
+
+DATABASE_SCHEMA = """
+CREATE TABLE IF NOT EXISTS items (
+    id INTEGER PRIMARY KEY,
+    item_name TEXT NOT NULL,
+    lookup_name TEXT NOT NULL,
+    category TEXT NOT NULL,
+    level TEXT NOT NULL DEFAULT '',
+    legendary_stars TEXT NOT NULL DEFAULT '',
+    legendary_effects TEXT NOT NULL DEFAULT '',
+    UNIQUE(item_name, category, level, legendary_stars, legendary_effects)
+);
+CREATE TABLE IF NOT EXISTS approved_prices (
+    item_id INTEGER PRIMARY KEY REFERENCES items(id) ON DELETE CASCADE,
+    suggested_price INTEGER NOT NULL CHECK(suggested_price BETWEEN 0 AND 40000),
+    market_low INTEGER,
+    market_high INTEGER,
+    pricing_source TEXT NOT NULL DEFAULT '',
+    pricing_notes TEXT NOT NULL DEFAULT '',
+    price_checked TEXT NOT NULL DEFAULT ''
+);
+CREATE TABLE IF NOT EXISTS price_observations (
+    id INTEGER PRIMARY KEY,
+    item_id INTEGER NOT NULL REFERENCES items(id) ON DELETE CASCADE,
+    source TEXT NOT NULL,
+    observed_on TEXT NOT NULL,
+    market_low INTEGER,
+    market_high INTEGER,
+    recommended_price INTEGER,
+    source_url TEXT NOT NULL DEFAULT '',
+    source_modified TEXT NOT NULL DEFAULT '',
+    UNIQUE(item_id, source, observed_on, source_url)
+);
+CREATE TABLE IF NOT EXISTS source_checks (
+    item_id INTEGER NOT NULL REFERENCES items(id) ON DELETE CASCADE,
+    source TEXT NOT NULL,
+    checked_on TEXT NOT NULL,
+    status TEXT NOT NULL,
+    source_url TEXT NOT NULL DEFAULT '',
+    source_modified TEXT NOT NULL DEFAULT '',
+    PRIMARY KEY(item_id, source)
+);
+CREATE INDEX IF NOT EXISTS price_observations_item_source_date
+ON price_observations(item_id, source, observed_on DESC);
+PRAGMA user_version = 1;
+"""
 
 PRESERVED_PRICE_COLUMNS = (
     "Suggested Price",
@@ -174,9 +223,275 @@ def load_dump(path: Path) -> dict[str, Any]:
     return data
 
 
-def normalize(input_path: Path, output_path: Path) -> None:
+def optional_integer(value: str | int | None) -> int | None:
+    text = str(value or "").strip()
+    return int(text) if text else None
+
+
+def item_identity(row: dict[str, Any]) -> tuple[str, str, str, str, str]:
+    return tuple(str(row.get(column, "") or "") for column in (
+        "Item Name", "Category", "Level", "Legendary Stars", "Legendary Effects"
+    ))
+
+
+@contextmanager
+def open_price_database(path: Path) -> Iterator[sqlite3.Connection]:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    connection = sqlite3.connect(path)
+    connection.row_factory = sqlite3.Row
+    connection.execute("PRAGMA foreign_keys = ON")
+    connection.executescript(DATABASE_SCHEMA)
+    try:
+        yield connection
+        connection.commit()
+    except Exception:
+        connection.rollback()
+        raise
+    finally:
+        connection.close()
+
+
+def database_item_id(connection: sqlite3.Connection, row: dict[str, Any]) -> int:
+    identity = item_identity(row)
+    connection.execute(
+        """
+        INSERT INTO items (
+            item_name, lookup_name, category, level, legendary_stars, legendary_effects
+        ) VALUES (?, ?, ?, ?, ?, ?)
+        ON CONFLICT(item_name, category, level, legendary_stars, legendary_effects)
+        DO UPDATE SET lookup_name = excluded.lookup_name
+        """,
+        (identity[0], row.get("Price Lookup Name", ""), *identity[1:]),
+    )
+    result = connection.execute(
+        """
+        SELECT id FROM items
+        WHERE item_name = ? AND category = ? AND level = ?
+          AND legendary_stars = ? AND legendary_effects = ?
+        """,
+        identity,
+    ).fetchone()
+    if result is None:
+        raise ValueError(f"could not store database item {identity[0]!r}")
+    return int(result["id"])
+
+
+def history_item_id(connection: sqlite3.Connection, row: dict[str, Any]) -> int:
+    result = connection.execute(
+        "SELECT id FROM items WHERE item_name = ? AND category = ? ORDER BY id LIMIT 1",
+        (row.get("Item Name", ""), row.get("Category", "")),
+    ).fetchone()
+    if result is not None:
+        return int(result["id"])
+    item = {column: "" for column in CSV_COLUMNS}
+    item.update({
+        "Item Name": row.get("Item Name", ""),
+        "Price Lookup Name": row.get("Price Lookup Name", ""),
+        "Category": row.get("Category", ""),
+    })
+    return database_item_id(connection, item)
+
+
+def upsert_source_check(
+    connection: sqlite3.Connection,
+    item_id: int,
+    source: str,
+    checked_on: str,
+    status: str,
+    source_url: str = "",
+    source_modified: str = "",
+) -> None:
+    connection.execute(
+        """
+        INSERT INTO source_checks (
+            item_id, source, checked_on, status, source_url, source_modified
+        ) VALUES (?, ?, ?, ?, ?, ?)
+        ON CONFLICT(item_id, source) DO UPDATE SET
+            checked_on = excluded.checked_on,
+            status = excluded.status,
+            source_url = excluded.source_url,
+            source_modified = excluded.source_modified
+        WHERE excluded.checked_on >= source_checks.checked_on
+        """,
+        (item_id, source, checked_on, status, source_url, source_modified),
+    )
+
+
+def insert_observation(
+    connection: sqlite3.Connection,
+    item_id: int,
+    source: str,
+    observed_on: str,
+    low: int | None,
+    high: int | None,
+    recommended: int | None,
+    source_url: str,
+    source_modified: str,
+) -> None:
+    connection.execute(
+        """
+        INSERT OR IGNORE INTO price_observations (
+            item_id, source, observed_on, market_low, market_high,
+            recommended_price, source_url, source_modified
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        """,
+        (
+            item_id, source, observed_on, low, high, recommended,
+            source_url, source_modified,
+        ),
+    )
+
+
+def sync_price_database(csv_path: Path, history_path: Path, database_path: Path) -> None:
+    """Bootstrap SQLite or explicitly import reviewed CSV and history data."""
+    with csv_path.open(encoding="utf-8-sig", newline="") as handle:
+        reader = csv.DictReader(handle)
+        missing = set(CSV_COLUMNS) - set(reader.fieldnames or [])
+        if missing:
+            raise ValueError(f"CSV is missing columns: {', '.join(sorted(missing))}")
+        rows = list(reader)
+
+    history_rows: list[dict[str, str]] = []
+    if history_path.exists():
+        with history_path.open(encoding="utf-8-sig", newline="") as handle:
+            reader = csv.DictReader(handle)
+            if set(reader.fieldnames or []) != set(PRICE_HISTORY_COLUMNS):
+                raise ValueError(f"history CSV columns do not match {history_path}")
+            history_rows = list(reader)
+
+    with open_price_database(database_path) as connection:
+        for row in rows:
+            item_id = database_item_id(connection, row)
+            suggested = optional_integer(row.get("Suggested Price"))
+            if suggested is not None:
+                incoming_checked = (row.get("Price Checked") or "").strip()
+                current = connection.execute(
+                    "SELECT price_checked FROM approved_prices WHERE item_id = ?",
+                    (item_id,),
+                ).fetchone()
+                if current is None or incoming_checked >= current["price_checked"]:
+                    connection.execute(
+                        """
+                        INSERT INTO approved_prices (
+                            item_id, suggested_price, market_low, market_high,
+                            pricing_source, pricing_notes, price_checked
+                        ) VALUES (?, ?, ?, ?, ?, ?, ?)
+                        ON CONFLICT(item_id) DO UPDATE SET
+                            suggested_price = excluded.suggested_price,
+                            market_low = excluded.market_low,
+                            market_high = excluded.market_high,
+                            pricing_source = excluded.pricing_source,
+                            pricing_notes = excluded.pricing_notes,
+                            price_checked = excluded.price_checked
+                        """,
+                        (
+                            item_id, suggested,
+                            optional_integer(row.get("Market Low")),
+                            optional_integer(row.get("Market High")),
+                            row.get("Pricing Source", ""),
+                            row.get("Pricing Notes", ""),
+                            incoming_checked,
+                        ),
+                    )
+            nuka_checked = (row.get("NukaTrader Checked") or "").strip()
+            nuka_recommended = optional_integer(row.get("NukaTrader Recommended"))
+            if nuka_checked:
+                nuka_url = row.get("NukaTrader URL", "")
+                nuka_modified = row.get("NukaTrader Source Modified", "")
+                if nuka_recommended is not None:
+                    insert_observation(
+                        connection, item_id, "NukaTrader", nuka_checked,
+                        optional_integer(row.get("NukaTrader Low")),
+                        optional_integer(row.get("NukaTrader High")),
+                        nuka_recommended, nuka_url, nuka_modified,
+                    )
+                upsert_source_check(
+                    connection, item_id, "NukaTrader", nuka_checked,
+                    "market" if nuka_recommended is not None else "no_market_price",
+                    nuka_url, nuka_modified,
+                )
+
+        for row in history_rows:
+            item_id = history_item_id(connection, row)
+            insert_observation(
+                connection, item_id, row.get("Source", ""),
+                row.get("Observed On", ""),
+                optional_integer(row.get("Market Low")),
+                optional_integer(row.get("Market High")),
+                optional_integer(row.get("Recommended Price")),
+                row.get("Source URL", ""),
+                row.get("Source Modified", ""),
+            )
+            if row.get("Source") == "NukaTrader":
+                upsert_source_check(
+                    connection, item_id, "NukaTrader", row.get("Observed On", ""),
+                    "market", row.get("Source URL", ""),
+                    row.get("Source Modified", ""),
+                )
+
+        item_count = connection.execute("SELECT COUNT(*) FROM items").fetchone()[0]
+        price_count = connection.execute(
+            "SELECT COUNT(*) FROM approved_prices"
+        ).fetchone()[0]
+        observation_count = connection.execute(
+            "SELECT COUNT(*) FROM price_observations"
+        ).fetchone()[0]
+    print(
+        f"Synced {item_count} items, {price_count} approved prices, and "
+        f"{observation_count} observations to {database_path}"
+    )
+
+
+def load_database_prices(database_path: Path) -> dict[tuple[str, ...], dict[str, str]]:
+    if not database_path.exists():
+        return {}
+    prices: dict[tuple[str, ...], dict[str, str]] = {}
+    with open_price_database(database_path) as connection:
+        records = connection.execute(
+            """
+            SELECT i.*, p.*, c.checked_on AS nuka_checked,
+                   c.source_url AS nuka_url, c.source_modified AS nuka_modified,
+                   o.market_low AS nuka_low, o.market_high AS nuka_high,
+                   o.recommended_price AS nuka_recommended
+            FROM items i
+            JOIN approved_prices p ON p.item_id = i.id
+            LEFT JOIN source_checks c
+              ON c.item_id = i.id AND c.source = 'NukaTrader'
+            LEFT JOIN price_observations o
+              ON o.item_id = i.id AND o.source = 'NukaTrader'
+             AND o.observed_on = c.checked_on AND o.source_url = c.source_url
+            """
+        ).fetchall()
+        for record in records:
+            key = (
+                record["item_name"], record["category"], record["level"],
+                record["legendary_stars"], record["legendary_effects"],
+            )
+            prices[key] = {
+                "Suggested Price": str(record["suggested_price"]),
+                "Market Low": "" if record["market_low"] is None else str(record["market_low"]),
+                "Market High": "" if record["market_high"] is None else str(record["market_high"]),
+                "Pricing Source": record["pricing_source"],
+                "Pricing Notes": record["pricing_notes"],
+                "Price Checked": record["price_checked"],
+                "NukaTrader Low": "" if record["nuka_low"] is None else str(record["nuka_low"]),
+                "NukaTrader High": "" if record["nuka_high"] is None else str(record["nuka_high"]),
+                "NukaTrader Recommended": (
+                    "" if record["nuka_recommended"] is None
+                    else str(record["nuka_recommended"])
+                ),
+                "NukaTrader URL": record["nuka_url"] or "",
+                "NukaTrader Checked": record["nuka_checked"] or "",
+                "NukaTrader Source Modified": record["nuka_modified"] or "",
+            }
+    return prices
+
+
+def normalize(
+    input_path: Path, output_path: Path, database_path: Path | None = None
+) -> None:
     data = load_dump(input_path)
-    existing_prices: dict[tuple[str, str, str, str], dict[str, str]] = {}
+    existing_prices: dict[tuple[str, ...], dict[str, str]] = {}
     if output_path.exists():
         with output_path.open(encoding="utf-8-sig", newline="") as handle:
             for row in csv.DictReader(handle):
@@ -185,8 +500,10 @@ def normalize(input_path: Path, output_path: Path) -> None:
                     row.get("Category", ""),
                     row.get("Level", ""),
                     row.get("Legendary Stars", ""),
+                    row.get("Legendary Effects", ""),
                 )
                 existing_prices[key] = row
+    database_prices = load_database_prices(database_path) if database_path else {}
     grouped: dict[tuple[Any, ...], list[dict[str, Any]]] = defaultdict(list)
     for character, inventory in data["characterInventories"].items():
         for source_key, source_name in (
@@ -249,13 +566,17 @@ def normalize(input_path: Path, output_path: Path) -> None:
 
     rows.sort(key=lambda row: (str(row["Category"]), str(row["Item Name"]).casefold()))
     for row in rows:
-        key = tuple(str(row[column]) for column in (
-            "Item Name", "Category", "Level", "Legendary Stars"
-        ))
+        key = item_identity(row)
         previous = existing_prices.get(key)
-        if previous:
-            for column in PRESERVED_PRICE_COLUMNS:
-                row[column] = previous.get(column, "")
+        stored = database_prices.get(key)
+        primary = stored or previous
+        if primary:
+            for column in PRESERVED_PRICE_COLUMNS[:6]:
+                row[column] = primary.get(column, "")
+        nuka = stored or previous
+        if nuka:
+            for column in PRESERVED_PRICE_COLUMNS[6:]:
+                row[column] = nuka.get(column, "")
     output_path.parent.mkdir(parents=True, exist_ok=True)
     with output_path.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=CSV_COLUMNS, lineterminator="\n")
@@ -356,12 +677,50 @@ def parse_nukatrader_page(page: str) -> tuple[int, int, int, str] | None:
     return low, high, recommended, source_modified
 
 
-def refresh_nukatrader(csv_path: Path, history_path: Path, checked_on: str) -> None:
-    """Refresh NukaTrader observations without replacing other pricing sources."""
+def apply_nukatrader_price(
+    row: dict[str, str], low: int, high: int, recommended: int,
+    url: str, checked_on: str, source_modified: str,
+) -> None:
+    row.update({
+        "NukaTrader Low": str(low),
+        "NukaTrader High": str(high),
+        "NukaTrader Recommended": str(recommended),
+        "NukaTrader URL": url,
+        "NukaTrader Checked": checked_on,
+        "NukaTrader Source Modified": source_modified,
+    })
+    if (
+        (row.get("Pricing Source") or "").strip() == "NukaTrader"
+        or not (row.get("Suggested Price") or "").strip()
+    ):
+        row.update({
+            "Suggested Price": str(recommended),
+            "Market Low": str(low),
+            "Market High": str(high),
+            "Pricing Source": "NukaTrader",
+            "Pricing Notes": url,
+            "Price Checked": checked_on,
+        })
+
+
+def refresh_nukatrader(
+    csv_path: Path,
+    history_path: Path,
+    database_path: Path,
+    checked_on: str,
+    max_age_days: int = DEFAULT_PRICE_MAX_AGE_DAYS,
+    force: bool = False,
+) -> None:
+    """Use recent SQLite prices and refresh stale NukaTrader checks online."""
     try:
-        date.fromisoformat(checked_on)
+        checked_date = date.fromisoformat(checked_on)
     except ValueError as error:
         raise ValueError("--date must use YYYY-MM-DD format") from error
+    if max_age_days < 0:
+        raise ValueError("--max-age-days must be zero or greater")
+
+    if not database_path.exists():
+        sync_price_database(csv_path, history_path, database_path)
 
     with csv_path.open(encoding="utf-8-sig", newline="") as handle:
         reader = csv.DictReader(handle)
@@ -371,57 +730,105 @@ def refresh_nukatrader(csv_path: Path, history_path: Path, checked_on: str) -> N
             raise ValueError(f"CSV is missing columns: {', '.join(sorted(missing))}")
         rows = list(reader)
 
-    catalog: dict[str, str] = {}
-    for sitemap in NUKATRADER_SITEMAPS:
-        for url in re.findall(r"<loc>([^<]+)</loc>", fetch_text(sitemap)):
-            catalog[urlparse(url).path.rstrip("/")] = url
-
     observations: list[dict[str, str | int]] = []
-    matched = 0
+    cached = 0
+    refreshed = 0
     without_market_price = 0
-    for row in rows:
-        category = (row.get("Category") or "").upper()
-        route = NUKATRADER_ROUTES.get(category)
-        if not route:
-            continue
-        path = f"/{route}/{nukatrader_slug(row.get('Price Lookup Name') or '')}"
-        url = catalog.get(path)
-        if not url:
-            continue
-        parsed = parse_nukatrader_page(fetch_text(url))
-        if parsed is None:
-            without_market_price += 1
-            continue
-        low, high, recommended, source_modified = parsed
-        matched += 1
-        row.update({
-            "NukaTrader Low": str(low),
-            "NukaTrader High": str(high),
-            "NukaTrader Recommended": str(recommended),
-            "NukaTrader URL": url,
-            "NukaTrader Checked": checked_on,
-            "NukaTrader Source Modified": source_modified,
-        })
-        if (row.get("Pricing Source") or "").strip() == "NukaTrader":
-            row.update({
-                "Suggested Price": str(recommended),
-                "Market Low": str(low),
-                "Market High": str(high),
-                "Pricing Notes": url,
-                "Price Checked": checked_on,
+    not_found = 0
+    cutoff = checked_date - timedelta(days=max_age_days)
+    stale: list[tuple[dict[str, str], int, str]] = []
+
+    with open_price_database(database_path) as connection:
+        for row in rows:
+            category = (row.get("Category") or "").upper()
+            route = NUKATRADER_ROUTES.get(category)
+            if not route:
+                continue
+            item_id = database_item_id(connection, row)
+            check = connection.execute(
+                """
+                SELECT checked_on, status, source_url, source_modified
+                FROM source_checks WHERE item_id = ? AND source = 'NukaTrader'
+                """,
+                (item_id,),
+            ).fetchone()
+            recent = False
+            if check is not None and not force:
+                try:
+                    recent = date.fromisoformat(check["checked_on"]) > cutoff
+                except ValueError:
+                    recent = False
+            if recent:
+                cached += 1
+                if check["status"] == "market":
+                    price = connection.execute(
+                        """
+                        SELECT market_low, market_high, recommended_price,
+                               source_url, source_modified, observed_on
+                        FROM price_observations
+                        WHERE item_id = ? AND source = 'NukaTrader'
+                        ORDER BY observed_on DESC, id DESC LIMIT 1
+                        """,
+                        (item_id,),
+                    ).fetchone()
+                    if price is not None and price["recommended_price"] is not None:
+                        apply_nukatrader_price(
+                            row, int(price["market_low"]), int(price["market_high"]),
+                            int(price["recommended_price"]), price["source_url"],
+                            price["observed_on"], price["source_modified"],
+                        )
+                continue
+            stale.append((row, item_id, route))
+
+        catalog: dict[str, str] = {}
+        if stale:
+            for sitemap in NUKATRADER_SITEMAPS:
+                for url in re.findall(r"<loc>([^<]+)</loc>", fetch_text(sitemap)):
+                    catalog[urlparse(url).path.rstrip("/")] = url
+
+        for row, item_id, route in stale:
+            category = (row.get("Category") or "").upper()
+            path = f"/{route}/{nukatrader_slug(row.get('Price Lookup Name') or '')}"
+            url = catalog.get(path)
+            if not url:
+                not_found += 1
+                upsert_source_check(
+                    connection, item_id, "NukaTrader", checked_on, "not_found"
+                )
+                continue
+            parsed = parse_nukatrader_page(fetch_text(url))
+            if parsed is None:
+                without_market_price += 1
+                upsert_source_check(
+                    connection, item_id, "NukaTrader", checked_on,
+                    "no_market_price", url,
+                )
+                continue
+            low, high, recommended, source_modified = parsed
+            refreshed += 1
+            insert_observation(
+                connection, item_id, "NukaTrader", checked_on,
+                low, high, recommended, url, source_modified,
+            )
+            upsert_source_check(
+                connection, item_id, "NukaTrader", checked_on,
+                "market", url, source_modified,
+            )
+            apply_nukatrader_price(
+                row, low, high, recommended, url, checked_on, source_modified
+            )
+            observations.append({
+                "Observed On": checked_on,
+                "Item Name": row.get("Item Name", ""),
+                "Price Lookup Name": row.get("Price Lookup Name", ""),
+                "Category": category,
+                "Source": "NukaTrader",
+                "Market Low": low,
+                "Market High": high,
+                "Recommended Price": recommended,
+                "Source URL": url,
+                "Source Modified": source_modified,
             })
-        observations.append({
-            "Observed On": checked_on,
-            "Item Name": row.get("Item Name", ""),
-            "Price Lookup Name": row.get("Price Lookup Name", ""),
-            "Category": category,
-            "Source": "NukaTrader",
-            "Market Low": low,
-            "Market High": high,
-            "Recommended Price": recommended,
-            "Source URL": url,
-            "Source Modified": source_modified,
-        })
 
     existing_history: list[dict[str, str]] = []
     existing_keys: set[tuple[str, str, str]] = set()
@@ -453,10 +860,12 @@ def refresh_nukatrader(csv_path: Path, history_path: Path, checked_on: str) -> N
         writer.writeheader()
         writer.writerows(existing_history)
         writer.writerows(new_observations)
+    sync_price_database(csv_path, history_path, database_path)
     print(
-        f"Refreshed {matched} NukaTrader market prices in {csv_path}; "
-        f"{without_market_price} matched pages had NPC-only or no market prices; "
-        f"appended {len(new_observations)} observations to {history_path}"
+        f"Used {cached} recent SQLite NukaTrader checks; refreshed {refreshed} "
+        f"market prices online; {without_market_price} pages had NPC-only or no "
+        f"market prices; {not_found} items were not in the catalog; appended "
+        f"{len(new_observations)} observations to {history_path}"
     )
 
 
@@ -588,6 +997,13 @@ def parser() -> argparse.ArgumentParser:
     normalize_parser = commands.add_parser("normalize", help="create a pricing CSV")
     normalize_parser.add_argument("input", type=Path)
     normalize_parser.add_argument("output", type=Path)
+    normalize_parser.add_argument("--database", type=Path)
+    sync_parser = commands.add_parser(
+        "sync-db", help="bootstrap SQLite or import reviewed CSV changes"
+    )
+    sync_parser.add_argument("csv", type=Path)
+    sync_parser.add_argument("history", type=Path)
+    sync_parser.add_argument("database", type=Path)
     select_parser = commands.add_parser(
         "select-unlocked",
         help="select all tradable and transfer-unlocked inventory quantities",
@@ -604,7 +1020,12 @@ def parser() -> argparse.ArgumentParser:
     )
     nuka_parser.add_argument("csv", type=Path)
     nuka_parser.add_argument("history", type=Path)
+    nuka_parser.add_argument("database", type=Path)
     nuka_parser.add_argument("--date", default=date.today().isoformat())
+    nuka_parser.add_argument(
+        "--max-age-days", type=int, default=DEFAULT_PRICE_MAX_AGE_DAYS
+    )
+    nuka_parser.add_argument("--force", action="store_true")
     return main
 
 
@@ -612,14 +1033,19 @@ def main() -> int:
     args = parser().parse_args()
     try:
         if args.command == "normalize":
-            normalize(args.input, args.output)
+            normalize(args.input, args.output, args.database)
+        elif args.command == "sync-db":
+            sync_price_database(args.csv, args.history, args.database)
         elif args.command == "select-unlocked":
             select_unlocked(args.input, args.csv)
         elif args.command == "build":
             build_config(args.csv, args.config, args.output)
         else:
-            refresh_nukatrader(args.csv, args.history, args.date)
-    except (OSError, ValueError) as error:
+            refresh_nukatrader(
+                args.csv, args.history, args.database, args.date,
+                args.max_age_days, args.force,
+            )
+    except (OSError, sqlite3.Error, ValueError) as error:
         print(f"error: {error}", file=sys.stderr)
         return 1
     return 0

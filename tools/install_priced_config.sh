@@ -10,6 +10,7 @@ fallout_data_dir=${FALLOUT76_DATA_DIR:-"$HOME/.local/share/Steam/steamapps/commo
 
 sheet="$repo_root/itemsmod-pricing.csv"
 history="$repo_root/item-price-history.csv"
+database="$repo_root/item-prices.sqlite3"
 repo_export="$repo_root/itemsmod.ini"
 base_config="$repo_root/mods/Data/inventOmaticStashConfig.json"
 priced_config="$repo_root/mods/Data/inventOmaticStashConfig.priced.json"
@@ -37,13 +38,23 @@ done
 cp -- "$live_export" "$repo_export"
 printf 'Imported live inventory export from %s\n' "$live_export"
 
+if [ ! -f "$database" ]; then
+	"$python_command" "$script_dir/iom_vendor.py" sync-db \
+		"$sheet" \
+		"$history" \
+		"$database"
+fi
+
 "$python_command" "$script_dir/iom_vendor.py" normalize \
 	"$repo_export" \
-	"$sheet"
+	"$sheet" \
+	--database "$database"
 
 "$python_command" "$script_dir/iom_vendor.py" refresh-nukatrader \
 	"$sheet" \
-	"$history"
+	"$history" \
+	"$database" \
+	--max-age-days 30
 
 "$python_command" "$script_dir/iom_vendor.py" select-unlocked \
 	"$repo_export" \

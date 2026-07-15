@@ -1,8 +1,10 @@
 import csv
 import importlib.util
 import json
+import sqlite3
 import tempfile
 import unittest
+from contextlib import closing
 from pathlib import Path
 from unittest.mock import patch
 
@@ -15,6 +17,121 @@ SPEC.loader.exec_module(iom_vendor)
 
 
 class NukaTraderTests(unittest.TestCase):
+    def test_normalize_restores_approved_price_from_sqlite(self):
+        with tempfile.TemporaryDirectory() as directory:
+            seed_path = Path(directory) / "seed.csv"
+            normalized_path = Path(directory) / "normalized.csv"
+            history_path = Path(directory) / "history.csv"
+            database_path = Path(directory) / "prices.sqlite3"
+            dump_path = Path(directory) / "items.ini"
+            row = {column: "" for column in iom_vendor.CSV_COLUMNS}
+            row.update({
+                "Item Name": "Stored Aid",
+                "Price Lookup Name": "Stored Aid",
+                "Category": "AID",
+                "Suggested Price": "77",
+                "Pricing Source": "Test source",
+                "Price Checked": "2026-07-14",
+            })
+            with seed_path.open("w", newline="", encoding="utf-8") as handle:
+                writer = csv.DictWriter(
+                    handle, fieldnames=iom_vendor.CSV_COLUMNS, lineterminator="\n"
+                )
+                writer.writeheader()
+                writer.writerow(row)
+            dump_path.write_text(json.dumps({
+                "characterInventories": {
+                    "Test": {
+                        "playerInventory": [{
+                            "text": "Stored Aid",
+                            "count": 1,
+                            "isTradable": True,
+                            "filterFlag": 64,
+                            "itemLevel": 0,
+                            "numLegendaryStars": 0,
+                            "isLegendary": False,
+                        }],
+                        "stashInventory": [],
+                    }
+                }
+            }))
+
+            iom_vendor.sync_price_database(seed_path, history_path, database_path)
+            newer_csv_row = dict(row)
+            newer_csv_row.update({
+                "Suggested Price": "99",
+                "Pricing Source": "CSV override",
+                "Price Checked": "2026-08-01",
+            })
+            with normalized_path.open("w", newline="", encoding="utf-8") as handle:
+                writer = csv.DictWriter(
+                    handle, fieldnames=iom_vendor.CSV_COLUMNS, lineterminator="\n"
+                )
+                writer.writeheader()
+                writer.writerow(newer_csv_row)
+            iom_vendor.normalize(dump_path, normalized_path, database_path)
+
+            with normalized_path.open(newline="", encoding="utf-8") as handle:
+                normalized = next(csv.DictReader(handle))
+            self.assertEqual(normalized["Suggested Price"], "77")
+            self.assertEqual(normalized["Pricing Source"], "Test source")
+
+    def test_refresh_adopts_nukatrader_for_item_missing_database_price(self):
+        sitemap = (
+            "<urlset><url><loc>https://nukatrader.com/apparel/new-hat/"
+            "</loc></url></urlset>"
+        )
+        page = (
+            '<script>{"dateModified":"2026-07-01T00:00:00+00:00"}</script>'
+            "<div>Low: 25 caps</div><div>High: 100 caps</div>"
+            "<div>Recommended: 63 caps</div>"
+        )
+
+        with tempfile.TemporaryDirectory() as directory:
+            csv_path = Path(directory) / "prices.csv"
+            history_path = Path(directory) / "history.csv"
+            database_path = Path(directory) / "prices.sqlite3"
+            row = {column: "" for column in iom_vendor.CSV_COLUMNS}
+            row.update({
+                "Item Name": "New Hat",
+                "Price Lookup Name": "New Hat",
+                "Category": "APPAREL",
+            })
+            with csv_path.open("w", newline="", encoding="utf-8") as handle:
+                writer = csv.DictWriter(
+                    handle, fieldnames=iom_vendor.CSV_COLUMNS, lineterminator="\n"
+                )
+                writer.writeheader()
+                writer.writerow(row)
+
+            with (
+                patch.object(
+                    iom_vendor,
+                    "NUKATRADER_SITEMAPS",
+                    ("https://test/sitemap.xml",),
+                ),
+                patch.object(
+                    iom_vendor,
+                    "fetch_text",
+                    side_effect=lambda url: sitemap if url.endswith("sitemap.xml") else page,
+                ),
+            ):
+                iom_vendor.refresh_nukatrader(
+                    csv_path, history_path, database_path, "2026-07-14"
+                )
+
+            with csv_path.open(newline="", encoding="utf-8") as handle:
+                refreshed = next(csv.DictReader(handle))
+            self.assertEqual(refreshed["Suggested Price"], "63")
+            self.assertEqual(refreshed["Pricing Source"], "NukaTrader")
+            with closing(sqlite3.connect(database_path)) as connection:
+                self.assertEqual(
+                    connection.execute(
+                        "SELECT suggested_price FROM approved_prices"
+                    ).fetchone()[0],
+                    63,
+                )
+
     def test_select_unlocked_excludes_transfer_locked_items(self):
         with tempfile.TemporaryDirectory() as directory:
             dump_path = Path(directory) / "items.ini"
@@ -118,6 +235,7 @@ class NukaTraderTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             csv_path = Path(directory) / "prices.csv"
             history_path = Path(directory) / "history.csv"
+            database_path = Path(directory) / "prices.sqlite3"
             row = {column: "" for column in iom_vendor.CSV_COLUMNS}
             row.update({
                 "Item Name": "Test Hat",
@@ -133,10 +251,22 @@ class NukaTraderTests(unittest.TestCase):
 
             with (
                 patch.object(iom_vendor, "NUKATRADER_SITEMAPS", ("https://test/sitemap.xml",)),
-                patch.object(iom_vendor, "fetch_text", side_effect=fake_fetch),
+                patch.object(
+                    iom_vendor, "fetch_text", side_effect=fake_fetch
+                ) as fetch_mock,
             ):
-                iom_vendor.refresh_nukatrader(csv_path, history_path, "2026-07-14")
-                iom_vendor.refresh_nukatrader(csv_path, history_path, "2026-07-14")
+                iom_vendor.refresh_nukatrader(
+                    csv_path, history_path, database_path, "2026-07-14"
+                )
+                first_fetch_count = fetch_mock.call_count
+                iom_vendor.refresh_nukatrader(
+                    csv_path, history_path, database_path, "2026-07-15"
+                )
+                self.assertEqual(fetch_mock.call_count, first_fetch_count)
+                iom_vendor.refresh_nukatrader(
+                    csv_path, history_path, database_path, "2026-08-13"
+                )
+                self.assertGreater(fetch_mock.call_count, first_fetch_count)
 
             with csv_path.open(newline="", encoding="utf-8") as handle:
                 refreshed = next(csv.DictReader(handle))
@@ -146,8 +276,25 @@ class NukaTraderTests(unittest.TestCase):
 
             with history_path.open(newline="", encoding="utf-8") as handle:
                 history = list(csv.DictReader(handle))
-            self.assertEqual(len(history), 1)
+            self.assertEqual(len(history), 2)
             self.assertEqual(history[0]["Recommended Price"], "63")
+
+            with closing(sqlite3.connect(database_path)) as connection:
+                self.assertEqual(
+                    connection.execute("SELECT COUNT(*) FROM items").fetchone()[0], 1
+                )
+                self.assertEqual(
+                    connection.execute(
+                        "SELECT suggested_price FROM approved_prices"
+                    ).fetchone()[0],
+                    80,
+                )
+                self.assertEqual(
+                    connection.execute(
+                        "SELECT COUNT(*) FROM price_observations"
+                    ).fetchone()[0],
+                    2,
+                )
 
 
 if __name__ == "__main__":

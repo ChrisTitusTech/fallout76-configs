@@ -17,9 +17,11 @@ steamapps/compatdata/1151340/pfx/drive_c/users/steamuser/My\ Documents/My\ Games
    ./tools/install_priced_config.sh
    ```
 
-   The script imports the live export, preserves existing prices, refreshes
-   NukaTrader history, selects unlocked tradable items and known plans, builds
-   the 120-slot AutoVend batch, backs up the live JSON, and installs it.
+   The script imports the live export, restores prices from the local SQLite
+   database, refreshes NukaTrader data only when an item is missing or its
+   cached check is at least 30 days old, selects unlocked tradable items and
+   known plans, builds the 120-slot AutoVend batch, backs up the live JSON, and
+   installs it.
 3. In game, place the items you want to sell in your **personal inventory**.
    Keep protected items transfer locked; leave unknown plans protected.
 4. Open your personal vendor and press **AutoVend**. AutoVend assigns matching
@@ -32,11 +34,29 @@ time the workflow runs.
 
 ### Pricing details
 
+`item-prices.sqlite3` is the primary local price source. It maps exact item
+identity (name, category, level, stars, and legendary effects) to the approved
+vendor price and retains dated source observations. Bootstrap a missing database
+or explicitly import reviewed CSV changes with:
+
+```bash
+python3 tools/iom_vendor.py sync-db \
+  itemsmod-pricing.csv item-price-history.csv item-prices.sqlite3
+```
+
+The committed database starts with every price in `itemsmod-pricing.csv` and
+every observation in `item-price-history.csv`. An item that disappears from one
+inventory export keeps its approved value in SQLite and regains that value when
+it appears in a later export. Normal runs do not import CSV over an existing
+database: they use SQLite first and fall back to CSV only when the exact item
+does not yet have a database price.
+
 Keep `itemsmod.ini` as the untouched Invent-O-Matic Extractor JSON dump. Create
 a spreadsheet-friendly file with:
 
 ```bash
-python3 tools/iom_vendor.py normalize itemsmod.ini itemsmod-pricing.csv
+python3 tools/iom_vendor.py normalize \
+  itemsmod.ini itemsmod-pricing.csv --database item-prices.sqlite3
 ```
 
 Use `Price Lookup Name` when checking prices. Do not change `Item Name`: it is
@@ -44,8 +64,9 @@ the exact, case-sensitive name used by Invent-O-Matic. Every row has a reusable
 `Suggested Price`; fill `Quantity to Sell` only for rows that should be listed.
 Quantity `0` means the entire available stack. A blank quantity is skipped.
 
-Running `normalize` again refreshes inventory and current-listing quantities
-while preserving existing suggested prices and their source columns.
+Running `normalize` again refreshes inventory and current-listing quantities.
+SQLite supplies existing suggested prices and source columns first; the prior
+CSV row is used only for an item missing from the database.
 
 To select the full quantity of every tradable item that is not transfer locked,
 while retaining unknown plans and recipes:
@@ -63,12 +84,17 @@ price history with:
 
 ```bash
 python3 tools/iom_vendor.py refresh-nukatrader \
-  itemsmod-pricing.csv item-price-history.csv
+  itemsmod-pricing.csv item-price-history.csv item-prices.sqlite3 \
+  --max-age-days 30
 ```
 
 This comparison covers NukaTrader plan, apparel, and component pages that have
-player-market low, high, and recommended prices. It does not replace a newer
-community price unless the row already names NukaTrader as its active source.
+player-market low, high, and recommended prices. A recommendation becomes the
+active price when the item has no stored price or already uses NukaTrader; an
+existing community or confirmed-sale price remains active for review. Recent
+SQLite checks, including catalog misses and NPC-only pages, skip all online
+requests. Missing checks and checks at least 30 days old are refreshed. Use
+`--force` only for an explicit full refresh.
 See [the vendor pricing specification](docs/VENDOR_PRICING_SPEC.md) for the
 source priority, history-based adjustment rules, and complete update procedure.
 
